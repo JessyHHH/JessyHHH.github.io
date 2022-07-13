@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022/7 | Jessy&#39;s daily note</title>
+  <title>unity基础篇5 类与对象 和 封装与继承 | Jessy&#39;s daily note</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Jessy&#39;s daily note">
-<meta property="og:url" content="http://example.com/archives/2022/07/index.html">
+  <meta name="description" content="什么是类和对象   当我在文件夹里创建了一个预制件，然后利用之前在spawnerSample里的代码套进去 操作是：右键创建一个空的预制件 – 将SpawnerSample加入到预制件 – 在object to Spawn那里是空的，我们需要加入你想要的模型，如money，我加入了money后 – 运行 –产生了一堆钱。 结论：我们可以通过c#创建一个类的代码，然后通过预制件来生成它。   关于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="unity基础篇5 类与对象 和 封装与继承">
+<meta property="og:url" content="http://example.com/2022/07/12/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="Jessy&#39;s daily note">
+<meta property="og:description" content="什么是类和对象   当我在文件夹里创建了一个预制件，然后利用之前在spawnerSample里的代码套进去 操作是：右键创建一个空的预制件 – 将SpawnerSample加入到预制件 – 在object to Spawn那里是空的，我们需要加入你想要的模型，如money，我加入了money后 – 运行 –产生了一堆钱。 结论：我们可以通过c#创建一个类的代码，然后通过预制件来生成它。   关于">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-12T17:39:22.000Z">
+<meta property="article:modified_time" content="2022-07-12T20:51:17.600Z">
 <meta property="article:author" content="Jessy Huang">
+<meta property="article:tag" content="unity">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Jessy&#39;s daily note" type="application/atom+xml">
@@ -161,41 +166,148 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-类与对象" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    <h1 class="article-title" itemprop="name">
+      unity基础篇5 类与对象 和 封装与继承
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2022/07/12/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" class="archive-article-date">
         <time datetime="2022-07-12T17:39:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">350字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <ul>
+<li>什么是类和对象</li>
+</ul>
+<blockquote>
+<p>当我在文件夹里创建了一个预制件，然后利用之前在spawnerSample里的代码套进去</p>
+<p>操作是：右键创建一个空的预制件 – 将SpawnerSample加入到预制件 – 在object to Spawn那里是空的，我们需要加入你想要的模型，如money，我加入了money后 – 运行 –产生了一堆钱。</p>
+<p>结论：我们可以通过c#创建一个类的代码，然后通过预制件来生成它。</p>
+</blockquote>
+<ul>
+<li>关于命名空间<ul>
+<li>Namespace : 同一个文件夹里不需要命名空间</li>
+</ul>
+</li>
+<li>封装</li>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/chutianshu1981/xyz-s-free-course-for-full-stack-web-dev/blob/main/GameDesign/Unity/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E9%A1%B9%E7%9B%AE%E7%B3%BB%E5%88%97/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B04_%E5%88%9B%E4%BD%9C%E8%80%85%E5%A5%97%E4%BB%B6_%E5%88%9D%E5%AD%A6%E8%80%85%E4%BB%A3%E7%A0%81/06-%E5%B0%81%E8%A3%85%E5%92%8C%E7%BB%A7%E6%89%BF.md">封装与继承相关文档</a> <a target="_blank" rel="noopener" href="https://space.bilibili.com/43644141/channel/seriesdetail?sid=299912">b站相关视频44-45</a></li>
+<li>什么是封装</li>
+</ul>
+<blockquote>
+<p>一句话概括封装：public 是公开, private是私人,如果不想让别人碰你的设定就将变量设置为private，可以触碰的为public</p>
+<p>代码例子：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line">[<span class="meta">Serializable</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">phoenix</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> PhoenixName; <span class="comment">//名字</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> age;<span class="comment">//年龄</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> hp;<span class="comment">//血量</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> color;<span class="comment">//颜色</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">bool</span> Reburn = <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">//全参构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">phoenix</span>(<span class="params"><span class="built_in">string</span> phoenixName, <span class="built_in">int</span> age, <span class="built_in">int</span> hp, <span class="built_in">string</span> color</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        PhoenixName = phoenixName;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="keyword">this</span>.hp = hp;</span><br><span class="line">        <span class="keyword">this</span>.color = color;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//无参构造方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">phoenix</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">isReburn</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>.hp = <span class="number">1000</span>;</span><br><span class="line">        <span class="keyword">this</span>.Reburn = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我不想让别人碰我的重生代码(Reburn)，则为设置Reburn变量为private</p>
+<p>后面设置了一个私人的类重生</p>
+<p>private可写可不写，不写封装的变量全部默认为private。</p>
+</blockquote>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/alipay.jpg">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/07/12/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" target="_blank">unity基础篇5 类与对象 和 封装与继承</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Jessy Huang
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://example.com/2022/07/12/类与对象/" title="unity基础篇5 类与对象 和 封装与继承" target="_blank">http://example.com/2022/07/12/类与对象/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -207,277 +319,107 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/07/12/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/07/10/2022-7-10-%E7%B1%BB%E7%9A%84%E8%A1%A8%E8%BE%BE/" class="archive-article-date">
-        <time datetime="2022-07-10T06:09:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-10</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/07/10/2022-7-10-%E7%B1%BB%E7%9A%84%E8%A1%A8%E8%BE%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基础篇4 类的表达和文件引用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/07/10/2022-7-10-%E7%B1%BB%E7%9A%84%E8%A1%A8%E8%BE%BE/" target="_blank">基础篇4 类的表达和文件引用</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">unity</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/07/09/2022-7-9-unity-%E5%87%BD%E6%95%B0/" class="archive-article-date">
-        <time datetime="2022-07-09T14:26:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-09</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/07/09/2022-7-9-unity-%E5%87%BD%E6%95%B0/" target="_blank">基础篇3 unity 函数</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">unity</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/07/09/2022-7-9/" class="archive-article-date">
-        <time datetime="2022-07-08T23:23:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-09</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/07/09/2022-7-9/" target="_blank">2022-7-9</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">blog-updata</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/07/08/2022-7-8/" class="archive-article-date">
-        <time datetime="2022-07-08T02:57:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-08</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/07/08/2022-7-8/" target="_blank">2022-7-8</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">blog-updata</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/07/07/2022-7-7/" class="archive-article-date">
-        <time datetime="2022-07-07T01:25:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-07</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/07/07/2022-7-7/" target="_blank">基础篇2 数字类型</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">unity</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/07/06/2022_7_6/" class="archive-article-date">
-        <time datetime="2022-07-06T01:25:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-06</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/07/06/2022_7_6/" target="_blank">基础篇1 unityUI基础操作</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">unity</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -518,8 +460,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

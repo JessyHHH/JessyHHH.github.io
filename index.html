@@ -19,7 +19,7 @@
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Jessy&#39;s daily note">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Jessy Huang">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Jessy&#39;s daily note" type="application/atom+xml">
@@ -66,7 +66,7 @@
 			<img src="/img/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-			<h1 class="header-author"><a href="/">John Doe</a></h1>
+			<h1 class="header-author"><a href="/">Jessy Huang</a></h1>
 		</hgroup>
 		
 
@@ -126,7 +126,7 @@
 				</a>
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">Jessy Huang</h1>
 			</hgroup>
 			
 			
@@ -168,7 +168,7 @@
             
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-类与对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -176,7 +176,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/07/13/hello-world/" target="_blank">Hello World</a>
+	  <a class="article-title" href="/2022/07/12/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" target="_blank">unity基础篇5 类与对象 和 封装与继承</a>
   
     </h1>
   
@@ -184,8 +184,8 @@
 
   
   
-<a href="/2022/07/13/hello-world/" class="archive-article-date">
-        <time datetime="2022-07-13T17:34:57.542Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-13</time>
+<a href="/2022/07/12/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" class="archive-article-date">
+        <time datetime="2022-07-12T17:39:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
 </a>
 
   
@@ -197,19 +197,32 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <ul>
+<li>什么是类和对象</li>
+</ul>
+<blockquote>
+<p>当我在文件夹里创建了一个预制件，然后利用之前在spawnerSample里的代码套进去</p>
+<p>操作是：右键创建一个空的预制件 – 将SpawnerSample加入到预制件 – 在object to Spawn那里是空的，我们需要加入你想要的模型，如money，我加入了money后 – 运行 –产生了一堆钱。</p>
+<p>结论：我们可以通过c#创建一个类的代码，然后通过预制件来生成它。</p>
+</blockquote>
+<ul>
+<li>关于命名空间<ul>
+<li>Namespace : 同一个文件夹里不需要命名空间</li>
+</ul>
+</li>
+<li>封装</li>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/chutianshu1981/xyz-s-free-course-for-full-stack-web-dev/blob/main/GameDesign/Unity/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E9%A1%B9%E7%9B%AE%E7%B3%BB%E5%88%97/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B04_%E5%88%9B%E4%BD%9C%E8%80%85%E5%A5%97%E4%BB%B6_%E5%88%9D%E5%AD%A6%E8%80%85%E4%BB%A3%E7%A0%81/06-%E5%B0%81%E8%A3%85%E5%92%8C%E7%BB%A7%E6%89%BF.md">封装与继承相关文档</a> <a target="_blank" rel="noopener" href="https://space.bilibili.com/43644141/channel/seriesdetail?sid=299912">b站相关视频44-45</a></li>
+<li>什么是封装</li>
+</ul>
+<blockquote>
+<p>一句话概括封装：public 是公开, private是私人,如果不想让别人碰你的设定就将变量设置为private，可以触碰的为public</p>
+<p>代码例子：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line">[<span class="meta">Serializable</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">phoenix</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> PhoenixName; <span class="comment">//名字</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> age;<span class="comment">//年龄</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> hp;<span class="comment">//血量</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> color;<span class="comment">//颜色</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">bool</span> Reburn = <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">//全参构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">phoenix</span>(<span class="params"><span class="built_in">string</span> phoenixName, <span class="built_in">int</span> age, <span class="built_in">int</span> hp, <span class="built_in">string</span> color</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        PhoenixName = phoenixName;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="keyword">this</span>.hp = hp;</span><br><span class="line">        <span class="keyword">this</span>.color = color;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//无参构造方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">phoenix</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">isReburn</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>.hp = <span class="number">1000</span>;</span><br><span class="line">        <span class="keyword">this</span>.Reburn = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>我不想让别人碰我的重生代码(Reburn)，则为设置Reburn变量为private</p>
+<p>后面设置了一个私人的类重生</p>
+<p>private可写可不写，不写封装的变量全部默认为private。</p>
+</blockquote>
 
     
 
@@ -221,11 +234,673 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">unity</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/07/13/hello-world/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/07/12/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-10-类的表达" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/07/10/2022-7-10-%E7%B1%BB%E7%9A%84%E8%A1%A8%E8%BE%BE/" target="_blank">基础篇4 类的表达和文件引用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/07/10/2022-7-10-%E7%B1%BB%E7%9A%84%E8%A1%A8%E8%BE%BE/" class="archive-article-date">
+        <time datetime="2022-07-10T06:09:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-10</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <ul>
+<li>什么是类 -&gt; <a target="_blank" rel="noopener" href="https://gitee.com/chutianshu1981/xyz-s-free-course-for-full-stack-web-dev/blob/main/GameDesign/Unity/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E9%A1%B9%E7%9B%AE%E7%B3%BB%E5%88%97/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B04_%E5%88%9B%E4%BD%9C%E8%80%85%E5%A5%97%E4%BB%B6_%E5%88%9D%E5%AD%A6%E8%80%85%E4%BB%A3%E7%A0%81/05-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1.md">相关文档</a></li>
+<li>b站视频40 -41</li>
+<li>如何使用</li>
+</ul>
+<blockquote>
+<p>例子：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MainPlayer</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    public string myname = &quot;弼马温&quot;;</span></span><br><span class="line"><span class="comment">    public int HelthValue;</span></span><br><span class="line"><span class="comment">    public char grade = &#x27;B&#x27;;*/</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> Cat cat;<span class="comment">//用自定义类Cat 来定义一个 cat</span></span><br><span class="line">    <span class="comment">// Start is called before the first frame update</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//创建对象，并初始化对象在空间中，并赋值 </span></span><br><span class="line">        cat = <span class="keyword">new</span> Cat();</span><br><span class="line">        cat.catname = <span class="string">&quot;猪猪&quot;</span>; <span class="comment">//cat.后面要带在类里定义的名 如，catname 和 age</span></span><br><span class="line">        cat.age = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//打印猫信息</span></span><br><span class="line">        cat.print(); <span class="comment">//想要输出自己在类自定义的输出，直接在用类定义的 cat.后 写 print() and perr()</span></span><br><span class="line">        cat.perr(); <span class="comment">//print 和perr 都是在类里定义的功能。</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[<span class="meta">Serializable</span>] <span class="comment">//这个英文的意思是“序列化”,可以使自定义类显示在unity上。</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Cat</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> catname;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> age; </span><br><span class="line"></span><br><span class="line">    <span class="comment">//打印</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">$&quot;这只小猫名叫:<span class="subst">&#123;catname&#125;</span>, 它今年<span class="subst">&#123;age&#125;</span>岁了&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//猫叫</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">perr</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">$&quot;小猫<span class="subst">&#123;catname&#125;</span>不停的在叫。。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>类的创建顺序<ol>
+<li>先用 修饰符 class 类名(可自定义)</li>
+<li>定义变量</li>
+<li>你想要使用的功能，如上所写的print 和 perr；</li>
+<li>然后在Monobehaviour的组件里输出要想输出的对象</li>
+<li>在主组件用自己创建的类定义变量 ：public Cat cat;</li>
+<li>在void star里对自己定义的 cat进行初始化 : cat &#x3D; new Cat();</li>
+<li>cat.后加上自己想要定义的数值，以及想要输出的数值</li>
+</ol>
+</li>
+<li>关于构造函数</li>
+</ul>
+<blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">   &#123;</span><br><span class="line">       List&lt;Cat&gt; cats = <span class="keyword">new</span> List&lt;Cat&gt;();</span><br><span class="line">       <span class="comment">//通过循环调用Cat的构造函数，创造出100只猫</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="built_in">int</span> i=<span class="number">1</span>; i&lt;=<span class="number">100</span>; i++)</span><br><span class="line">       &#123;</span><br><span class="line">           cats.Add(<span class="keyword">new</span> Cat(<span class="string">$&quot;第<span class="subst">&#123;i&#125;</span>只猫&quot;</span>,i));<span class="comment">//每循环一次增加一只猫</span></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">foreach</span> (Cat cat <span class="keyword">in</span> cats) <span class="comment">//我们上面创造了组合cats，利用遍历（foreach）来取出100只猫放到cat中 进行输出。</span></span><br><span class="line">       &#123;</span><br><span class="line">           cat.print();</span><br><span class="line">           cat.perr();</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">   &#123;</span><br><span class="line">       </span><br><span class="line">   &#125;</span><br><span class="line">&gt;&#125;</span><br><span class="line"></span><br><span class="line">&gt;[Serializable]</span><br><span class="line">&gt;<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Cat</span></span><br><span class="line">&gt;&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="built_in">string</span> catname ;</span><br><span class="line">   <span class="keyword">public</span> <span class="built_in">int</span> age ;</span><br><span class="line">   </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Cat</span>(<span class="params"><span class="built_in">string</span> name, <span class="built_in">int</span> age</span>) <span class="comment">//构造方法</span></span></span><br><span class="line">   &#123;</span><br><span class="line">       <span class="keyword">this</span>.catname = name; <span class="comment">//等号=前面的this.catname的catname指的是上方定义的catname，而后面的name是形参的name</span></span><br><span class="line">       <span class="keyword">this</span>.age = age; <span class="comment">//this的用法是限定被参数隐藏的实例人员</span></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//打印</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span>()</span></span><br><span class="line">   &#123;</span><br><span class="line">       Debug.Log(<span class="string">$&quot;这只小猫名叫:<span class="subst">&#123;catname&#125;</span>, 它今年<span class="subst">&#123;age&#125;</span>岁了&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//猫叫</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">perr</span>()</span></span><br><span class="line">   &#123;</span><br><span class="line">       Debug.Log(<span class="string">$&quot;小猫<span class="subst">&#123;catname&#125;</span>不停的在叫。。&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>关于构建第二个文件进行引入并输出在unity</li>
+</ul>
+<blockquote>
+<p>Dog文件构造，在Assert&#x2F;MyScripts</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">MyScripts</span></span><br><span class="line">&#123;</span><br><span class="line">    [<span class="meta">Serializable</span>]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Dog</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">string</span> name;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="title">Dog</span>(<span class="params"><span class="built_in">string</span> name</span>)</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">this</span>.name = name;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Wang</span>()</span></span><br><span class="line">            &#123;</span><br><span class="line">                Debug.Log(<span class="string">$&quot;狗狗<span class="subst">&#123;<span class="keyword">this</span>.name&#125;</span>正在叫。。&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>引用dog文件的功能在unity上</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Drawing.Design;</span><br><span class="line"><span class="keyword">using</span> MyScripts;</span><br><span class="line"><span class="keyword">using</span> Unity.VisualScripting;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MainPlayer</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> Dog dog;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">        dog.Wang();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>其关键在于引用文件，它会出现 </p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> MyScripts;</span><br></pre></td></tr></table></figure>
+
+<p>一般会出现在你定义public Dog dog；Dog下面会出现红色的线或者三个字母呈红色</p>
+<blockquote>
+<p>然后在mac中的操作上 option+enter</p>
+</blockquote>
+<blockquote>
+<p>windows的操作上 ctrl+enter</p>
+</blockquote>
+<p>会快速帮你定位到Dog的位置且自动帮你打上 using MyScripts;</p>
+</blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">unity</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/07/10/2022-7-10-%E7%B1%BB%E7%9A%84%E8%A1%A8%E8%BE%BE/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-9-unity-函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/07/09/2022-7-9-unity-%E5%87%BD%E6%95%B0/" target="_blank">基础篇3 unity 函数</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/07/09/2022-7-9-unity-%E5%87%BD%E6%95%B0/" class="archive-article-date">
+        <time datetime="2022-07-09T14:26:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-09</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <ul>
+<li>b站视频34- 38 <a target="_blank" rel="noopener" href="https://gitee.com/chutianshu1981/xyz-s-free-course-for-full-stack-web-dev/blob/main/GameDesign/Unity/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E9%A1%B9%E7%9B%AE%E7%B3%BB%E5%88%97/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B04_%E5%88%9B%E4%BD%9C%E8%80%85%E5%A5%97%E4%BB%B6_%E5%88%9D%E5%AD%A6%E8%80%85%E4%BB%A3%E7%A0%81/03-%E5%87%BD%E6%95%B0.md">相关文件1</a> <a target="_blank" rel="noopener" href="https://gitee.com/chutianshu1981/xyz-s-free-course-for-full-stack-web-dev/blob/main/GameDesign/Unity/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E9%A1%B9%E7%9B%AE%E7%B3%BB%E5%88%97/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B04_%E5%88%9B%E4%BD%9C%E8%80%85%E5%A5%97%E4%BB%B6_%E5%88%9D%E5%AD%A6%E8%80%85%E4%BB%A3%E7%A0%81/04-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.md">相关文件2</a></li>
+<li>Virtual script 可视化脚本插件，可提供给不需要专精于c#语言开发unity的美术等其他岗位工作者，可以更容易的实现对物体人物或其他交互系统的操控。</li>
+<li>个人观点：可视化脚本尽管可以代替一些代码进行操作整个unity，可以给基础比较差的人一些方便的辅助，如果想要更为深入的学习和了解还是需要学习c#代码进行运行整个程序，并且直接写代码实现操作其实比可视化脚本更加的方便快捷。</li>
+</ul>
+<blockquote>
+<p>优点： 不需要写代码</p>
+<p>缺点：不能实现很多功能</p>
+</blockquote>
+<ul>
+<li>For and while区别</li>
+</ul>
+<blockquote>
+<p>For 是自己设定一个数或定义和范围在里面循环，当设定这个数小于或大于或者其他条件，则停止循环</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">1</span> ;i&lt; <span class="number">10</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">$&quot;第<span class="subst">&#123;i&#125;</span>次循环....&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>While 是在已经设定的值里判断true或false，true则一直循环，false则停下到下一步</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//先判断bool表达式，当值为 true，进入循环</span></span><br><span class="line"><span class="comment">//执行完循环语句段，会再次进行判断</span></span><br><span class="line"><span class="comment">//如此往复，直到表达式为 false ，跳出循环</span></span><br><span class="line"><span class="comment">//执行后面的语句</span></span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">bool</span>表达式)</span><br><span class="line">&#123;</span><br><span class="line">    循环语句段</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//和上面的区别是，会先执行一次循环语句段，</span></span><br><span class="line"><span class="comment">//之后再进行条件判断</span></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    循环语句段</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">bool</span>表达式)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>关于输出中的$讨论</li>
+</ul>
+<blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Debug.Log(<span class="string">$&quot;您的成绩是 <span class="subst">&#123;grade&#125;</span>&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>如果想要在控制台输出循环后的<strong>数值</strong>，则要在输出前加$然后在{}里打出定义的名称即可。</p>
+</blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">unity</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/07/09/2022-7-9-unity-%E5%87%BD%E6%95%B0/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/07/09/2022-7-9/" target="_blank">2022-7-9</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/07/09/2022-7-9/" class="archive-article-date">
+        <time datetime="2022-07-08T23:23:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-09</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <ul>
+<li>更新了个人博客评论区，国内使用gitee，国外可以使用gitment，在github上申请client id 和密码，在config.yml里设置即可实现评论区</li>
+<li>无法从博客里登陆github实现评论功能</li>
+<li>更新了主题页面，使其更加简洁</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">blog-updata</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/07/09/2022-7-9/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/07/08/2022-7-8/" target="_blank">2022-7-8</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/07/08/2022-7-8/" class="archive-article-date">
+        <time datetime="2022-07-08T02:57:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-08</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <ul>
+<li>学习搭建自己的个人博客 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mU4y1j72n?p=5&spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=e6a36befdc862ad6f936ca8569aa5f2d">b站教程1</a> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1LE411N7Nx?p=7&spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=e6a36befdc862ad6f936ca8569aa5f2d">b站教程2</a> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/huanhao/p/hexobase.html">文字说明</a></li>
+<li>关于文字说明说用的cnpm和npm，cnpm为中国区内所使用，而npm为全球通用，功能一致</li>
+<li>关于在mac中使用npm出现权限问题  &gt; <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=nPLx3rSZPXI">YouTube视频解决mac权限问题</a></li>
+<li>npm的更新和下载（mac端） <a target="_blank" rel="noopener" href="https://radixweb.com/blog/installing-npm-and-nodejs-on-windows-and-mac">看该网站，避免出现–global问题</a></li>
+<li>使用github或其他网站当服务器需要ssh，跟随教程，ssh分为两种，一种是公钥 <em>&#x2F;.ssh&#x2F;id_rsa.pub</em> ,私钥则无pub</li>
+<li>搭建网站要注意基础自己的命名和邮箱，终端命令上传文件时要输入</li>
+</ul>
+<blockquote>
+<p>密码则要到github里申请一个 GitHub-setting-developer setting- personal access token</p>
+</blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">blog-updata</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/07/08/2022-7-8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/07/07/2022-7-7/" target="_blank">基础篇2 数字类型</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/07/07/2022-7-7/" class="archive-article-date">
+        <time datetime="2022-07-07T01:25:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-07</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <ul>
+<li><p>学习阅读代码并尝试修改代码 <strong><a target="_blank" rel="noopener" href="https://gitee.com/chutianshu1981/xyz-s-free-course-for-full-stack-web-dev/blob/main/GameDesign/Unity/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E9%A1%B9%E7%9B%AE%E7%B3%BB%E5%88%97/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B04_%E5%88%9B%E4%BD%9C%E8%80%85%E5%A5%97%E4%BB%B6_%E5%88%9D%E5%AD%A6%E8%80%85%E4%BB%A3%E7%A0%81/02-%E5%8F%98%E9%87%8F.md">相关文档</a></strong> b站视频目前进度为32</p>
+</li>
+<li><p>学会数字类型的使用可以防止资源的浪费，比如100m就可以完成的代码，如果用long的整数类型会浪费电脑资源（文件会变得更大）；</p>
+</li>
+<li><p>1个字节就是8位</p>
+</li>
+<li><p>在c#有一种类型为bool型，它是逻辑库，顾名思义就是true and false，可执行逻辑代码。</p>
+</li>
+</ul>
+<blockquote>
+<pre><code>    bool check = true;
+    
+Console.WriteLine(check ? &quot;Checked&quot; : &quot;Not checked&quot;);  // output: Checked
+    
+Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // output: Not checked
+</code></pre>
+</blockquote>
+<ul>
+<li><p>在c#有一个类型为 <strong>var</strong> ,它是可以自动识别你的等号后面是什么类型并自动转换成该类型。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/var">var</a> &lt;– c#网址</p>
+</blockquote>
+</li>
+<li><p>右边是关于函数的相关信息 <a target="_blank" rel="noopener" href="https://gitee.com/chutianshu1981/xyz-s-free-course-for-full-stack-web-dev/blob/main/GameDesign/Unity/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E9%A1%B9%E7%9B%AE%E7%B3%BB%E5%88%97/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B04_%E5%88%9B%E4%BD%9C%E8%80%85%E5%A5%97%E4%BB%B6_%E5%88%9D%E5%AD%A6%E8%80%85%E4%BB%A3%E7%A0%81/03-%E5%87%BD%E6%95%B0.md">函数文档</a></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Add</span>(<span class="params"><span class="built_in">int</span> x, <span class="built_in">int</span> y, <span class="built_in">int</span> z</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">return</span> x+y+z; <span class="comment">//使用return返回已经计算好的数值到Add上，相当于输出到Add的数值。</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如何使用该函数</span></span><br><span class="line"><span class="comment">//直接使用Add</span></span><br><span class="line">Add(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line"><span class="built_in">int</span> num = Add(a,b,c);</span><br><span class="line"><span class="built_in">int</span> a,b,c;</span><br><span class="line">a=<span class="number">1</span>;</span><br><span class="line">b=<span class="number">2</span>;</span><br><span class="line">c=<span class="number">3</span>;</span><br><span class="line"><span class="comment">//也可以直接在 Add加数字</span></span><br><span class="line">Add(a,b,<span class="number">3</span>+c);</span><br></pre></td></tr></table></figure>
+
+<p>测试测试，这串文字是否上传到我的博客</p>
+</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">unity</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/07/07/2022-7-7/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022_7_6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/07/06/2022_7_6/" target="_blank">基础篇1 unityUI基础操作</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/07/06/2022_7_6/" class="archive-article-date">
+        <time datetime="2022-07-06T01:25:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <ul>
+<li>修复文件缺失和在新电脑中安装新的软件</li>
+<li>在package manager中导入created kit: code <strong><a target="_blank" rel="noopener" href="https://assetstore.unity.com/packages/templates/tutorials/creator-kit-beginner-code-151986">模版网站</a></strong>   <strong><a target="_blank" rel="noopener" href="https://learn.unity.com/project/chuang-zuo-zhe-tao-jian-chu-xue-zhe-dai-ma">学习页面</a></strong></li>
+<li>跟随b站视频和文档进行学习，学习变量（个人基础比较好，快速浏览一遍）**<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Sf4y1E7MD?spm_id_from=333.999.0.0&vd_source=e6a36befdc862ad6f936ca8569aa5f2d">视频32-05</a>** <strong><a target="_blank" rel="noopener" href="https://gitee.com/chutianshu1981/xyz-s-free-course-for-full-stack-web-dev/blob/main/GameDesign/Unity/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E9%A1%B9%E7%9B%AE%E7%B3%BB%E5%88%97/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B04_%E5%88%9B%E4%BD%9C%E8%80%85%E5%A5%97%E4%BB%B6_%E5%88%9D%E5%AD%A6%E8%80%85%E4%BB%A3%E7%A0%81/02-%E5%8F%98%E9%87%8F.md">相关文档</a></strong></li>
+<li>利用导入模版中的模版进行代码练习</li>
+<li>学习在如何写出在控制台显示的代码  <strong>Debug.log</strong></li>
+</ul>
+<blockquote>
+<p>Debug.log &#x2F;&#x2F; print something on console </p>
+</blockquote>
+<ul>
+<li>定义前加public可以在unity界面中显示其定义的变量</li>
+</ul>
+<blockquote>
+<p>Such, public string MyName;</p>
+</blockquote>
+<ul>
+<li>注意⚠️：不可以在unity运行时修改变量，电脑不会储存你修改的内容</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">unity</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/07/06/2022_7_6/">展开全文 >></a>
     </p>
     
 
@@ -265,7 +940,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2022 <a href="http://example.com/" target="_blank">John Doe</a>
+    		&copy; 2018-2022 <a href="http://example.com/" target="_blank">Jessy Huang</a>
     	</div>
       	<div class="footer-right">
 			
@@ -382,6 +1057,14 @@
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">unity</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">blog-updata</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
