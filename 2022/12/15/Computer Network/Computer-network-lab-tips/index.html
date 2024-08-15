@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Computer network lab tips |  Jessy&#39;s daily note</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="images/logo图片.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Computer Network/Computer-network-lab-tips"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Computer network lab tips
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/12/15/Computer%20Network/Computer-network-lab-tips/" class="article-date">
+  <time datetime="2022-12-15T14:50:15.000Z" itemprop="datePublished">2022-12-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/">计算机网络学习博客</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">2.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">12 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>[TOC]</p>
+<h1 id="Static-Route"><a href="#Static-Route" class="headerlink" title="Static Route"></a>Static Route</h1><p>其作用是有两个及以上的router连接不同类型的IPv4&#x2F;IPv6时候需要配置的static route&#x2F;dynamic route来连接。</p>
+<p>Advantage </p>
+<blockquote>
+<ul>
+<li><p>There is no overhead on the router CPU.</p>
+<blockquote>
+<p>路由器CPU上没有开销。</p>
+</blockquote>
+</li>
+<li><p>There is no bandwidth usage between routers.</p>
+<blockquote>
+<p>路由器之间不存在带宽占用。手动配置没有流量产出</p>
+</blockquote>
+</li>
+<li><p>It adds security because the administrator can choose to allow routing access to certain networks only.</p>
+<blockquote>
+<p>它增加了安全性，因为管理员可以选择只允许对某些网络进行路由访问。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p>Disadvantage</p>
+<blockquote>
+<ul>
+<li><p>The administrator must really understand the internetwork and how each router is connected in order to configure routes correctly.</p>
+<blockquote>
+<p>管理员必须真正了解内联网和每个路由器的连接方式，以便正确配置路由。</p>
+</blockquote>
+</li>
+<li><p>If a network is added to the internetwork, the administrator has to add a route to it on all routers—manually.</p>
+<blockquote>
+<p>如果一个网络被添加到国际网络中，管理员必须在所有路由器上手动添加一个路由到它。</p>
+</blockquote>
+</li>
+<li><p>It’s not possible in large networks because maintaining it would be a full-time job in itself.</p>
+<blockquote>
+<p>这在大型网络中是不可能的，因为维护它本身就是一项全职工作。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p>Command </p>
+<blockquote>
+<p>CLI set static route command</p>
+<ul>
+<li><p><code>Router(config)#**ip route 172.16.20.0 255.255.255.0 172.16.10.2**</code></p>
+<blockquote>
+<ul>
+<li><p>172.16.20.0 &#x3D; destination network &#x2F;&#x2F;目的网络</p>
+</li>
+<li><p>255.255.255.0 &#x3D; subnet mask &#x2F;&#x2F;子网掩码</p>
+</li>
+<li><p>172.16.10.2 &#x3D; next-hop address &#x2F;&#x2F;下一跳的地址</p>
+</li>
+</ul>
+<blockquote>
+<p>To get to the destination network of 172.16.20.0, with a subnet mask of 255.255.255.0, send all packets to 172.16.10.2</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><code>Router(config)#**ip route 172.16.20.0 255.255.255.0 s0/0**</code></p>
+<blockquote>
+<ul>
+<li><p>172.16.20.0 &#x3D; destination network &#x2F;&#x2F;目的网络</p>
+</li>
+<li><p>255.255.255.0 &#x3D; subnet mask &#x2F;&#x2F;子网掩码</p>
+</li>
+<li><p>s0&#x2F;0 &#x3D; exit interface &#x2F;&#x2F;从该接口发送数据包</p>
+</li>
+</ul>
+<blockquote>
+<p>To get to the destination network of 172.16.20.0, with a subnet mask of 255.255.255.0, send all packets out interface Serial 0&#x2F;0</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>命令解释</p>
+<blockquote>
+<ul>
+<li><p><strong>ip route</strong> The command used to create the static route.（重要）</p>
+<blockquote>
+<p><strong>创建静态网络</strong></p>
+</blockquote>
+</li>
+<li><p><strong>destination_network</strong> The network you’re placing in the routing table.</p>
+<blockquote>
+<p>你要放入路由表的网络</p>
+</blockquote>
+</li>
+<li><p><strong>mask</strong> The subnet mask being used on the network.</p>
+<blockquote>
+<p>子网掩码</p>
+</blockquote>
+</li>
+<li><p><strong>next-hop_address</strong> The address of the next-hop router that will receive the packet and forward it to the remote network.</p>
+<blockquote>
+<p>下一跳路由器的地址，它将会接受数据包并转发给远程网络</p>
+</blockquote>
+</li>
+<li><p><strong>exit_interface</strong>Used in place of the next-hop address if you want, and shows up as a directly connected route.</p>
+<blockquote>
+<p>可以用它代替下一跳地址，并显示直接网络的路由</p>
+</blockquote>
+</li>
+<li><p><strong>administrative_distance</strong> By default, static routes have an administrative distance of 1 (or even 0 if you use an exit interface instead of a next-hop address).</p>
+<blockquote>
+<p><strong>默认情况下，静态路由的管理距离是1，如果使用出口接口而不是下一跳地址甚至是0</strong>(重要)</p>
+</blockquote>
+</li>
+<li><p><strong>permanent Keyword (Optional)</strong> Without the permanent keyword in a static route statement, a static route will be removed if an interface goes down. Adding the permanent keyword to a static route statement will keep the static routes in the routing table even if the interface goes down and the directly connected networks are removed.</p>
+<blockquote>
+<p>在静态路由语句中没有永久关键字，如果一个接口发生故障，静态路由将被删除。在静态路由语句中添加永久关键字，即使接口宕机，直接连接的网络被删除，静态路由也会保留在路由表中。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p>static route 显示配置，但其实更多使用命令行。</p>
+<blockquote>
+<p><img src="https://i.imgur.com/IBJjAhp.png" alt="static routes 配置"></p>
+<ul>
+<li><p>效果和命令行相同</p>
+</li>
+<li><p>不能配置默认路由和出口接口路由</p>
+<blockquote>
+<p>Bangor(config)#<strong>ip route 0.0.0.0 0.0.0.0 s1</strong></p>
+<p>Buffalo(config)#<strong>ip route 172.16.10.0 255.255.255.0 s1</strong></p>
+</blockquote>
+</li>
+<li><p><strong>默认路由</strong>（Default route），是对IP<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%8C%85">数据包</a>中的目的地址找不到存在的其他路由时，<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%B7%AF%E7%94%B1%E5%99%A8">路由器</a>所选择的路由。目的地不在路由器的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%B7%AF%E7%94%B1%E8%A1%A8">路由表</a>里的所有数据包都会使用默认路由。这条路由一般会连去另一个路由器，而这个路由器也同样处理数据包: 如果知道应该怎么路由这个数据包，则数据包会被转发到已知的路由；否则，数据包会被转发到默认路由，从而到达另一个路由器。每次转发，路由都增加了一跳的距离。</p>
+</li>
+</ul>
+</blockquote>
+<h1 id="DHCP-in-Router"><a href="#DHCP-in-Router" class="headerlink" title="DHCP in Router"></a>DHCP in Router</h1><p><a target="_blank" rel="noopener" href="https://github.com/JessyHHH/JessyHHH.github.io/blob/bee02498e5ede152069f22ecdc0fe8e91348bc61/%E5%AD%A6%E4%B9%A0%E6%96%87%E4%BB%B6/Computer%20network/Commonly%20used%20DHCP%20commands.docx">DHCP-Command</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/JessyHHH/JessyHHH.github.io/blob/main/%E5%AD%A6%E4%B9%A0%E6%96%87%E4%BB%B6/Computer%20network/Lab2_Pdf_of_answer.pdf">lab file</a></p>
+<p>起作用是自动寻找ip地址</p>
+<p>例子如下图</p>
+<p><img src="https://i.imgur.com/w5XDXKf.png" alt="Comfigure DHCP and static route"></p>
+<p>Command</p>
+<ul>
+<li>Router</li>
+</ul>
+<blockquote>
+<ul>
+<li><p><code>R0(config)#ip dhcp pool ip_pool1</code></p>
+<blockquote>
+<p>创建 DHCP 服务器地址池的名称并进入 DHCP 池配置模式。</p>
+</blockquote>
+</li>
+<li><p><code>R0(dhcp-config)#domain-name itcarlow.ie</code></p>
+<blockquote>
+<p>指定客户端的域名,设置domain-name为itcarlow.ie</p>
+</blockquote>
+</li>
+<li><p><code>R0(dhcp-config)#dns-server 192.77.1.100</code></p>
+<blockquote>
+<p>指定可用于 DHCP 客户端的 DNS 服务器的 IP 地址。 需要一个 IP 地址，但是，您最多可以在一个命令行中指定八个 IP 地址。 服务器应按优先顺序列出。</p>
+</blockquote>
+</li>
+<li><p><code>R0(dhcp-config)#default-router 192.168.1.1</code></p>
+<blockquote>
+<p>指定 DHCP 客户端的默认路由器的 IP 地址。 IP 地址应与客户端位于同一子网中。</p>
+</blockquote>
+</li>
+<li><p><code>R0(dhcp-config)#network 192.168.1.0 255.255.255.0</code></p>
+<blockquote>
+<p>指定 DHCP 地址池的子网网络号和掩码。</p>
+</blockquote>
+</li>
+<li><p><code>R0(config)#ip dhcp excluded-address 192.168.1.1 192.168.1.100</code></p>
+<blockquote>
+<p>我们可以选100以外的IP address</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>PC</li>
+</ul>
+<blockquote>
+<ul>
+<li><p><code>C:\&gt; ipconfig/release</code></p>
+<blockquote>
+<p>显示ip的配置</p>
+</blockquote>
+</li>
+<li><p><code>C:\&gt; ipconfig/renew</code></p>
+<blockquote>
+<p>刷新ip设置</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>router查看dhcp情况</li>
+</ul>
+<blockquote>
+<ul>
+<li><code>R0# show ip dhcp pool</code></li>
+<li><code>show ip dhcp binding</code></li>
+</ul>
+</blockquote>
+<p>Router# show ip route<br> Codes: C - connected, S - static, * - candidate default </p>
+<p>S* 0.0.0.0&#x2F;0 [1&#x2F;0] via 172.1.1.1</p>
+<p>C 172.1.1.0&#x2F;30 is directly connected, Serial0</p>
+<p>C 170.2.2.0&#x2F;24 is directly connected, TokenRing0 </p>
+<p>C 192.77.203.0&#x2F;24 is directly connected, Ethernet0</p>
+<h1 id="PPP-with-PAP"><a href="#PPP-with-PAP" class="headerlink" title="PPP with PAP"></a>PPP with PAP</h1><p>PPP 点对点协议，pap的作用是验证用户。</p>
+<p><img src="https://i.imgur.com/Nuuim7S.png" alt="PPP with PAP configue"></p>
+<p>Command </p>
+<blockquote>
+<p>set password</p>
+<ul>
+<li><code>Carlow(config)#enable password class</code></li>
+<li><code>Carlow(config)#line console 0</code></li>
+<li><code>Carlow(config-line)#password class</code></li>
+<li><code>Carlow(config-line)#login</code></li>
+</ul>
+<p>enable 是特权密码</p>
+<p>line console是用户密码</p>
+<p>Vey password,用于telnet或ssh,ppp实验用不到</p>
+<ul>
+<li><code>(config)#line vty 0 4</code></li>
+<li><code>(config-line)#pasword cisco</code></li>
+<li><code>(config-line)#login</code></li>
+</ul>
+<p>secret password</p>
+<ul>
+<li><code>(config-line)#enable secret cisco</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>Ppp with chap</li>
+</ul>
+<p>command</p>
+<blockquote>
+<ul>
+<li><p>第一步设置static route，可根据上面来设置</p>
+</li>
+<li><p><code>Dublin(config)#username Carlow password cisco</code></p>
+</li>
+<li><p><code>Carlow(config)#username Dublin password cisco</code></p>
+</li>
+<li><p><code>Carlow(config)#int s0/1/0</code></p>
+</li>
+<li><p><code>Carlow(config-if)#encapsulation ppp</code></p>
+</li>
+<li><p><code>Dublin(config)#int s0/0</code></p>
+</li>
+<li><p><code>Dublin(config-if)#encapsulation ppp</code></p>
+</li>
+<li><p><code>Carlow(config)#int s0/1/0</code></p>
+</li>
+<li><p><code>Carlow(config-if)#ppp authentication pap</code></p>
+</li>
+<li><p><code>Carlow(config-if)#ppp pap sent-username Dublin pssword cisco</code></p>
+</li>
+<li><p><code>Dublin(config)#int s0/0</code></p>
+</li>
+<li><p><code>Dublin(config-if)#ppp authentication pap</code></p>
+</li>
+<li><p><code>Dublin(config-if)#ppp pap sent-username Carlow pssword cisco</code></p>
+</li>
+<li><p><code>#copy run start</code></p>
+</li>
+</ul>
+</blockquote>
+<p><strong>Checking the options available at each stage</strong>.</p>
+<blockquote>
+<p><code>Dublin(config)#int s0/0</code></p>
+<p><code>Dublin(config-if)#ppp ?</code></p>
+<p><code>Dublin(config-if)#ppp pap ?</code></p>
+<p><code>Dublin(config-if)#ppp pap sent user-name xxxxx password xxxxxx</code></p>
+</blockquote>
+<h1 id="PPP-with-chap"><a href="#PPP-with-chap" class="headerlink" title="PPP with chap"></a>PPP with chap</h1><p><img src="https://i.imgur.com/VAK1CsW.png" alt="Chap"></p>
+<p>command</p>
+<blockquote>
+<ul>
+<li><p><code>Dublin(config)#username Carlow password cisco</code></p>
+</li>
+<li><p><code>Dublin(config)#int s0/0</code></p>
+</li>
+<li><p><code>Dublin(config-if)#encapsulation ppp</code></p>
+</li>
+<li><p><code>Dublin(config-if)#ppp authentication chap</code></p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p><code>Carlow(config)#username Dublin password cisco</code></p>
+</li>
+<li><p><code>Carlow(config)#int s0/1/0</code></p>
+</li>
+<li><p><code>Carlow(config-if)#encapsulation ppp</code></p>
+</li>
+<li><p><code>Carlow(config-if)#ppp authentication chap</code></p>
+</li>
+</ul>
+</blockquote>
+<h1 id="RIP-configure"><a href="#RIP-configure" class="headerlink" title="RIP configure"></a>RIP configure</h1><p><img src="https://i.imgur.com/qCJvtPd.png" alt="RIP configure"></p>
+<p>Command </p>
+<p>Loopback address</p>
+<blockquote>
+<ul>
+<li><p><code>C206(config)#int loopback1</code></p>
+</li>
+<li><p><code>C206(config-if)#ip add 4.4.4.4 255.255.255.255 </code></p>
+</li>
+<li><p><code>C206(config-if)#do write</code></p>
+</li>
+</ul>
+</blockquote>
+<p>rip configure in router</p>
+<blockquote>
+<ul>
+<li><p><code>R1(config)#router rip </code></p>
+</li>
+<li><p><code>R1(config-router)#version 2 </code></p>
+</li>
+<li><p><code>R1(config-router)#no auto-summary </code></p>
+</li>
+<li><p><code>R1(config-router)#network 192.168.12.0 </code></p>
+</li>
+<li><p><code>R1(config-router)#network 192.168.13.0</code></p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p><code>R2(config)#router rip </code></p>
+</li>
+<li><p><code>R2(config-router)#version 2 </code></p>
+</li>
+<li><p><code>R2(config-router)#no auto-summary </code></p>
+</li>
+<li><p><code>R2(config-router)#network 192.168.12.0</code></p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p><code>R3(config)#router rip</code></p>
+</li>
+<li><p><code>R3(config-router)#version 2</code></p>
+</li>
+<li><p><code>R3(config-router)#no auto-summary </code></p>
+</li>
+<li><p><code>R3(config-router)#network 192.168.13.0</code></p>
+</li>
+</ul>
+</blockquote>
+<p>Static route</p>
+<blockquote>
+<ul>
+<li><code>R1(config)#ip route 0.0.0.0 0.0.0.0 192.168.14.4</code></li>
+<li><code>R1(config)#ip route 0.0.0.0 0.0.0.0 192.168.12.2</code></li>
+<li><code>R1(config)#ip route 0.0.0.0 0.0.0.0 192.168.13.3</code></li>
+</ul>
+</blockquote>
+<p>Advertise it in RIP</p>
+<blockquote>
+<ul>
+<li><p><code>R1(config)#router rip</code></p>
+</li>
+<li><p><code>R1(config-router)#default-information originate</code></p>
+</li>
+</ul>
+</blockquote>
+<p>Let’s see what we have on R2 and R3:</p>
+<blockquote>
+<ul>
+<li><code>R2#show ip route rip</code></li>
+</ul>
+</blockquote>
+<p>via 是通过的意思</p>
+<ul>
+<li><strong>Use debug to observe RIP communications</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li><code>R1#debug ip rip</code></li>
+<li><code>R1#undebug all</code></li>
+</ul>
+</blockquote>
+<h1 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h1><p><img src="https://i.imgur.com/RCL4XRG.png" alt="OSPF"></p>
+<p>disable dns look up</p>
+<blockquote>
+<p><code>(config)#no ip domain-lookup</code></p>
+</blockquote>
+<p>message of the day banner</p>
+<blockquote>
+<p><code>(config)#banner motd E</code></p>
+</blockquote>
+<p>Command </p>
+<blockquote>
+<p>Configure the LAN network 172.16.1.16&#x2F;28 to be included in the OSPF updates theat are sent out of R1</p>
+<p>enter a process ID of 1 for the process-ID parameter</p>
+<ul>
+<li><code>R1(config)#router ospf 1</code></li>
+</ul>
+<p>area ID of 0 for the OSPF <code>area id</code> parameter.</p>
+<ul>
+<li><code>R1(config-router)#network 172.16.1.16 0.0.0.15 area 0</code></li>
+<li><code>R1(config-router)#network 192.168.10.0 0.0.0.3 area 0</code></li>
+<li><code>R1(config-router)#network 192.168.10.4 0.0.0.3 area 0</code></li>
+</ul>
+<p>other router is same witht R1</p>
+<p><strong>to know what is the router ID and other information</strong></p>
+<ul>
+<li><p><code>#show ip protocols</code></p>
+</li>
+<li><p><code>#show ip ospf</code></p>
+</li>
+<li><p><code>#show ip ospf interface</code></p>
+</li>
+</ul>
+</blockquote>
+<p>set loopback address to change the Router ID</p>
+<blockquote>
+<ul>
+<li><code>(config)#interface loopback 0</code></li>
+<li><code>(config-if)#ip address 10.1.1.1 255.255.255.255</code></li>
+</ul>
+<p>other router is same with R1, R2 is 10.2.2.2 , R3 is 10.3.3.3</p>
+</blockquote>
+<p><strong>Verify router ID have changed</strong></p>
+<blockquote>
+<ul>
+<li><code>#show ip ospf neighbor</code></li>
+</ul>
+</blockquote>
+<p>use the<code>router-id </code> command to change the router ID on the R1 router.</p>
+<blockquote>
+<ul>
+<li><code>(config)#router ospf 1</code></li>
+<li><code>(config-router)#router-id 10.4.4.4</code></li>
+<li><code>#clear ip ospf process</code> and type <code>yes</code></li>
+</ul>
+<p>like r1 want to change router ID to 10.4.4.4 ,which will be changed.</p>
+</blockquote>
+<p>Remove the configured Router ID with the <code>no router-id</code> command</p>
+<blockquote>
+<ul>
+<li><code>(config)#router ospf 1</code></li>
+<li><code>(config-router)#no router-id 10.4.4.4</code></li>
+<li><code>#clear ip ospf process</code> and type <code>yes</code></li>
+</ul>
+</blockquote>
+<p>use the <code>show ip route</code> command to know the cost of router</p>
+<blockquote>
+<ul>
+<li><code>#show ip route</code> 65 is the router cost from that way</li>
+</ul>
+</blockquote>
+<p>use the <code>show interfaces serial0/0/0</code> command on the R1 router to view the bandwidth of the serial 0&#x2F;0&#x2F;0 interface.</p>
+<blockquote>
+<p><code>#show interface serial0/0/0</code></p>
+</blockquote>
+<p>use the <code>bandwidth </code>command to change the bandwidth of the serial interface of the R1 and R2</p>
+<blockquote>
+<ul>
+<li><code>(config)#interface serial0/0/0</code></li>
+<li><code>(config-if)#bandwidth 64</code></li>
+</ul>
+<p>the cost will be 1564 &#x3D; 10^8&#x2F;64000 bpa</p>
+</blockquote>
+<p>use the <code>show ip ospf interface</code> to know cost</p>
+<p>Use the <code>ip ospf cost</code> command to configrue the ospf cost on the R3 router.</p>
+<blockquote>
+<p><code>(config)#inertface s0/0/0</code></p>
+<p><code>(config-if)#ip ospf cost 1562</code></p>
+<p>then use the <code>show ip ospf inerface</code> we can see the cost become 1562.</p>
+</blockquote>
+<p>configure loopback address</p>
+<blockquote>
+<p><code>(config)#interface loopback1</code></p>
+<p><code>(config-if)#ip address 172.30.1.1 255.255.255.252</code></p>
+<p>then config static route of the loopback address</p>
+<p><code>(config)#ip route 0.0.0.0 0.0.0.0 loopback1</code></p>
+<p>Use the <code>default-information originate</code> command to include static route in the ospf updatas</p>
+<p><code>(config)#int ospf 1</code></p>
+<p><code>(config-router)#default-information originate</code></p>
+<p>Use the<code>show ip route</code> on R2, wen can see the static route on the table by ospf updatas</p>
+</blockquote>
+<p>Use the <code>auto-cost reference-bandwidth</code> command to comfigrue the reference bandwidth</p>
+<blockquote>
+<p><code>(config-router)#auto-cost reference-bandwidth 10000</code></p>
+<p>Use the <code>show ip route</code> command can see the cost become 65635</p>
+</blockquote>
+<p>configrue the ospf hello and dead omtervals</p>
+<blockquote>
+<p><code>(config)#interface serial0/0/0</code></p>
+<p><code>(config-if)#ip ospf hello-interval 5</code></p>
+<p><code>(config-if)#ip ospf dead-interval 20</code></p>
+</blockquote>
+<h1 id="password-recovory"><a href="#password-recovory" class="headerlink" title="password recovory"></a>password recovory</h1><p><code>sh ver</code> to see the current value of you’re configuration</p>
+<p>Start:</p>
+<p>I don’t know my enable password </p>
+<ul>
+<li><p>turn off router, and turn it back on</p>
+</li>
+<li><p>ctrl+break on you keyboard when start <code>!!!!!!</code></p>
+</li>
+<li><p>rommon1&gt;confer 0x2142</p>
+</li>
+<li><p>rommon2&gt; reset</p>
+</li>
+<li></li>
+<li><p>Router#copy run start</p>
+</li>
+<li><p>Router# show run config 然后可以看一下以前密码是多少。</p>
+</li>
+<li><p>Router(config)#enable password 123 可以改密码</p>
+</li>
+<li><p>Router(config)#config-register 0x2102</p>
+</li>
+<li><p>Router#copy run start</p>
+</li>
+<li><p>Rtouter#reload</p>
+</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/12/15/Computer%20Network/Computer-network-lab-tips/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cisco/" rel="tag">Cisco</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/12/20/Computer%20Network/computer%20network%202%20CA1%20and%20CA2/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Computer network 2 CA1 and CA2
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/12/11/Micro%20Electronic/Mos-amplifier/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Mos amplifier</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> Jessy Huang
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo图片.png" alt="Jessy&#39;s daily note"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2022/11/01/%E5%85%B3%E4%BA%8E%E6%88%91">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

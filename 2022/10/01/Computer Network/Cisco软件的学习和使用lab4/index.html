@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Cisco软件的学习和使用lab4 |  Jessy&#39;s daily note</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="images/logo图片.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Computer Network/Cisco软件的学习和使用lab4"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Cisco软件的学习和使用lab4
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/10/01/Computer%20Network/Cisco%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8lab4/" class="article-date">
+  <time datetime="2022-10-01T09:55:46.000Z" itemprop="datePublished">2022-10-01</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/">计算机网络学习博客</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">4 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>[toc]</p>
+<h1 id="lab4-总线型以太网特性（广播，竞争总线，冲突）"><a href="#lab4-总线型以太网特性（广播，竞争总线，冲突）" class="headerlink" title="lab4 总线型以太网特性（广播，竞争总线，冲突）"></a>lab4 总线型以太网特性（广播，竞争总线，冲突）</h1><h2 id="1-自动连线三个pc在一个hub里，形成总线型"><a href="#1-自动连线三个pc在一个hub里，形成总线型" class="headerlink" title="1. 自动连线三个pc在一个hub里，形成总线型"></a>1. 自动连线三个pc在一个hub里，形成总线型</h2><img src="https://i.imgur.com/NZ0n8df.png" alt="image-20221001105741779" style="zoom:50%;" />
+
+<h2 id="2-给每个pc设置ip-address"><a href="#2-给每个pc设置ip-address" class="headerlink" title="2. 给每个pc设置ip address"></a>2. 给每个pc设置ip address</h2><ul>
+<li><p>Pc0: 192.168.0.1</p>
+</li>
+<li><p>Pc1: 192.168.0.2</p>
+</li>
+<li><p>Pc3: 192.168.0.3</p>
+</li>
+</ul>
+<img src="https://i.imgur.com/CziXKbV.png" alt="image-20221001105934834" style="zoom:50%;" />
+
+<h2 id="3-先在realtime-状态下，将每个pc的ARP缓存表都互相缓存各个pc的mac和ip-address"><a href="#3-先在realtime-状态下，将每个pc的ARP缓存表都互相缓存各个pc的mac和ip-address" class="headerlink" title="3. 先在realtime 状态下，将每个pc的ARP缓存表都互相缓存各个pc的mac和ip address"></a>3. 先在realtime 状态下，将每个pc的ARP缓存表都互相缓存各个pc的mac和ip address</h2><h3 id="给每一台计算机都发送PDU给另一台"><a href="#给每一台计算机都发送PDU给另一台" class="headerlink" title="给每一台计算机都发送PDU给另一台"></a>给每一台计算机都发送PDU给另一台</h3><p>如pc0 - pc1 ，pc0 - pc2 ， pc1 - pc2</p>
+<p>这样就缓存了arp了</p>
+<img src="https://i.imgur.com/tKCSG5s.png" alt="image-20221001110537802" style="zoom: 33%;" />
+
+<h2 id="4-正式开始实验"><a href="#4-正式开始实验" class="headerlink" title="4. 正式开始实验"></a>4. 正式开始实验</h2><h3 id="1-当ICPM-PDU从pc0到pc2的过程"><a href="#1-当ICPM-PDU从pc0到pc2的过程" class="headerlink" title="1. 当ICPM PDU从pc0到pc2的过程"></a>1. 当ICPM PDU从pc0到pc2的过程</h3><ol>
+<li><p>ICPM PDU 在PC0打包自己的ip和Mac address发送到 端口Fa0 hub</p>
+</li>
+<li><p>Hub接受到ICPM pdu，从另外两个端口(Fa1 and Fa2)发送到PC1和PC2</p>
+</li>
+<li><p>PC1发现PDU里打包的mac地址和自己的地址不匹配，所以drop fram</p>
+</li>
+</ol>
+<img src="https://i.imgur.com/2Qxl41p.png" alt="image-20221001234218124" style="zoom:50%;" />
+
+<ol start="4">
+<li>PC2的mac地址和PDU里的dest：MAC地址相匹配，接受该PDU，然后解封PDU从以太网帧（<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/21318925">Ethernet Frame</a>）</li>
+</ol>
+<img src="https://i.imgur.com/DRi3eC0.png" alt="image-20221001234301199" style="zoom:50%;" />
+
+<ol start="5">
+<li>解封到IP层后， pc2检测该pdu目标ip地址和 自己ip地址相匹配，然后解封 packet（PDU解封出来的），这个packet类型是ICMP类型，然后在ip层接受了Echo request（响应请求），</li>
+</ol>
+<img src="https://i.imgur.com/5MVxvwj.png" alt="image-20221002003453705" style="zoom:50%;" />
+
+<p>什么是<a target="_blank" rel="noopener" href="https://info.support.huawei.com/info-finder/encyclopedia/zh/ICMP.html">ICMP</a> （Internet Control Message Protocol）</p>
+<p>简单的来说就是检测错误的机制，具体可查看上面链接🔗</p>
+<ol start="6">
+<li>网络层 接受了Echo request（响应请求） message后自然也需要回复一个message让pc0知道已经接受了，所以需要回应一个 Echo reply（响应回复）message（将ICMP的Echo request 改成 reply），</li>
+</ol>
+<img src="https://i.imgur.com/gUheRgK.png" alt="image-20221002003821484" style="zoom:50%;" />
+
+<ol start="7">
+<li>第二层将 ip 和mac 封装成PDU，由于只需要发送给PC0，所以它是<a target="_blank" rel="noopener" href="https://blog.51cto.com/tommyking/1915236">unicast单播</a>， pc2里有ARP缓存了pc0的ip和 mac address，<a target="_blank" rel="noopener" href="https://www.jannet.hk/routing-decision-zh-hans/#Static_Route_Next_Hop">next-hop</a>指的是下一站的意思，封装成PDU在<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/21318925">以太网帧</a>。</li>
+</ol>
+<img src="https://i.imgur.com/JlvSVKB.png" alt="image-20221002005015120" style="zoom:50%;" />
+
+<ol start="8">
+<li>pc2从fa0端口传输PDU到hub，hub广播给pc0和pc1，问这个pdu是谁的，pc0匹配，pc1不匹配，pc0就接受了这个PDU，解封PDU里的packet后就接受到了Echo reply了。</li>
+</ol>
+<img src="https://i.imgur.com/hytnPeq.png" alt="image-20221002010554321" style="zoom:50%;" />
+
+<h3 id="2-Hub接受了两个PDU起冲突"><a href="#2-Hub接受了两个PDU起冲突" class="headerlink" title="2. Hub接受了两个PDU起冲突"></a>2. Hub接受了两个PDU起冲突</h3><p>什么是冲突，为什么会有冲突，详情请点击-&gt;<a target="_blank" rel="noopener" href="https://blog.csdn.net/gui951753/article/details/79402528">集线器(hub),交换机以及路由器异同；冲突域和广播域详解</a></p>
+<ol>
+<li>pc0发送PDU给PC1，pc2发送PDU给pc1</li>
+<li>点击下一步后，发现两个PDU在hub里起冲突了</li>
+</ol>
+<img src="https://i.imgur.com/WEYk7z6.png" alt="image-20221002014816438" style="zoom:50%;" />
+
+<ol start="3">
+<li>在hub里起冲突后，hub要让别人知道我这出事了，于是会向所人有发送一个冲突frame（帧）到别人主机的端口那</li>
+</ol>
+<img src="https://i.imgur.com/NZUV0AV.png" alt="image-20221002015348222" style="zoom:50%;" />
+
+<ol start="4">
+<li>端口检查一看发现是 冲突帧，就将它给扔了。</li>
+</ol>
+<p>原因其实就在于 Hub线路里只有一条线，这条线连着几个PC，如果pc之间想在同一时间相互传输PDU，则会发生冲突，如</p>
+<img src="https://i.imgur.com/A1sHVRF.png" alt="image-20221002015635618" style="zoom:50%;" />
+
+
+
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><h3 id="关于Hub"><a href="#关于Hub" class="headerlink" title="关于Hub"></a>关于Hub</h3><ul>
+<li><p>定义：集线器（Hub）是指将多条以太网双绞线或光纤集合连接在同一段物理介质下的设备。集线器是运作在OSI模型中的物理层。它可以视作多端口的中继器，若它侦测到碰撞，它会提交阻塞信号。</p>
+</li>
+<li><p>特点：<br>集线器最大的特点就是采用共享型模式，就是指在有一个端口在向另一个端口发送数据时，其他端口就处于“等待”状态。为什么会“等待”呢？举个例子来说，其实在单位时间内A向B发送数据包时，A是发送给B、C、D三个端口的（该现象即紧接下文介绍的IP广播），但是只有B接收，其他的端口在第一单位时间判断不是自己需要的数据后将不会再去接收A发送来的数据。直到A再次发送IP广播，在A再次发送IP广播之前的单位时间内，C，D是闲置的，或者CD之间可以传输数据。如图1，我们可以理解为集线器内部只有一条通道（即公共通道），然后在公共通道下方就连接着所有端口。</p>
+</li>
+</ul>
+<p>图一：</p>
+<img src="https://i.imgur.com/hO7Wbhg.png" alt="image-20221002015911807" style="zoom:50%;" />
+
+<blockquote>
+<ul>
+<li>集线器(hub),交换机以及路由器异同；冲突域和广播域详解— <a target="_blank" rel="noopener" href="https://blog.csdn.net/gui951753/article/details/79402528">集线器(hub),交换机以及路由器异同；冲突域和广播域详解</a></li>
+</ul>
+</blockquote>
+<h3 id="关于PDU的传输过程"><a href="#关于PDU的传输过程" class="headerlink" title="关于PDU的传输过程"></a>关于PDU的传输过程</h3><ul>
+<li><p>在datalink层通过匹配Mac address来确认是否是正确的目标Mac address，正确则接受，不正确则丢丢，接受后就会从以太网帧（Ethernet frame）解封（decapsulate）PDU</p>
+<img src="https://i.imgur.com/GTJiQ2w.png" alt="image-20221002020921089" style="zoom:50%;" />
+</li>
+<li><p>从以太网帧解封出来的数据我们称作packet(数据包)，packet包含以下内容</p>
+</li>
+</ul>
+<img src="https://i.imgur.com/56oF77X.png" alt="image-20221002021200902" style="zoom:50%;" />
+
+<p>在实验一中pc2解封了PDU后，在第三层就会有ip检测，ip也需要相匹配才能进行下去，如果不匹配也会直接扔掉。</p>
+<p>匹配完后会检测这整个packet是什么类型，在实验1上我们可以看到整个packet是ICMP类型，所以pc2检测出来ICMP类型后就会执行ICMP程序，ICMP程序发现没问题后就会接受Echo request（响应回复）并对发过来的pc进行回复Echo reply。</p>
+<blockquote>
+<ul>
+<li>关于什么是ICMP— <a target="_blank" rel="noopener" href="https://info.support.huawei.com/info-finder/encyclopedia/zh/ICMP.html">ICMP</a></li>
+<li>关于什么是hop&#x2F; next-hop— <a target="_blank" rel="noopener" href="https://www.jannet.hk/routing-decision-zh-hans/#Static_Route_Next_Hop">hop</a></li>
+<li>关于两台电脑发文件处理PDU的过程— <a target="_blank" rel="noopener" href="https://blog.csdn.net/jerry11112/article/details/78897273">CSDN两台电脑如何发文件</a></li>
+<li>什么是以太网帧— <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/21318925">以太网帧（Ethernet frame）</a></li>
+<li>单播（unicast）、组播（multicast）、广播(broadcast)的区别 —<a target="_blank" rel="noopener" href="https://blog.51cto.com/tommyking/1915236">单播（unicast）、组播（multicast）、广播(broadcast)的区别</a></li>
+</ul>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/10/01/Computer%20Network/Cisco%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8lab4/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cisco/" rel="tag">Cisco</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/10/03/Computer%20Network/Cisco%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8lab5/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Cisco软件的学习和使用lab5
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/09/30/Computer%20Network/Cisco%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8lab3/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Cisco软件的学习和使用lab3</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> Jessy Huang
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo图片.png" alt="Jessy&#39;s daily note"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2022/11/01/%E5%85%B3%E4%BA%8E%E6%88%91">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

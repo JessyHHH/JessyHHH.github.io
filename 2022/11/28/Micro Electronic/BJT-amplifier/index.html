@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>BJT amplifier |  Jessy&#39;s daily note</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="images/logo图片.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Micro Electronic/BJT-amplifier"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  BJT amplifier
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/11/28/Micro%20Electronic/BJT-amplifier/" class="article-date">
+  <time datetime="2022-11-28T13:42:10.000Z" itemprop="datePublished">2022-11-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF/">微电子电路</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">4 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="BJT-Amplifier"><a href="#BJT-Amplifier" class="headerlink" title="BJT-Amplifier"></a>BJT-Amplifier</h1><p>[toc]</p>
+<h2 id="什么是BJT-amplifier"><a href="#什么是BJT-amplifier" class="headerlink" title="什么是BJT-amplifier"></a>什么是BJT-amplifier</h2><p>中文简称：BJT放大器，如电压放大器等</p>
+<img src="https://i.imgur.com/vKDSS1R.png" alt="image-20221128134542174" style="zoom:50%;" />
+
+<p><strong>上图是一个电压放大器，理想状态下，它的输入阻抗为无限大，输出阻抗为0，但现实中，输入阻抗和输出阻抗会偏离理想值！</strong></p>
+<img src="https://i.imgur.com/tgfaVDk.png" alt="image-20221128134846273" style="zoom:50%;" />
+
+<p>x可以是input也可以是output，公式是通用的。</p>
+<h3 id="根据小信号模型可以知道输入阻抗和输出阻抗的构成："><a href="#根据小信号模型可以知道输入阻抗和输出阻抗的构成：" class="headerlink" title="根据小信号模型可以知道输入阻抗和输出阻抗的构成："></a>根据小信号模型可以知道输入阻抗和输出阻抗的构成：</h3><h3 id="Impedance-at-base-基极偏置"><a href="#Impedance-at-base-基极偏置" class="headerlink" title="Impedance at  base(基极偏置):"></a>Impedance at  base(基极偏置):</h3><img src="https://i.imgur.com/MyIZptE.png" alt="image-20221128135938002" style="zoom:50%;" />
+
+<blockquote>
+<img src="https://i.imgur.com/629ghGO.png" alt="image-20221128140254967" style="zoom:50%;" />
+</blockquote>
+<h3 id="Impedance-at-collector-集电极偏置"><a href="#Impedance-at-collector-集电极偏置" class="headerlink" title="Impedance at collector(集电极偏置)"></a>Impedance at collector(集电极偏置)</h3><img src="https://i.imgur.com/rhTaCsc.png" alt="image-20221128140422686" style="zoom:50%;" />
+
+<ul>
+<li>这个结果是在早期影响下(Early effect)</li>
+</ul>
+<h3 id="Impedance-at-Emitter-发射集偏置"><a href="#Impedance-at-Emitter-发射集偏置" class="headerlink" title="Impedance at Emitter(发射集偏置)"></a>Impedance at Emitter(发射集偏置)</h3><img src="https://i.imgur.com/UdJCkew.png" alt="image-20221128140635049" style="zoom:50%;" />
+
+<ul>
+<li>发射集偏执阻抗 Rout &#x3D; beta&#x2F;gm</li>
+</ul>
+<blockquote>
+<img src="https://i.imgur.com/0WSba0k.png" alt="image-20221128141222796" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/EkElIMx.png" alt="image-20221128141320048" style="zoom:50%;" />
+</blockquote>
+<h3 id="Three-Master-rules-of-Transistor-Impedance-结论"><a href="#Three-Master-rules-of-Transistor-Impedance-结论" class="headerlink" title="Three Master rules of Transistor Impedance (结论)"></a>Three Master rules of Transistor Impedance (结论)</h3><img src="/Users/jessyhuang/Library/Application Support/typora-user-images/image-20221128141703189.png" alt="image-20221128141703189" style="zoom:50%;" />
+
+<blockquote>
+<ol>
+<li><p>基极接电源，如果发射集ac(交流)接地，则Rout &#x3D; r<em>π</em></p>
+</li>
+<li><p>集电极接电源，如果发射集ac接地，则Rout &#x3D; r<em>π</em></p>
+</li>
+<li><p>发射集接电源，如果基极ac接地并且早期影响被忽略，则Rout &#x3D; 1&#x2F;gm.</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="如何构成一个BJT-amplifier"><a href="#如何构成一个BJT-amplifier" class="headerlink" title="如何构成一个BJT- amplifier"></a>如何构成一个BJT- amplifier</h2><p><strong>晶体管和电路必须有偏置，有两个原因：</strong></p>
+<blockquote>
+<ul>
+<li>晶体管必须在有源区工作</li>
+<li>小信号模型参数取决于偏置条件</li>
+</ul>
+<img src="https://i.imgur.com/bNiAgsc.png" alt="image-20221128143755007" style="zoom:50%;" />
+</blockquote>
+<h3 id="BJT三种偏置的Ic输出"><a href="#BJT三种偏置的Ic输出" class="headerlink" title="BJT三种偏置的Ic输出"></a>BJT三种偏置的Ic输出</h3><h4 id="1-Biasing-with-Base-Resistor"><a href="#1-Biasing-with-Base-Resistor" class="headerlink" title="1. Biasing with Base Resistor"></a>1. Biasing with Base Resistor</h4><img src="https://i.imgur.com/SbnVn3o.png" alt="image-20221128144135852" style="zoom:50%;" />
+
+<blockquote>
+<img src="https://i.imgur.com/DXivggD.png" alt="image-20221128144330622" style="zoom:50%;" />
+
+<p>但是，偏置点对β的变化很敏感。</p>
+</blockquote>
+<h4 id="2-Emitter-Degeneration-Biasing"><a href="#2-Emitter-Degeneration-Biasing" class="headerlink" title="2. Emitter Degeneration Biasing"></a>2. Emitter Degeneration Biasing</h4><img src="https://i.imgur.com/RkxUXlE.png" alt="image-20221128144706500" style="zoom:50%;" />
+
+<blockquote>
+<img src="https://i.imgur.com/HNQKQgp.png" alt="image-20221128145103388" style="zoom:50%;" />
+
+<ul>
+<li>Re的存在利于吸收Vx的误差，因此保持Vbe相对稳定</li>
+<li>这种偏置技术（I1 &gt;&gt; Ib）和Vbe的变化不敏感。</li>
+</ul>
+<img src="https://i.imgur.com/5vAhOhG.png" alt="image-20221128145242472" style="zoom:50%;" />
+</blockquote>
+<h4 id="3-Self-Biasing-technique-x2F-collector-Feedback-biasing"><a href="#3-Self-Biasing-technique-x2F-collector-Feedback-biasing" class="headerlink" title="3. Self-Biasing technique&#x2F;collector-Feedback biasing"></a>3. Self-Biasing technique&#x2F;collector-Feedback biasing</h4><img src="https://i.imgur.com/8GBcBog.png" alt="image-20221128153230354" style="zoom:50%;" />
+
+<blockquote>
+<img src="https://i.imgur.com/hRGgAmw.png" alt="image-20221128153625619" style="zoom:50%;" />
+
+<ul>
+<li>这种方法利用集电极电压来提供必要的Vx和Ib</li>
+<li>一个重要的特点是集电极的电位高于基极，从而保证了晶体管的主动行动。<img src="https://i.imgur.com/fbiPzwX.png" alt="image-20221128154851027" style="zoom:50%;" /></li>
+</ul>
+</blockquote>
+<h4 id="PNP-偏置图"><a href="#PNP-偏置图" class="headerlink" title="PNP 偏置图"></a>PNP 偏置图</h4><img src="https://i.imgur.com/dXopmJX.png" alt="image-20221128155045396" style="zoom:50%;" />
+
+<h3 id="Study-Of-Common-Emitter-CE-Topology"><a href="#Study-Of-Common-Emitter-CE-Topology" class="headerlink" title="Study Of Common-Emitter(CE) Topology"></a>Study Of Common-Emitter(CE) Topology</h3><h4 id="1-Analysis-CE-core-inclusion-of-Early-Effect"><a href="#1-Analysis-CE-core-inclusion-of-Early-Effect" class="headerlink" title="1.Analysis CE core(inclusion of Early Effect)"></a>1.Analysis CE core(inclusion of Early Effect)</h4><h5 id="Ignore-Early-effect"><a href="#Ignore-Early-effect" class="headerlink" title="Ignore Early effect"></a>Ignore Early effect</h5><img src="https://i.imgur.com/0HeDEBD.png" alt="image-20221128161823868" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/Jhwd6VK.png" alt="image-20221128161843610" style="zoom:50%;" />
+
+<blockquote>
+<img src="https://i.imgur.com/OiRD8io.png" alt="image-20221128162402769" style="zoom:50%;" />
+
+<ul>
+<li>由公式可知，Vc是Vcc和Vbe之间的电位差，Vce不能低于Vbe，使晶体管处于有效区</li>
+</ul>
+<p><img src="https://i.imgur.com/Gfxt8nr.png" alt="image-20221128162647367"></p>
+</blockquote>
+<ul>
+<li>CE输入或输出阻抗</li>
+</ul>
+<img src="https://i.imgur.com/veR6ZPG.png" alt="image-20221128163101975" style="zoom:50%;" />
+
+<blockquote>
+<p>测量输出阻抗时，输入端口必须接地。</p>
+</blockquote>
+<ul>
+<li>CE阶段的权衡</li>
+</ul>
+<img src="https://i.imgur.com/QzkKLZd.png" alt="image-20221128163253024" style="zoom:50%;" />
+
+<h5 id="Inclusion-of-Early-Effect"><a href="#Inclusion-of-Early-Effect" class="headerlink" title="Inclusion of Early Effect"></a>Inclusion of Early Effect</h5><ul>
+<li>由于早期影响，Transistor 内会有一个ro。</li>
+</ul>
+<p>小信号模型</p>
+<img src="https://i.imgur.com/1w6Jqu5.png" alt="image-20221128163929576" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/sCo6SkA.png" alt="image-20221128164003538" style="zoom:50%;" />
+
+<blockquote>
+<p> 早期影响会降低放大器的增益，因为它是和Rc并联出线的。 </p>
+</blockquote>
+<h4 id="2-Emitter-Degeneration"><a href="#2-Emitter-Degeneration" class="headerlink" title="2. Emitter Degeneration"></a>2. Emitter Degeneration</h4><h5 id="Ignore-Early-Effect"><a href="#Ignore-Early-Effect" class="headerlink" title="Ignore Early Effect"></a>Ignore Early Effect</h5><p>发射集退化(恶化)</p>
+<img src="https://i.imgur.com/0S73x6X.png" alt="image-20221128164149998" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/nspWi79.png" alt="image-20221128164517877" style="zoom:50%;" />
+
+<blockquote>
+<ul>
+<li><p>通过在发射集上串联一个电阻，我们会使CE退化</p>
+</li>
+<li><p>这种拓扑结构会降低放大器的增益，但会改善其他方面，如线性度和输入阻抗</p>
+</li>
+</ul>
+<p>Relationship: </p>
+<img src="https://i.imgur.com/LVS6QpZ.png" alt="image-20221128170442589" style="zoom:50%;" />
+</blockquote>
+<ul>
+<li>小信号模型</li>
+</ul>
+<img src="https://i.imgur.com/5MJvLDP.png" alt="image-20221128165247074" style="zoom:50%;" />
+
+<blockquote>
+<img src="https://i.imgur.com/zLFjW6V.png" alt="image-20221128170037580" style="zoom:50%;" />
+</blockquote>
+<ul>
+<li>Example1</li>
+</ul>
+<img src="https://i.imgur.com/BWfTt5t.png" alt="image-20221128170821609" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/HQXFX5c.png" alt="image-20221128170931717" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/L4i52lK.png" alt="image-20221128170953887" style="zoom:50%;" />
+
+<blockquote>
+<p>Q2的输入阻抗Rin2可与Re并联，产生一个等效阻抗，使Q1退化。</p>
+</blockquote>
+<ul>
+<li>Example2</li>
+</ul>
+<img src="https://i.imgur.com/LfMyuTK.png" alt="image-20221128171128141" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/bB7gV06.png" alt="image-20221128171231434" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/pAsXPnR.png" alt="image-20221128171251419" style="zoom:50%;" />
+
+<blockquote>
+<p>在这个例子中，Q2的输入阻抗可与Rc并联，可产生一个对地的等效集电极阻抗。</p>
+</blockquote>
+<ul>
+<li>退化CE阶段的输入阻抗</li>
+</ul>
+<img src="https://i.imgur.com/lbESONJ.png" alt="image-20221128171711426" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/00MoKXN.png" alt="image-20221128171752082" style="zoom:50%;" />
+
+<blockquote>
+<p>Rin的公式相同。</p>
+<img src="https://i.imgur.com/l2jKEdx.png" alt="image-20221128171844488" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/tEa8KL8.png" alt="image-20221128171939723" style="zoom:50%;" />
+
+<p>随着发射集退化，输入阻抗从r<em>π</em>到r<em>π</em>+(1+gmRE)+RE，这是一个理想的效果。</p>
+</blockquote>
+<ul>
+<li>退化的CE阶段的输出阻抗</li>
+</ul>
+<img src="https://i.imgur.com/Uk5cFyL.png" alt="image-20221128172305431" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/B4USTQr.png" alt="image-20221128172607807" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/gbbeIf4.png" alt="image-20221128172626578" style="zoom:50%;" />
+
+<blockquote>
+<p>集电极退化不改变输出阻抗</p>
+</blockquote>
+<ul>
+<li>Capacitor at Emitter</li>
+</ul>
+<img src="https://i.imgur.com/55TPi4O.png" alt="image-20221128172830257" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/EtVkmVB.png" alt="image-20221128172848220" style="zoom:50%;" />
+
+<blockquote>
+<p>在直流时，电容是开路的，电流源对放大器进行偏置</p>
+<p>在交流时，电容是短路的，放大器是由RE退化的。</p>
+</blockquote>
+<ul>
+<li>Example</li>
+</ul>
+<img src="https://i.imgur.com/S5VZY8G.png" alt="image-20221128173205579" style="zoom:50%;" />
+
+<blockquote>
+<p>Gm&lt;gm</p>
+<p>如果gmRE大于统一，则Gm是更线性的。</p>
+</blockquote>
+<img src="https://i.imgur.com/USxvOqk.png" alt="image-20221128173454899" style="zoom:50%;" />
+
+<ul>
+<li>带基极电阻的CE阶段。</li>
+</ul>
+<img src="https://i.imgur.com/DZvLEZY.png" alt="image-20221128173634850" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/l1W86qI.png" alt="image-20221128173828183" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/K0lXAQu.png" alt="image-20221128173920438" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/yYVuMrR.png" alt="image-20221128174102605" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/RjOhpcB.png" alt="image-20221128174143441" style="zoom:50%;" />
+
+<blockquote>
+<p>Rin1更重要，因为是在前阶段的输出阻抗。</p>
+</blockquote>
+<ul>
+<li>Example</li>
+</ul>
+<img src="https://i.imgur.com/AuUj38K.png" alt="image-20221128174321532" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/8s3gS67.png" alt="image-20221128174621557" style="zoom:50%;" />
+
+<h5 id="Inclusion-Of-Early-Effect"><a href="#Inclusion-Of-Early-Effect" class="headerlink" title="Inclusion Of Early Effect"></a>Inclusion Of Early Effect</h5><img src="https://i.imgur.com/9ZZhy7K.png" alt="image-20221129013438425" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/PIS0GNs.png" alt="image-20221129014105210" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/GzB52tW.png" alt="image-20221129013851137" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/I40Z1gp.png" alt="image-20221202110724427" style="zoom:50%;" />
+
+<blockquote>
+<ul>
+<li>发射集退化，导致输出阻抗增加</li>
+<li>提高了放大增益，让这个电路成为更好的电流源。</li>
+</ul>
+</blockquote>
+<ul>
+<li>Analysis by inspection</li>
+</ul>
+<img src="https://i.imgur.com/2aUHOpI.png" alt="image-20221202111010652" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/qsVwtBD.png" alt="image-20221202111201543" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/jSEAexO.png" alt="image-20221202111422695" style="zoom:50%;" />
+
+<blockquote>
+<ul>
+<li>电路被简化</li>
+<li>电容器会对地产生一个交流短路，然后将电路转化成一个已知地拓扑结构。</li>
+</ul>
+</blockquote>
+<ul>
+<li>Example: Degeneration by another system</li>
+</ul>
+<img src="https://i.imgur.com/PQiEPbI.png" alt="image-20221202111644422" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/Yy8A3lw.png" alt="image-20221202111935195" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/HpPoUyl.png" alt="image-20221202112013210" style="zoom:50%;" />
+
+<blockquote>
+<ul>
+<li>称为联极，具有很多优点。</li>
+</ul>
+<p>　</p>
+</blockquote>
+<h4 id="3-CE-stage"><a href="#3-CE-stage" class="headerlink" title="3. CE-stage"></a>3. CE-stage</h4><h5 id="Ignore-Early-Effect-1"><a href="#Ignore-Early-Effect-1" class="headerlink" title="Ignore Early Effect"></a>Ignore Early Effect</h5><ul>
+<li>Complete CE stage</li>
+</ul>
+<img src="https://i.imgur.com/YrbHDHp.png" alt="image-20221202113119389" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/hrM3U2C.png" alt="image-20221202113956585" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/SA7sGjf.png" alt="image-20221202114016469" style="zoom:50%;" />
+
+<h3 id="Common-Base-CB-amplifier"><a href="#Common-Base-CB-amplifier" class="headerlink" title="Common Base(CB) amplifier"></a>Common Base(CB) amplifier</h3><img src="https://i.imgur.com/bLyXaV5.png" alt="image-20221202114800152" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/jMpsefJ.png" alt="image-20221202115503851" style="zoom:50%;" />
+
+<blockquote>
+<ul>
+<li>发射极为输入信号</li>
+<li>集电极为输出信号</li>
+<li>基极固定电压偏置</li>
+</ul>
+</blockquote>
+<h4 id="CB-core"><a href="#CB-core" class="headerlink" title="CB core"></a>CB core</h4><img src="https://i.imgur.com/THWjqBU.png" alt="image-20221202115714111" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/xNa49sY.png" alt="image-20221202115825424" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/86rT2l3.png" alt="image-20221202115849832" style="zoom:50%;" />
+
+<p><img src="https://i.imgur.com/JoLXwjW.png" alt="image-20221202120624037"></p>
+<img src="https://i.imgur.com/OCkJuk8.png" alt="image-20221202120649873" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/pQe9wSW.png" alt="image-20221202120731151" style="zoom:50%;" />
+
+<blockquote>
+<p>为了保持晶体管的不处于饱和状态，RC上的最大压降不能超过Vcc - Vbe.</p>
+</blockquote>
+<h4 id="Impedance"><a href="#Impedance" class="headerlink" title="Impedance"></a>Impedance</h4><h5 id="Input-Impedance-of-CB"><a href="#Input-Impedance-of-CB" class="headerlink" title="Input Impedance of CB"></a>Input Impedance of CB</h5><img src="https://i.imgur.com/UtfiRj5.png" alt="image-20221204213722779" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/Id1b50R.png" alt="image-20221204214102304" style="zoom:50%;" />
+
+<h5 id="Output-Impedance-of-CB"><a href="#Output-Impedance-of-CB" class="headerlink" title="Output Impedance of CB"></a>Output Impedance of CB</h5><img src="https://i.imgur.com/nPSHnTT.png" alt="image-20221204214321400" style="zoom:50%;" />
+
+<p>n</p>
+<h5 id="CB-stage-with-source-resistance"><a href="#CB-stage-with-source-resistance" class="headerlink" title="CB stage with source resistance"></a>CB stage with source resistance</h5><img src="https://i.imgur.com/En6fTwu.png" alt="image-20221204215004088" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/xkaSm33.png" alt="image-20221204215211890" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/oABhKEk.png" alt="image-20221204215021377" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/5JGwYt0.png" alt="image-20221204215231060" style="zoom:50%;" />
+
+<blockquote>
+<ul>
+<li>由于加入了源电阻，输入信号到达发射极之前就被衰减了，所以我们看到了一个较低的电压增益。</li>
+<li>这相当于CE发射极的退化，只是相位颠倒了。</li>
+</ul>
+</blockquote>
+<h5 id="Realistic-Output-Impedance-of-CB-stage"><a href="#Realistic-Output-Impedance-of-CB-stage" class="headerlink" title="Realistic Output Impedance of CB stage"></a>Realistic Output Impedance of CB stage</h5><img src="https://i.imgur.com/EbSOHQE.png" alt="image-20221204215552180" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/KNiA71X.png" alt="image-20221204215748878" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/UgnnGTH.png" alt="image-20221204215812521" style="zoom:50%;" />
+
+<blockquote>
+<p>CB的输出阻抗等于Rc并联集电极下面的阻抗</p>
+</blockquote>
+<h4 id="Bace-with-Resistance"><a href="#Bace-with-Resistance" class="headerlink" title="Bace with Resistance"></a>Bace with Resistance</h4><h5 id="CB-with-Bace-Resistance"><a href="#CB-with-Bace-Resistance" class="headerlink" title="CB with Bace Resistance"></a>CB with Bace Resistance</h5><img src="https://i.imgur.com/7fRB2cp.png" alt="image-20221204220722471" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/ksy4Hj6.png" alt="image-20221204221216607" style="zoom:50%;" />
+
+
+
+<img src="https://i.imgur.com/P8ksntH.png" alt="image-20221204220905972" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/sIzrPSO.png" alt="image-20221204221955155" style="zoom:50%;" />
+
+<blockquote>
+<p>随着基极电阻的增加，电压增益下降。</p>
+</blockquote>
+<h5 id="Comparison-of-CE-and-CB-Stage-with-Base-Resistance"><a href="#Comparison-of-CE-and-CB-Stage-with-Base-Resistance" class="headerlink" title="Comparison of CE and CB Stage with Base Resistance"></a>Comparison of CE and CB Stage with Base Resistance</h5><img src="https://i.imgur.com/gerTLOu.png" alt="image-20221205203806094" style="zoom:50%;" />
+
+<blockquote>
+<p>带基极电阻的CB放大器的电压增益与带基极电阻和发射极退化的CE极安全相同，<strong>只是符号为负。</strong></p>
+</blockquote>
+<h5 id="Input-Impedance-of-CB-stage-with-base-Resistance"><a href="#Input-Impedance-of-CB-stage-with-base-Resistance" class="headerlink" title="Input Impedance of CB stage with base Resistance"></a>Input Impedance of CB stage with base Resistance</h5><img src="https://i.imgur.com/2uAdsSZ.png" alt="image-20221205204931662" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/gajW0gM.png" alt="image-20221205205130635" style="zoom:50%;" />
+
+
+
+<img src="https://i.imgur.com/g5A5IQc.png" alt="image-20221205205221881" style="zoom:50%;" />
+
+<p>In CE</p>
+<img src="https://i.imgur.com/ZR05UFZ.png" alt="image-20221205205443390" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/M2a6YcY.png" alt="image-20221205205457348" style="zoom:50%;" />
+
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p><img src="https://i.imgur.com/nGaJ2aA.png" alt="image-20221205205514042"></p>
+<img src="https://i.imgur.com/kYufGt6.png" alt="image-20221205210202723" style="zoom:50%;" />
+
+<ul>
+<li>CB proper(适当)偏置</li>
+</ul>
+<img src="https://i.imgur.com/TXW7BVw.png" alt="image-20221205210409787" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/CN1w4FQ.png" alt="image-20221205211142322" style="zoom:50%;" />
+
+<h3 id="Common-Collector-CC-amplifier"><a href="#Common-Collector-CC-amplifier" class="headerlink" title="Common Collector(CC) amplifier"></a>Common Collector(CC) amplifier</h3><img src="https://i.imgur.com/7zm3gZM.png" alt="image-20221205211500712" style="zoom:50%;" />
+
+<h4 id="Not-early-effect"><a href="#Not-early-effect" class="headerlink" title="Not early effect"></a>Not early effect</h4><img src="https://i.imgur.com/tuSiJGA.png" alt="image-20221205211603379" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/ZjxqZAP.png" alt="image-20221205211906651" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/l8Rjlkb.png" alt="image-20221205212200331" style="zoom:50%;" />
+
+<h4 id="early-effect"><a href="#early-effect" class="headerlink" title="early effect"></a>early effect</h4><img src="https://i.imgur.com/iLyfsdD.png" alt="image-20221205212616667" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/opfMwvc.png" alt="image-20221205212938599" style="zoom:50%;" />
+
+<h4 id="Current-Gain"><a href="#Current-Gain" class="headerlink" title="Current Gain"></a>Current Gain</h4><img src="https://i.imgur.com/v4JqEXO.png" alt="image-20221205213013411" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/7DFCnSp.png" alt="image-20221205213135343" style="zoom:50%;" />
+
+<h4 id="CC-with-base-biasing"><a href="#CC-with-base-biasing" class="headerlink" title="CC with base biasing"></a>CC with base biasing</h4><img src="https://i.imgur.com/N5HaQKH.png" alt="image-20221205213239778" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/8sc820u.png" alt="image-20221205213515230" style="zoom:50%;" />
+
+<h2 id="Amplifier-Example"><a href="#Amplifier-Example" class="headerlink" title="Amplifier Example"></a>Amplifier Example</h2><h4 id="Example1"><a href="#Example1" class="headerlink" title="Example1"></a>Example1</h4><img src="https://i.imgur.com/7xsTT2n.png" alt="image-20221205213627825" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/VNrq6eF.png" alt="image-20221205214415363" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/ZcOJeze.png" alt="image-20221205214634806" style="zoom:50%;" />
+
+<h4 id="Example2"><a href="#Example2" class="headerlink" title="Example2"></a>Example2</h4><img src="https://i.imgur.com/jKaq2EU.png" alt="image-20221205214529866" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/1FlSo3X.png" alt="image-20221205215110579" style="zoom:50%;" />
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/11/28/Micro%20Electronic/BJT-amplifier/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Micro-system/" rel="tag">Micro_system</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/11/30/CNN%20project/Keras-model-in-Coral-accelerator/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Keras model in Coral accelerator
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/11/25/Recommand%20Website/%E5%A5%BD%E7%94%A8%E5%A4%A7%E5%90%88%E9%9B%86/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">网站软件推荐</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> Jessy Huang
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo图片.png" alt="Jessy&#39;s daily note"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2022/11/01/%E5%85%B3%E4%BA%8E%E6%88%91">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

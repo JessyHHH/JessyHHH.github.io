@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>unity进阶篇3-Tilemap的使用 |  Jessy&#39;s daily note</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="images/logo图片.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-unity/unity进阶篇3"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  unity进阶篇3-Tilemap的使用
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/08/03/unity/unity%E8%BF%9B%E9%98%B6%E7%AF%873/" class="article-date">
+  <time datetime="2022-08-02T19:49:32.000Z" itemprop="datePublished">2022-08-03</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/unity%E5%BC%95%E6%93%8E%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/">unity引擎学习博客</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">917</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">3 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="关于Tilemap的创建和使用"><a href="#关于Tilemap的创建和使用" class="headerlink" title="关于Tilemap的创建和使用"></a>关于Tilemap的创建和使用</h2><p>相关文档<a target="_blank" rel="noopener" href="https://space.bilibili.com/43644141/channel/seriesdetail?sid=299912">b站视频56-60</a> <a target="_blank" rel="noopener" href="https://gitee.com/chutianshu1981/xyz-s-free-course-for-full-stack-web-dev/blob/main/GameDesign/Unity/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E9%A1%B9%E7%9B%AE%E7%B3%BB%E5%88%97/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B05_2D%E6%B8%B8%E6%88%8F/RubyAdventure/02-%E4%BD%BF%E7%94%A8%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA%E4%B8%96%E7%95%8C.md#3-%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BE%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B">相关文档</a></p>
+<ul>
+<li>什么是Tilemap</li>
+</ul>
+<blockquote>
+<p>它相当是创造游戏背景的一个工具，英语翻译过来为<strong>瓦片地图</strong> </p>
+</blockquote>
+<ul>
+<li>如何使用Tilemap</li>
+</ul>
+<blockquote>
+<ol>
+<li>首先我们根据视频教程到官方文档下载Tilemap.png图片</li>
+<li>在Asserts里创建一个新的文件夹，右键<strong>Input new Assert</strong>或者<strong>文件夹拖进unity里面</strong></li>
+<li>在上面的windos里点进2D-Tile Palette</li>
+<li>点击<strong>Create New palette</strong> 或者在创建好的文件夹里右键<strong>Creat - 2D - Tile Palette - Rectangle&#x2F;或你想要的形状</strong></li>
+<li>我们把导进unity的Tilemap.png改一下<strong>type - sprite</strong></li>
+<li>然后我们再点击Tile Palette窗口，将Tilemap.png拖进去，我们发现格子里有Tilemap的图像</li>
+<li>将之前创建好的Tilemap拖进Hierachy，然后用TIle Palette工具绘制背景，但是我们会发现每一个的背景和各自并不是完全覆盖</li>
+<li>由于<strong>Tilemap.png是64*64</strong>，而<strong>系统是自动默认100*100</strong>，所以导致背景在格子里填不满</li>
+<li><strong>更改Pixels per Unit(像素单位)</strong> 到<strong>100 -&gt; 64</strong> ，然后再点击自动弹出窗口的Apply就行了。</li>
+</ol>
+</blockquote>
+<ul>
+<li>如果一个图片里有着复杂的地图图像，想要自动化绘制该如何绘制 —- RuleTile 使用</li>
+</ul>
+<blockquote>
+<ol>
+<li>首先我们找到一张图片，可以查看相关文档的官方教程导入官方素材到projcet里</li>
+<li>将该图片分割成9份, <strong>首先将Sprite Mode改成 Single -&gt; Multiple</strong></li>
+<li>**Pixeles Per Unit: 100 -&gt; 64 **</li>
+<li>点击Sprite Editor - Slice - Type : Automatic -&gt; Grid by cell size 或者 Grid by cell count(这个要自己设置) - 点击Silce 然后 右边Apply。</li>
+<li>官方素材像素是192*192, 所以64 &#x3D; 192&#x2F;3，如果是Gridz by cell count可以设置pixels size x:64 y:64</li>
+<li>在文件夹里Create - 2D - Tiles - RuleTile</li>
+<li>在inspector里面我们可以看到，在Tiling Rules里 list is empty，所以我们需要点击加号增加到9条。</li>
+<li>将分割的九张图片一次放进Tiling Rules里创建的每个一条里（具体操作看视频）</li>
+<li>记得在Default Sprite上将入一张图片（任意），不然在Tile Palette 是显示不出来的</li>
+<li>然后就可以用画笔将Tile 添加在Scene里了。</li>
+</ol>
+</blockquote>
+<ul>
+<li>上面的RuleTile需要一个一个图片加进去，太麻烦了，有更快的方法吗。 —-Rule Overrid TIles使用</li>
+</ul>
+<blockquote>
+<p>前提：Rule Override Tile 是模仿之前的Rule规则来添加的，如果还想用前面RuleTIle 的规则就直接用 Rule Override Tiles就可以了。</p>
+<ol>
+<li>Create - 2D - Tiles - Rule Override TIle</li>
+<li>在Tile 那里添加之前的 Rule Tile，然后会多出一些了之前的图片，然后在右边添加分割的图片即可。</li>
+</ol>
+</blockquote>
+<h2 id="关于场景中的图像排序（例：人物经过某些场景是在物体后面还是前面）"><a href="#关于场景中的图像排序（例：人物经过某些场景是在物体后面还是前面）" class="headerlink" title="关于场景中的图像排序（例：人物经过某些场景是在物体后面还是前面）"></a>关于场景中的图像排序（例：人物经过某些场景是在物体后面还是前面）</h2><ul>
+<li>伪透视图</li>
+</ul>
+<blockquote>
+<p>当一个人经过一棵树时，人的y轴若在树根下面，则人物不会在树木后面，若人在树的y轴上面，则人在树木后面</p>
+<p>操作：</p>
+<ol>
+<li><p>添加一个人物和一个物体</p>
+</li>
+<li><p>Edit - project settings - Graphics - Camera setting - Transparency Sort Mode -&gt; Custom Axis(自定义轴心) - Transparency Sort Axis x &#x3D; 0 &#x2F; y &#x3D; 1 &#x2F; z &#x3D; 0</p>
+<p>作用是根据根据人物和物体的轴心判定人物触碰该物体是否覆盖。</p>
+</li>
+<li><p>运行尝试。</p>
+</li>
+</ol>
+</blockquote>
+<ul>
+<li>上面更改完摄像轴体判断后，如果在物体和人物判断还有些许细微区别，则可以进行微调 – Sprite 轴心 pivot</li>
+</ul>
+<blockquote>
+<p>在人物和物体里都有 Pivot 可以调整，有center, bottom,Top, left, right,选择你想要的轴心</p>
+<p>或者</p>
+<p>在Sprite Editor上可以自定义轴心，蓝色的小圈圈就是它的轴心。</p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/08/03/unity/unity%E8%BF%9B%E9%98%B6%E7%AF%873/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity%E8%BF%9B%E9%98%B6%E7%AF%87/" rel="tag">unity进阶篇</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/08/06/unity/unity%E8%BF%9B%E9%98%B6%E7%AF%874/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            unity进阶篇4-物理系统（碰撞体和刚体）的使用
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/08/01/unity/unity%E8%BF%9B%E9%98%B6%E7%AF%872/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">unity进阶篇2-角色的程序写入</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> Jessy Huang
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo图片.png" alt="Jessy&#39;s daily note"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2022/11/01/%E5%85%B3%E4%BA%8E%E6%88%91">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

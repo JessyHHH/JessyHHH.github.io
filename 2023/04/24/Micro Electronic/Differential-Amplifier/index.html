@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Differential Amplifier |  Jessy&#39;s daily note</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="images/logo图片.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Micro Electronic/Differential-Amplifier"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Differential Amplifier
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/04/24/Micro%20Electronic/Differential-Amplifier/" class="article-date">
+  <time datetime="2023-04-24T12:22:59.000Z" itemprop="datePublished">2023-04-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF/">微电子电路</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">6 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>[toc]</p>
+<h1 id="Differentia-Amplifier-差分放大器"><a href="#Differentia-Amplifier-差分放大器" class="headerlink" title="Differentia-Amplifier 差分放大器"></a>Differentia-Amplifier 差分放大器</h1><h2 id="General-Consideration"><a href="#General-Consideration" class="headerlink" title="General Consideration"></a>General Consideration</h2><h3 id="What-is-differential-Amplifier"><a href="#What-is-differential-Amplifier" class="headerlink" title="What is differential-Amplifier"></a>What is differential-Amplifier</h3><p>快速了解什么是差分放大器</p>
+<p>既然是放大器那肯定就跟之前一样是将一个电流或者电压放大，关键在于(Differential)差分是如何放大的.</p>
+<p>首先信号通过放大器会放大，如音频放大器</p>
+<p><img src="https://i.imgur.com/BGoQ3j0.png" alt="Audio Amplifier Example"></p>
+<p>我们可以如上图所示，电压放大后，有着巨大的噪音，根本听不清楚，嗡嗡的。</p>
+<p>消除它们的话可以如下图所示，使用supply Ripple rejection，中文应该叫供应纹波抑制。</p>
+<p><img src="https://i.imgur.com/MKnnlx8.png" alt="Supple Ripple rejection"></p>
+<p>刷图可以看到经过两个mos才输出，而且还是在base上输出，它的结果是什么呢</p>
+<p>我们可以看到右边的公式，它通过Vx的和Vy的差分得到最后的增益，由于这两个波纹正好相对，所以会消除成没有波纹，但是我们光得到增益不行，一首歌不可能只有一个调调吧，随着波的增大，我们还要知道它原本的信号形状。</p>
+<p>如果公用一个信号的话，整个增益就是零了，如下图所示，差分信号公用一个信号源。</p>
+<p><img src="https://i.imgur.com/Hwtfa9r.png" alt="Common Inputs to Differential Ammplifer"></p>
+<p>如上图所示两个差分公用一个信号源，所以Av增益为0；既相同相位直接相消除，如下图。</p>
+<p><img src="https://i.imgur.com/BvWxMml.png" alt="相同波形相消"></p>
+<p>但如果我们相位相反则会怎么样呢，如下图电路所示</p>
+<p><img src="https://i.imgur.com/xMYAjBn.png" alt="相位相反的input"></p>
+<p>那么增益会直接增大两倍，但有时候我们只需要正常的增益就行，两倍可能太大，这个后面会谈，总之还不够完美。</p>
+<p><img src="https://i.imgur.com/X83ipEf.png" alt="增大两倍"></p>
+<p>所以如果不想增益为0，则相位必须为0，(Differential Signal)差分信号的特点是，平均值相同，幅度相同，但是相位相反。(They share the same average value to ground and are equal in magnitude but opposite in phase)</p>
+<p>差分信号的产生通常是通过变压器(transformer)来产生。</p>
+<p><img src="https://i.imgur.com/eiL32mL.png" alt="Transformer generate differential signals"></p>
+<p>单信号输入输出和差分信号对输入输出</p>
+<p><img src="https://i.imgur.com/I3NHMht.png" alt="Singal signal"></p>
+<p><img src="https://i.imgur.com/SGkPDOV.png" alt="Differential signal"></p>
+<p><img src="https://i.imgur.com/oiQEUJy.png" alt="Differential Gain analysis"></p>
+<h3 id="Common-mode-and-Differential-mode-gain"><a href="#Common-mode-and-Differential-mode-gain" class="headerlink" title="Common-mode and Differential mode gain"></a>Common-mode and Differential mode gain</h3><p>我们知道了基本原理之后还需要知道一种叫差分对(differential pair)的电路。</p>
+<p><img src="https://i.imgur.com/NmFuDM5.png" alt="BJT and MOS differential pair"></p>
+<p>可以看到与上面差分电路对区别是加了一个current sorce在中间,一般称为tail current, 它的作用是提供高共模抑制比(High common mode rejection ratio)。</p>
+<p>什么是共模抑制比(common mode rejection ratio(CMRR))呢.</p>
+<p><strong>它的定义是差模增益(differential-mode gain)与共模增益(common-modee gain)之间的比率，表示放大器准确消除两个输入共有的电压的能力，</strong></p>
+<p>公式定义为： </p>
+<p><strong>CMRR&#x3D; 20log<sub>10</sub>(Ad&#x2F;|Ac|)</strong></p>
+<p>接下来让我们看一下共模响应和差模响应的电路图，后面会学到差模和共模结合一起的电路图就会用到上述公式。</p>
+<h4 id="Common-mode-Response-and-Rejection共模响应和抑制"><a href="#Common-mode-Response-and-Rejection共模响应和抑制" class="headerlink" title="Common-mode Response and Rejection共模响应和抑制"></a>Common-mode Response and Rejection共模响应和抑制</h4><p><img src="https://i.imgur.com/YcHxRKn.png" alt="Common-mode response"></p>
+<p><img src="https://i.imgur.com/bW0apYu.png" alt="calculate part"></p>
+<p><img src="https://i.imgur.com/F19kJxG.png" alt="Common-mode rejection"></p>
+<p>如上图的抑制所示，Vcm1 &#x3D; Vcm2 并且因为有tail current source在，在没有改变output common-mode value可以变化input common-mode value.这句话比较难理解，简单的来说由于tail current的原因，抑制会比较强，防止电压到达saturation状态，所以尽管Vcm1 比 Vcm2 大，但是输出的output(Vx &#x3D; Vy)是相等的，也就是说到达了临界点不能再大了。</p>
+<h4 id="Differential-Response差分响应"><a href="#Differential-Response差分响应" class="headerlink" title="Differential Response差分响应"></a>Differential Response差分响应</h4><p><img src="https://i.imgur.com/4bwchws.png" alt="Differential response1"></p>
+<p><img src="https://i.imgur.com/kTbp76r.png" alt="Calculation part"></p>
+<p><img src="https://i.imgur.com/ByUoQEH.png" alt="differential Response 2"></p>
+<p><img src="https://i.imgur.com/OHKwG3b.png" alt="Differential respomse2 Calculation part"></p>
+<p>总结，当输入不同对电压时，电压高的一边有Iee，另一边则为0，切电压高的一方为positive，根据方向来盘对output的differential mode（DM）的输出是正的还是负的。根据common mode的原理输入的变换不影响输出的值，我们可以看到两个response的common mode output都是相同的，只有differential mode的不同。</p>
+<h2 id="Bipolar-Differential-pair"><a href="#Bipolar-Differential-pair" class="headerlink" title="Bipolar Differential pair"></a>Bipolar Differential pair</h2><h3 id="BJT-DM-analysis"><a href="#BJT-DM-analysis" class="headerlink" title="BJT DM analysis"></a>BJT DM analysis</h3><p><img src="https://i.imgur.com/wOD6ZTl.png" alt="Differential pair of characteristics"></p>
+<p>这个过程表示非零差分输入会导致输出的电流和电压变化，但是共模输入则不会产生变化。</p>
+<p>左边是input， 右边是output。</p>
+<p><img src="https://i.imgur.com/mMbeQbJ.png" alt="Small-signal Analysis"></p>
+<p><img src="https://i.imgur.com/zk8MLHj.png" alt="handwirte"></p>
+<p>由于Q1 and Q2的输入上升和下降幅度相同，而且他们的基极是绑在一起的，所以Ic1的上升与Ic2的下降幅度(magnitude)相同。</p>
+<p><img src="https://i.imgur.com/0Z9XrQk.png" alt="Virtual Ground"></p>
+<p><img src="https://i.imgur.com/armh0On.png" alt="gm1 and gm2"></p>
+<p>因为Ic1和Ic2的上升下降幅度相同，所以节点p必须保持不变以适应这些变化。所以节点p可以被看作AC ground(交流地)</p>
+<p><img src="https://i.imgur.com/00p5OQx.png" alt="Small-signal differentil gain"></p>
+<p><img src="https://i.imgur.com/DXfKGQn.png" alt="Derivation"></p>
+<p><img src="https://i.imgur.com/AvR9b3f.png" alt="大信号分析"></p>
+<p><img src="https://i.imgur.com/GrdL8Wu.png" alt="derivation"></p>
+<p><img src="https://i.imgur.com/pwCuL58.png" alt="输入和输出图"></p>
+<p><img src="https://i.imgur.com/aYzyndR.png" alt="Derivation"></p>
+<p><img src="https://i.imgur.com/v6TjSkA.png" alt="Linear / Non-Linear regions"></p>
+<p><img src="https://i.imgur.com/b2fYLMc.png" alt="marks"></p>
+<p><img src="https://i.imgur.com/hz4eRsh.png" alt="小信号模型"></p>
+<p><img src="https://i.imgur.com/OA1Dvm0.png" alt="Q1 and Q2"></p>
+<p><img src="https://i.imgur.com/9tMEkpa.png" alt="Derivation"></p>
+<h3 id="Half-Circuit"><a href="#Half-Circuit" class="headerlink" title="Half Circuit"></a>Half Circuit</h3><p><img src="https://i.imgur.com/2g3GDIo.png" alt="Half Circuits"></p>
+<blockquote>
+<p>由于Vp是接地的，我们可以将差分视为两个CE电路“半电路”</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<p><img src="https://i.imgur.com/wl5wTxa.png" alt="Example: Differential Gain"></p>
+<p><strong>Half circuit Example</strong></p>
+<p><img src="https://i.imgur.com/ICz77rB.png" alt="Half Circuit Example"></p>
+<p><img src="https://i.imgur.com/17Fp9tP.png" alt="Half Circuit Example"></p>
+<p><img src="https://i.imgur.com/NtYImfW.png" alt="Half-Circuit Example2"></p>
+<p><img src="https://i.imgur.com/EzRdac3.png" alt="Half Circuit Example3"></p>
+<p><img src="https://i.imgur.com/QiX9756.png" alt="AV"></p>
+<blockquote>
+<p>RE increase the linearity of the amplifier, it can amplify larger signal at its input, the cost is reduced gain.</p>
+<p>RE 增加放大器的线性度，它可以在其输入端放大更大的信号，代价是降低增益。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/4a8kk3i.png" alt="Half Circuit Example 4"></p>
+<p><img src="https://i.imgur.com/x82Weni.png" alt="KVL and Av"></p>
+<h2 id="Mos-Differential-pair"><a href="#Mos-Differential-pair" class="headerlink" title="Mos Differential pair"></a>Mos Differential pair</h2><h3 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h3><p><img src="https://i.imgur.com/558kqmC.png" alt="Mos 差分共模响应"></p>
+<p><img src="https://i.imgur.com/cq4pVC7.png" alt="image-20230516133350581"></p>
+<blockquote>
+<p>与双极性对应物类似，Mos差分在对Vcm变化时产生零差分输出。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/QH6m6C7.png" alt="平衡过载电压"></p>
+<blockquote>
+<p>平衡过载电压被定义为当M1和M2都携带Iss&#x2F;2时所看到的过载电压。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/Tw6lFn8.png" alt="Derivation"></p>
+<p><img src="https://i.imgur.com/x7ng967.png" alt="最小共模输出电压"></p>
+<blockquote>
+<ul>
+<li>为了让M1 和 M2 保持饱和状态，共模输出电压不能低于上述数值。</li>
+<li>这个数值通常限制来电压增益。</li>
+</ul>
+</blockquote>
+<p><img src="https://i.imgur.com/2zJyhvo.png" alt="derivation"></p>
+<p><img src="https://i.imgur.com/OPKcuTE.png" alt="Differential Response"></p>
+<p><img src="https://i.imgur.com/gAxJsyY.png" alt="Small-signal Response"></p>
+<blockquote>
+<p>与它的双极性对应物类似，Mos差分对 表现出相同的虚拟接地节点和小信号增益。</p>
+</blockquote>
+<h3 id="Effect-about-each-parameters"><a href="#Effect-about-each-parameters" class="headerlink" title="Effect about each parameters"></a>Effect about each parameters</h3><p><img src="https://i.imgur.com/mGu2g1x.png" alt="功率和增益的权衡"></p>
+<blockquote>
+<p>为了获得像CS那样相同对增益，MOS差分对必须耗散两倍的电流。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/faMk4jc.png" alt="Mos差分对大信号响应"></p>
+<p><img src="https://i.imgur.com/I1bAYSo.png" alt="最大差分输入电压"></p>
+<blockquote>
+<p>存在一个有限的差分输入电压，可以完全将尾部电流从一个晶体管引导到另一个晶体管，这个值被称为最大差分输入电压。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/DPJDE6c.png" alt="linear"></p>
+<p><img src="https://i.imgur.com/eL7ldoP.png" alt="derivation"></p>
+<p><img src="https://i.imgur.com/dwlU1b8.png" alt="MOS 和 BJT差分对的比较"></p>
+<blockquote>
+<ul>
+<li><p>在MOS差分对中存在一个有限的差分输入电压，可以将电流从一个晶体管切换到另一个晶体管。</p>
+</li>
+<li><p>在双极对中存在一个有限的差分输入电压，双极对的电压是无限的</p>
+</li>
+</ul>
+</blockquote>
+<p><img src="https://i.imgur.com/0zz3ca7.png" alt="尾部电流翻倍对影响"></p>
+<blockquote>
+<p>由于Iss增加来一倍，而W&#x2F;L保持不变，因此平衡每个晶体管的过载电压必须增加2^-1&#x2F;2（根号2）倍，以适应这一变化，所以 betaVin ,max 也增加根号2倍，此外Iss增加一倍，差分输出摆幅将增加一倍。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/dukivwV.png" alt="倍增W/L的影响"></p>
+<blockquote>
+<p>由于W&#x2F;L增加来1倍，而尾部电流保持不变，平衡过载电压将降低根号2来适应这一变化，而 betaVin,max 也降低根号2，此外差分输出的摆幅不变，因为Iss和Rd不变。</p>
+</blockquote>
+<h3 id="Small-signal-and-half-circuit"><a href="#Small-signal-and-half-circuit" class="headerlink" title="Small-signal and half circuit"></a>Small-signal and half circuit</h3><p><img src="https://i.imgur.com/njTvVOa.png" alt="小信号分析Mos差分对"></p>
+<p><img src="https://i.imgur.com/YWsyOCY.png" alt="中文解释"></p>
+<p><img src="https://i.imgur.com/4gcXUIl.png" alt="虚拟接地和 half circuit"></p>
+<blockquote>
+<p><img src="https://i.imgur.com/lQ7HBus.png" alt="中文解释"></p>
+</blockquote>
+<p><img src="https://i.imgur.com/ZI8o4dN.png" alt="Mos differential Pair half circuit example1"></p>
+<p><img src="https://i.imgur.com/jSgS851.png" alt="Example2"></p>
+<p><img src="https://i.imgur.com/ZE1oF89.png" alt="example3"></p>
+<h2 id="Cascode-Differential-Amplifier"><a href="#Cascode-Differential-Amplifier" class="headerlink" title="Cascode Differential Amplifier"></a>Cascode Differential Amplifier</h2><h3 id="BJT-differential-Pair"><a href="#BJT-differential-Pair" class="headerlink" title="BJT differential Pair"></a>BJT differential Pair</h3><p><img src="https://i.imgur.com/Cu1MJga.png" alt="Cascode Differential pair"></p>
+<p><img src="https://i.imgur.com/sxY2MjW.png" alt="Derivation"></p>
+<p><img src="https://i.imgur.com/uGSBOlh.png" alt="Telescopic Cascode"></p>
+<p><img src="https://i.imgur.com/dHroBYt.png" alt="Av derivation"></p>
+<p><img src="https://i.imgur.com/XjJNXMX.png" alt="Telescopic parasitic Resistance"></p>
+<p><img src="https://i.imgur.com/DhQ1E8p.png" alt="derivation"></p>
+<h3 id="MOS-differential-pair"><a href="#MOS-differential-pair" class="headerlink" title="MOS differential pair"></a>MOS differential pair</h3><p><img src="https://i.imgur.com/iDOyYD2.png" alt="Mos cascode differential pair"></p>
+<p><img src="https://i.imgur.com/GYGvmuc.png" alt="derivation"></p>
+<p><img src="https://i.imgur.com/qurahZ1.png" alt="Mos telescopic cascode"></p>
+<p><img src="https://i.imgur.com/WiwGWOf.png" alt="derivation"></p>
+<p><img src="https://i.imgur.com/Zq4yfuk.png" alt="Telescopic parasitic Resistance"></p>
+<p><img src="https://i.imgur.com/Rv3On6G.png" alt="Derivation"></p>
+<p><strong>Exercise Differential cascade.</strong> </p>
+<p><img src="https://i.imgur.com/8v4IWzR.png" alt="Exercise"></p>
+<h2 id="Nonidealities"><a href="#Nonidealities" class="headerlink" title="Nonidealities"></a>Nonidealities</h2><p><img src="https://i.imgur.com/v5BFwNb.png" alt="尾部有限阻抗的影响"></p>
+<p><img src="https://i.imgur.com/JkMcm77.png" alt="Derivation"></p>
+<p><img src="https://i.imgur.com/zFgtOW0.png" alt="具有输入理想尾部电流的CM噪声"></p>
+<p><img src="https://i.imgur.com/Ns5TtZH.png" alt="具有非理想尾流的输入CM噪声"></p>
+<p><img src="https://i.imgur.com/e8lzXjv.png" alt="比较"></p>
+<blockquote>
+<p><img src="https://i.imgur.com/YhzKDZI.png" alt="中文解释"></p>
+</blockquote>
+<p><img src="https://i.imgur.com/1sOAHwx.png" alt="CM to DM的转换"></p>
+<blockquote>
+<p><img src="https://i.imgur.com/Gs3JtVO.png" alt="中文解释"></p>
+</blockquote>
+<p><img src="https://i.imgur.com/mTVhwdn.png" alt="derivation"></p>
+<h2 id="Differential-Pair-with-Active-Load"><a href="#Differential-Pair-with-Active-Load" class="headerlink" title="Differential Pair with Active Load"></a>Differential Pair with Active Load</h2><p><img src="https://i.imgur.com/qOlRr64.png" alt="Example: Acm-dm"></p>
+<p><img src="https://i.imgur.com/5NXSdfW.png" alt="derivation"></p>
+<p><img src="https://i.imgur.com/ENQeN5o.png" alt="CMRR"></p>
+<blockquote>
+<p><img src="https://i.imgur.com/hu4Mi4L.png" alt="中文解释"></p>
+</blockquote>
+<p><img src="https://i.imgur.com/ypt4vUI.png" alt="Active load"></p>
+<p>![image-20230516182157688](&#x2F;Users&#x2F;jessyhuang&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230516182157688.png)</p>
+<p><img src="https://p.ipic.vip/9308ht.png" alt="Differential pair with active load"></p>
+<p><img src="https://p.ipic.vip/w3pz2h.png" alt="中文解释"></p>
+<p><img src="https://p.ipic.vip/k56oqh.png" alt="活性负载 vs 静态负载"></p>
+<blockquote>
+<p><img src="https://p.ipic.vip/pqr08a.png" alt="中文解释"></p>
+</blockquote>
+<p><img src="https://p.ipic.vip/wwf4qq.png" alt="Asymmetric differential pair"></p>
+<blockquote>
+<p><img src="https://p.ipic.vip/18chpg.png" alt="中文解释"></p>
+</blockquote>
+<p><img src="https://p.ipic.vip/vvz9s3.png" alt="输入对的戴维南等价物"></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2023/04/24/Micro%20Electronic/Differential-Amplifier/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Micro-system/" rel="tag">Micro_system</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2023/05/16/Micro%20Electronic/Frequency-Response/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Frequency Response
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2023/03/01/CNN%20project/classification-and-objet-detection-model/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">classification and objet detection model</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> Jessy Huang
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo图片.png" alt="Jessy&#39;s daily note"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2022/11/01/%E5%85%B3%E4%BA%8E%E6%88%91">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

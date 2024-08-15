@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>BJT的物理特性和工作原理 |  Jessy&#39;s daily note</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="images/logo图片.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Micro Electronic/BJT的物理特性和工作原理"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  BJT的物理特性和工作原理
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/10/21/Micro%20Electronic/BJT%E7%9A%84%E7%89%A9%E7%90%86%E7%89%B9%E6%80%A7%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="article-date">
+  <time datetime="2022-10-21T11:32:15.000Z" itemprop="datePublished">2022-10-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF/">微电子电路</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">4 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>[toc]</p>
+<h1 id="BJT的工作原理"><a href="#BJT的工作原理" class="headerlink" title="BJT的工作原理"></a>BJT的工作原理</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Cherish1ove/article/details/113812218?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166662974016782412571504%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166662974016782412571504&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-113812218-null-null.142%5Ev59%5Enew_blog_pos_by_title,201%5Ev3%5Econtrol_1&utm_term=bjt&spm=1018.2226.3001.4187">参考博客csdn</a></p>
+<p>它具有超高频性能和大电流特性</p>
+<p><img src="https://i.imgur.com/AWn90I5.png" alt="img"></p>
+<h2 id="内部结构"><a href="#内部结构" class="headerlink" title="内部结构"></a>内部结构</h2><p>英文图：<img src="https://i.imgur.com/MDhqS8K.png" alt="image-20221021135848077" style="zoom:50%;" /></p>
+<p>中文图：</p>
+<p><img src="https://i.imgur.com/kPLCIx8.png" alt="img"></p>
+<ul>
+<li>在一个硅（或锗）片上生成三个杂质半导体区域：一个P区加在两个N区中间，或者一个N区加在两个P区中间。BJT有两种类型：NPN型和PNP型。从三个杂质半导体区域各自引出一个电极，分别称为发射极e，集电极c，基极b，它们对应的杂质半导体区域分别称-  发射区，集电区，基区。</li>
+<li>三个区（基区&#x2F;集电区&#x2F;发射区）</li>
+<li>两个PN结（发射结&#x2F;集电结）</li>
+</ul>
+<h2 id="三个区的特点"><a href="#三个区的特点" class="headerlink" title="三个区的特点"></a>三个区的特点</h2><h3 id="三个区各自的特点："><a href="#三个区各自的特点：" class="headerlink" title="三个区各自的特点："></a>三个区各自的特点：</h3><p>基区（base）：“控制区” ，<strong>掺杂浓度很低，基区宽度非常薄。</strong><br>集电区（Collector）：“收集载流子的区域” ，收集载流子，不能有过高的载流子（不能有过高的掺杂浓度），但是面积最大。类似仓库，不能放满东西也不能太小。<br>发射区（Emitter）：“发射载流子的区域” ，往外发射载流子，要有足够的载流子发射，此区域的载流子浓度最高，也就是掺杂浓度最高。<br>三个区电气不对称。</p>
+<h3 id="结构图："><a href="#结构图：" class="headerlink" title="结构图："></a>结构图：</h3><p><img src="https://i.imgur.com/jLiLgSG.png" alt="img"></p>
+<h2 id="放大状态下BJT的工作原理"><a href="#放大状态下BJT的工作原理" class="headerlink" title="放大状态下BJT的工作原理"></a>放大状态下BJT的工作原理</h2><p><strong>BJT内部有两个背靠背、互相影响的PN结。当这两个PN结的偏置条件（正偏或反偏）不同时，BJT将呈现不同的特性和功能，可能有四种工作状态：放大、饱和、截止、倒置。</strong></p>
+<ul>
+<li>BJT内部载流子的传输过程</li>
+<li>BJT的电流放大作用是由其内部载流子的定向（由发射区向集电区）运动体现出来的。为了保证内部载流子做这样的定向运动，实现电流放大，无论NPN型还是PNP型的BJT，都要将它们的发射结加正偏，集电结反偏。以NPN为例，分析如下：</li>
+</ul>
+<p>中文流程图：</p>
+<p><img src="https://i.imgur.com/ZstqjAJ.png" alt="img"></p>
+<p>英文流程图：</p>
+<img src="https://i.imgur.com/hJeHxKj.png" alt="image-20221021141052138" style="zoom:50%;" />
+
+<p>注：Depletion Region - 扩散区域其为pn结所在的区域</p>
+<p>一个是发射结和集电结</p>
+<h3 id="发射结正偏"><a href="#发射结正偏" class="headerlink" title="发射结正偏"></a>发射结正偏</h3><img src="https://i.imgur.com/8XI0vlk.png" alt="image-20221021141401140" style="zoom:50%;" />
+
+<p>发射区向基区扩散载流子，形成发射极电流IE。</p>
+<ul>
+<li>发射结外加正向电压，发射区（高掺杂）的多子电子将不断通过发射结扩散到基区，形成发射结电子扩散电流IEN，其方向与电子扩散方向相反。同时基区的多子空穴也要扩散到发射区，形成空穴扩散电流IEP，其方向与IEN相同，两个电流一起构成受发射结正向电压VBE控制的发射结电流（也就是发射极电流）IE</li>
+</ul>
+<img src="https://i.imgur.com/zZcWJ2V.png" alt="image-20221024174442630" style="zoom:50%;" />
+
+<ul>
+<li>IES为发射结的反向饱和电流，其值与温度、发射区及基区的掺杂浓度有关，还与发射结的面积成比例</li>
+<li>由于基区掺杂浓度很低，IEP很小，可认为：</li>
+</ul>
+<img src="https://i.imgur.com/NNxH4J5.png" alt="image-20221024174532003" style="zoom:50%;" />
+
+<p>载流子在基区扩散与<strong>复合</strong>，形成复合电流IBN</p>
+<ul>
+<li>由发射区扩散到基区的载流子电子在发射结边界附近浓度最高，离发射结越远浓度越低，形成了一定的浓度梯度。浓度差使得扩散到基区的电子继续向集电结方向扩散。扩散的时候，有一部分电子与基区的空穴复合，形成基区复合电流IBN。但是由于基区很薄，掺杂浓度又低，因此复合的电子很少，IBN很小。基区被复合掉的空穴由电压源VEE从基区拉走电子来补充。</li>
+</ul>
+<h3 id="集电极反偏"><a href="#集电极反偏" class="headerlink" title="集电极反偏"></a><strong>集电极反偏</strong></h3><ul>
+<li>现在自由电子扩散到集电结处，浓度梯度越来越高，如果集电结不把靠近的自由电子抽走，整个自由电子扩散会越来越慢直至停止。</li>
+<li>由于集电结外加反偏电压，空间电荷区的内电场被加强，对基区扩散到集电结边缘的载流子电子有很强的吸引力，使其漂移过集电结，被集电极收集，形成集电极漂移电流ICN，这个电流是受发射结正向电压VBE控制的。此外，基区自身的少子电子与集电区的少子空穴也要在集电结反偏作用下产生漂移，形成集电结反向饱和电流ICBO，方向与ICN一致。两者构成集电极电流IC<img src="https://i.imgur.com/88I82oQ.png" alt="image-20221024174813373" style="zoom:50%;" /></li>
+<li>ICBO不受发射结电压控制，因而对放大没有贡献。它的大小取决于基区和集电区的少子浓度，数值很小，但受温度影响很大，容易使BJT工作不稳定。</li>
+</ul>
+<h3 id="BJT的基极电流："><a href="#BJT的基极电流：" class="headerlink" title="BJT的基极电流："></a>BJT的基极电流：</h3><img src="https://i.imgur.com/DRud4z6.png" alt="image-20221024174922123" style="zoom:50%;" />
+
+<h3 id="英文版公式："><a href="#英文版公式：" class="headerlink" title="英文版公式："></a>英文版公式：</h3><h4 id="Collector-current"><a href="#Collector-current" class="headerlink" title="Collector current:"></a>Collector current:</h4><p><img src="https://i.imgur.com/AwnwO82.png"></p>
+<h4 id="Base-Current"><a href="#Base-Current" class="headerlink" title="Base Current:"></a>Base Current:</h4><img src="https://i.imgur.com/FwssXsr.png" alt="image-20221024175254607" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/CUoC0mC.png" alt="image-20221024175321436" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/AGtPSnZ.png" alt="image-20221024175413180" style="zoom:50%;" />
+
+<h4 id="β-ratio"><a href="#β-ratio" class="headerlink" title="β ratio:"></a>β ratio:</h4><img src="https://i.imgur.com/FT1Ws0a.png" alt="image-20221024175632656" style="zoom:50%;" />
+
+<h4 id="Optimised-优化"><a href="#Optimised-优化" class="headerlink" title="Optimised(优化):"></a>Optimised(优化):</h4><img src="https://i.imgur.com/EI0IfyP.png" alt="image-20221024175713822" style="zoom:50%;" />
+
+<h2 id="Early-Effect"><a href="#Early-Effect" class="headerlink" title="Early Effect"></a>Early Effect</h2><p><img src="https://i.imgur.com/g47zJdP.png"></p>
+<p><img src="https://i.imgur.com/UjSJ0xU.png"></p>
+<p><img src="https://i.imgur.com/0ONvyp3.png"></p>
+<p><img src="https://i.imgur.com/buKCCuu.png"></p>
+<ul>
+<li>Small -signal model</li>
+</ul>
+<p><img src="https://i.imgur.com/MaiWE7X.png"></p>
+<p><img src="https://i.imgur.com/LlAtTBD.png"></p>
+<p><img src="https://i.imgur.com/CYf1j9l.png"></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/10/21/Micro%20Electronic/BJT%E7%9A%84%E7%89%A9%E7%90%86%E7%89%B9%E6%80%A7%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Micro-system/" rel="tag">Micro_system</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/10/25/Micro%20Electronic/%E5%8D%8A%E5%AF%BC%E4%BD%93%E7%89%A9%E7%90%86%E5%AD%A6/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            半导体物理学
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/10/12/Computer%20Network/Cisco%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8lab7/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Cisco软件的学习和使用lab7</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> Jessy Huang
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo图片.png" alt="Jessy&#39;s daily note"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2022/11/01/%E5%85%B3%E4%BA%8E%E6%88%91">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

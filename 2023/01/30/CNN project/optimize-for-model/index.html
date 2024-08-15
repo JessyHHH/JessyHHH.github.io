@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>optimize for model |  Jessy&#39;s daily note</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="images/logo图片.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-CNN project/optimize-for-model"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  optimize for model
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/01/30/CNN%20project/optimize-for-model/" class="article-date">
+  <time datetime="2023-01-30T09:09:00.000Z" itemprop="datePublished">2023-01-30</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E7%A0%94%E7%A9%B6%E5%8D%9A%E5%AE%A2/">项目研究博客</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">6 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="HandOut"><a href="#HandOut" class="headerlink" title="HandOut"></a>HandOut</h1><p><a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1lEaVa9ytsXUaDaUoPWkUydHJs5MCtEae">fruit image classification model</a></p>
+<p><a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1AqSvKwfaom2rLnPpSWrFJhnFCPg4iyxN">object detection model</a></p>
+<p><a target="_blank" rel="noopener" href="https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.57608&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false">palyGround</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi">youtube - GitHub - tputflite </a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/google-research/tuning_playbook">optimize book</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hfMk-kjRv4c">optimize - youtube</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.roboflow.com/mean-average-precision/">about mAP blog</a></p>
+<h1 id="Analysis-Hyparameter"><a href="#Analysis-Hyparameter" class="headerlink" title="Analysis Hyparameter"></a>Analysis Hyparameter</h1><p>根据初学者而言，训练卷积神经模型可以很简单也可以很复杂，简单是只要把参数代进去就好，而困难的是该如何调整这些参数到合适的位置，我将会分享我的学习内容并教您该如何优化自己的模型。</p>
+<ol>
+<li>Model: SSD with Mobilenet v2 FPN-lite</li>
+<li>training playform: colab</li>
+<li>Type: object detection model</li>
+</ol>
+<p>以上是我使用的模型并训练模型的平台。</p>
+<h2 id="Batch-size"><a href="#Batch-size" class="headerlink" title="Batch size"></a>Batch size</h2><p>什么是Batch size 呢？</p>
+<p>假设你有一个模型需要训练1000张图片，那一次性训练完1000张效率太慢了。所以我们可以分成一组10张，同时训练100组，这样效率就会快很多，而这个组里面到底应该设置多少张才能提高训练速度，并且提高准确率呢。</p>
+<ol>
+<li>首先我们需要知道batch size 会影响什么，它会影响你的加速器的响应速度，以及准确率，那么影响的原因是什么呢？</li>
+</ol>
+<p>由于加速器的内存不高，所以处理的图像不多：</p>
+<p>例如一个小组内有32个人，但是这个汽车只能搭载16个人，所以剩下16个人不能上车，这就大大减少了效率，同时浪费了资源，原因是汽车是单程的。所以我们只需要设置一个小组只有16个人就好。太少人的话效率也太少，所以也可以设置尽量接近16个人每一组。</p>
+<p>结论而言就是批量大小会直接影响验证集的性能。</p>
+<ol start="2">
+<li>我们无法通过计算来解决模型到底需要多大的batch size来得到最快的训练速度和最好的准确率。</li>
+</ol>
+<p>我们已经知道了这个batch size不能太大也不能太小，我们总得有个临界点吧，所以我们可以训练小一些的数据来得到这个结果。</p>
+<p>下面是我的常量和变量</p>
+<ol>
+<li>总步数&#x3D;1000步</li>
+<li>变量 batch size</li>
+</ol>
+<p>在训练之前可以通过<a target="_blank" rel="noopener" href="https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.57608&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false">palyGround</a> 这个网站来知道步数超过临界点会发生什么。</p>
+<p>我的<a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/mbkinaci/fruit-images-for-object-detection">dataset</a>一共300张图片，训练240张，30张来验证，30张来测试。</p>
+<h3 id="第一次测试-batch-size-x3D-16"><a href="#第一次测试-batch-size-x3D-16" class="headerlink" title="第一次测试 batch_size &#x3D;16"></a>第一次测试 batch_size &#x3D;16</h3><p>Num_step &#x3D; 1000</p>
+<p>batch size &#x3D; 16</p>
+<p>Epochs &#x3D; 1</p>
+<img src="https://i.imgur.com/MTbc4Ik.png" alt="optimizer" style="zoom: 50%;" />
+
+<p>average per step &#x3D; 0.325 s </p>
+<p>spend 7 min37 second </p>
+<img src="https://i.imgur.com/Vr7SxPy.png" alt="classification_loss" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/knySTOT.png" alt="localization_loss" style="zoom: 40%;" />
+
+<img src="https://i.imgur.com/eSYa7id.png" alt="regularization_loss" style="zoom: 40%;" />
+
+<img src="https://i.imgur.com/aFNvZF1.png" alt="total_loss" style="zoom:40%;" />
+
+<img src="https://i.imgur.com/fOEcyL1.png" alt="Learning_rate" style="zoom:40%;" />
+
+<img src="https://i.imgur.com/hDlZI25.png" alt="step_per_sec" style="zoom:40%;" />
+
+<img src="https://i.imgur.com/47IMRBx.png" alt="map_test" style="zoom: 50%;" />
+
+<h3 id="第二次测试-batch-size-x3D-17"><a href="#第二次测试-batch-size-x3D-17" class="headerlink" title="第二次测试 batch_size &#x3D;17"></a>第二次测试 batch_size &#x3D;17</h3><p><img src="https://i.imgur.com/L6XYnkn.png" alt="optimizer"></p>
+<p>batch size &#x3D; 17</p>
+<p>spend time 9min25second</p>
+<p><img src="https://i.imgur.com/lblC1Qm.png" alt="loss_classification"></p>
+<p><img src="https://i.imgur.com/keeI1U8.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/fsmfyZq.png" alt="regularzation_loss"></p>
+<p><img src="https://i.imgur.com/ZjoXTDA.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/nbjItvS.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/NDOPcim.png" alt="step_per_sec"></p>
+<p><img src="https://i.imgur.com/XM2d9HL.png"></p>
+<h3 id="第三次测试-batch-size-x3D-15"><a href="#第三次测试-batch-size-x3D-15" class="headerlink" title="第三次测试 batch_size&#x3D;15"></a>第三次测试 batch_size&#x3D;15</h3><p>Batch_size &#x3D; 15</p>
+<p>Spend time &#x3D; 7min 18 second</p>
+<p><img src="https://i.imgur.com/5avbXZm.png" alt="optimizer"></p>
+<p><img src="https://i.imgur.com/oE3aOt3.png" alt="classification_loss"></p>
+<p><img src="https://i.imgur.com/omSMlvE.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/DQbq5Nt.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/Juzl2nk.png" alt="total loss"></p>
+<p><img src="https://i.imgur.com/ChyP8SZ.png" alt="learning rate"></p>
+<p><img src="https://i.imgur.com/nC1kFMa.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/DaqioKh.png" alt="map_results"></p>
+<h3 id="第四次测试-batch-size-x3D-18"><a href="#第四次测试-batch-size-x3D-18" class="headerlink" title="第四次测试 batch_size &#x3D;18"></a>第四次测试 batch_size &#x3D;18</h3><p>batch_size &#x3D; 18</p>
+<p>Num_step &#x3D; 1000</p>
+<p>Spend time &#x3D; 8min 1 second</p>
+<p><img src="https://i.imgur.com/1y71R9q.png" alt="classification_loss"></p>
+<p><img src="https://i.imgur.com/oOQtONe.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/NTkQp3z.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/VMTT5Mr.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/CE3zJ7B.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/SIvxr4D.png" alt="step_per_sec"></p>
+<p><img src="https://i.imgur.com/J7DvwK4.png" alt="mAP results"></p>
+<h3 id="第五次测试-batch-size-x3D-14"><a href="#第五次测试-batch-size-x3D-14" class="headerlink" title="第五次测试 batch_size&#x3D;14"></a>第五次测试 batch_size&#x3D;14</h3><p>batch_size &#x3D; 14</p>
+<p>Num_step &#x3D; 1000</p>
+<p>Spend_time &#x3D; 6min 46 s</p>
+<p><img src="https://i.imgur.com/yAKNeVK.png" alt="classification_loss"></p>
+<p><img src="https://i.imgur.com/Z5twKQf.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/MqwCvOs.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/P3Vd82j.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/6b4Ovo6.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/jwh8r8c.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/fVYn27c.png" alt="mAP results"></p>
+<h3 id="第六次测试-batch-size-x3D-19"><a href="#第六次测试-batch-size-x3D-19" class="headerlink" title="第六次测试 batch_size &#x3D;19"></a>第六次测试 batch_size &#x3D;19</h3><p>batch size &#x3D; 19</p>
+<p>Spend time &#x3D;9min 20 second</p>
+<p>Num_step &#x3D; 1000</p>
+<p><img src="https://i.imgur.com/t06pRAt.png" alt="loss/classification"></p>
+<p><img src="https://i.imgur.com/tNMJKdn.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/2EKZ7oH.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/UV6zWBv.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/SEcFDwJ.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/PvD3F2z.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/e1F8731.png" alt="mAP"></p>
+<h3 id="第七次测试-batch-size-x3D-13"><a href="#第七次测试-batch-size-x3D-13" class="headerlink" title="第七次测试 batch_size &#x3D; 13"></a>第七次测试 batch_size &#x3D; 13</h3><p>batch size &#x3D; 13</p>
+<p>spend time  &#x3D; 7min 10 sec</p>
+<p>Num_step&#x3D;1000</p>
+<p><img src="https://i.imgur.com/hZoynW9.png" alt="classification_loss"></p>
+<p><img src="https://i.imgur.com/byroqBm.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/5FBCnkr.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/ukgWk6h.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/IBIkrnP.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/cAKuLsr.png" alt="step_per_sec"></p>
+<p><img src="https://i.imgur.com/HNEB44Y.png" alt="map_results"></p>
+<h3 id="第八次测试-batch-size-x3D-20"><a href="#第八次测试-batch-size-x3D-20" class="headerlink" title="第八次测试 batch_size &#x3D;20"></a>第八次测试 batch_size &#x3D;20</h3><p>batch_size &#x3D; 20</p>
+<p>Spend time &#x3D; 9min30sec</p>
+<p><img src="https://i.imgur.com/dCXhhYA.png" alt="Loss/classification_loss"></p>
+<p><img src="https://i.imgur.com/v4g0zlj.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/hj7au4M.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/mKt8I2l.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/j5ITbiZ.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/yRme9ct.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/gIcRHCh.png" alt="mAP_results"></p>
+<h3 id="第九次测试-batch-size-x3D-12"><a href="#第九次测试-batch-size-x3D-12" class="headerlink" title="第九次测试 batch_size &#x3D; 12"></a>第九次测试 batch_size &#x3D; 12</h3><p>batch_size &#x3D; 12</p>
+<p>spend time &#x3D; 6min 14sec</p>
+<p><img src="https://i.imgur.com/oKH9crW.png" alt="classification_loss"></p>
+<p><img src="https://i.imgur.com/FWVSptJ.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/Ad4z7SQ.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/BtHBd4T.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/KdVUt9R.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/9AUOxAX.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/8yGbdUF.png" alt="mAp_results"></p>
+<h3 id="第十次测试-batch-size-x3D-21"><a href="#第十次测试-batch-size-x3D-21" class="headerlink" title="第十次测试 batch_size&#x3D;21"></a>第十次测试 batch_size&#x3D;21</h3><p>Batch_size &#x3D; 21</p>
+<p>Spend time &#x3D; 9min 12 sec</p>
+<p><img src="https://i.imgur.com/59sd3Gp.png" alt="classification_loss"></p>
+<p><img src="https://i.imgur.com/I6YqR9H.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/iNY58c2.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/YGsLwy7.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/jatotU8.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/85VKS3H.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/O8HDAAH.png" alt="mAP results"></p>
+<h3 id="第十一次测试-batch-size-x3D-22"><a href="#第十一次测试-batch-size-x3D-22" class="headerlink" title="第十一次测试 batch_size &#x3D; 22"></a>第十一次测试 batch_size &#x3D; 22</h3><p>batch _size &#x3D; 22</p>
+<p>spend time &#x3D; 9min 26sec</p>
+<p><img src="https://i.imgur.com/ESzrOWW.png" alt="classification_loss"></p>
+<p><img src="https://i.imgur.com/IOPWKks.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/oC8Pi48.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/UDKZefW.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/hc28LzT.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/INwU8gn.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/7xocbgR.png" alt="mAP results"></p>
+<h3 id="第十二次测试-batch-size-x3D-23"><a href="#第十二次测试-batch-size-x3D-23" class="headerlink" title="第十二次测试 batch_size &#x3D; 23"></a>第十二次测试 batch_size &#x3D; 23</h3><p>Spend time &#x3D; 10.17</p>
+<p>Total loss &#x3D; 0.322</p>
+<p><img src="https://i.imgur.com/APcSgmr.png" alt="classification_loss"></p>
+<p><img src="https://i.imgur.com/LGbAXPH.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/8cSk4mF.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/rUYTVHA.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/NjWW2I8.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/5Ovx0Q8.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/ZvkXjCC.png" alt="image-20230318143927770"></p>
+<h3 id="Batch-size-x3D-24"><a href="#Batch-size-x3D-24" class="headerlink" title="Batch_size &#x3D; 24"></a>Batch_size &#x3D; 24</h3><p>spend time &#x3D; 10.27</p>
+<p>Step &#x3D; 1000</p>
+<p><img src="https://i.imgur.com/2NeFehk.png" alt="classification_loss"></p>
+<p><img src="https://i.imgur.com/uBJMvXH.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/UBIXkGj.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/oEO99f7.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/yXpQoxr.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/TOCbIka.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/EoAHNit.png" alt="mAP_Results"></p>
+<h3 id="Batch-size-x3D-25"><a href="#Batch-size-x3D-25" class="headerlink" title="Batch_size &#x3D; 25"></a>Batch_size &#x3D; 25</h3><p>spend time &#x3D; 10.45</p>
+<p><img src="https://i.imgur.com/grhBv8y.png" alt="Loss/classification_loss"></p>
+<p><img src="https://i.imgur.com/hZTpmzG.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/8jnWVFT.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/MRTpy5B.png" alt="Loss/total_loss"></p>
+<p><img src="https://i.imgur.com/TsULzJA.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/bbFYbIh.png" alt="learning_rate"></p>
+<p>![mAP_results](&#x2F;Users&#x2F;jessyhuang&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230326175022555.png)</p>
+<h3 id="Batch-size-x3D-26"><a href="#Batch-size-x3D-26" class="headerlink" title="Batch_size &#x3D; 26"></a>Batch_size &#x3D; 26</h3><p>spend time &#x3D; 11.36</p>
+<p><img src="https://i.imgur.com/fyLWduV.png" alt="classification_loss"></p>
+<p><img src="https://i.imgur.com/5A8iLG8.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/rQV3IYo.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/TD5y4zZ.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/vmctSe0.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/KcjgbNN.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/smQbGtd.png" alt="mAP_results"></p>
+<h3 id="Batch-size-x3D-27"><a href="#Batch-size-x3D-27" class="headerlink" title="Batch_size &#x3D; 27"></a>Batch_size &#x3D; 27</h3><p>spend time &#x3D; 11.45</p>
+<p><img src="https://i.imgur.com/qk2oQb2.png" alt="classification_loss"></p>
+<p><img src="https://i.imgur.com/IPIVVPp.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/LdBPHIU.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/cYEE5zX.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/COT4A66.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/TyD2xZp.png" alt="steps_per_sec"></p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><table>
+<thead>
+<tr>
+<th>batch_size</th>
+<th>Total_loss</th>
+<th>spend time</th>
+<th>mAP results(have been Converted TFlite)</th>
+<th>learning_rate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>12</td>
+<td>0.41</td>
+<td>6.14</td>
+<td>25.73</td>
+<td>0.075</td>
+</tr>
+<tr>
+<td>13</td>
+<td>0.38</td>
+<td>7.1</td>
+<td>48.28</td>
+<td>0.075</td>
+</tr>
+<tr>
+<td>14</td>
+<td>0.355</td>
+<td>6.46</td>
+<td>42.57</td>
+<td>0.075</td>
+</tr>
+<tr>
+<td>15</td>
+<td>0.34</td>
+<td>7.18</td>
+<td>49.62</td>
+<td>0.075</td>
+</tr>
+<tr>
+<td>16</td>
+<td>0.36</td>
+<td>7.37</td>
+<td>48.97</td>
+<td>0.075</td>
+</tr>
+<tr>
+<td>17</td>
+<td>0.348</td>
+<td>9.25</td>
+<td>51.34</td>
+<td>0.075</td>
+</tr>
+<tr>
+<td>18</td>
+<td>0.323</td>
+<td>8.01</td>
+<td>51.16</td>
+<td>0.075</td>
+</tr>
+<tr>
+<td>19</td>
+<td>0.35</td>
+<td>9.2</td>
+<td>40.76</td>
+<td>0.075</td>
+</tr>
+<tr>
+<td>20</td>
+<td>0.34</td>
+<td>9.26</td>
+<td>33.26</td>
+<td>0.075</td>
+</tr>
+<tr>
+<td>21</td>
+<td>0.325</td>
+<td>9.12</td>
+<td>42.33</td>
+<td>0.075</td>
+</tr>
+<tr>
+<td><strong>22</strong></td>
+<td>0.3</td>
+<td>9.26</td>
+<td>52.9</td>
+<td>0.075</td>
+</tr>
+<tr>
+<td>23</td>
+<td>0.322</td>
+<td>10.17</td>
+<td>46.67</td>
+<td>0.075</td>
+</tr>
+</tbody></table>
+<p><img src="https://i.imgur.com/RaYejh9.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/pn2QgZq.png" alt="mAP results"></p>
+<p><img src="https://i.imgur.com/khlSdKo.png" alt="spend time"></p>
+<h2 id="Learning-rate"><a href="#Learning-rate" class="headerlink" title="Learning_rate"></a>Learning_rate</h2><h3 id="Learning-rate-x3D-0-08-batch-size-x3D-17"><a href="#Learning-rate-x3D-0-08-batch-size-x3D-17" class="headerlink" title="Learning_rate &#x3D;0.08 , batch_size &#x3D; 17"></a>Learning_rate &#x3D;0.08 , batch_size &#x3D; 17</h3><p>Learning_rate_base &#x3D; 0.08</p>
+<p>Warmup_learning_rate &#x3D; 0.0266</p>
+<p>batch_size &#x3D; 17</p>
+<p>Step_number &#x3D; 10000</p>
+<p>spend time &#x3D; 59min 17second</p>
+<p>Total_loss &#x3D; 0.1537</p>
+<p><img src="https://i.imgur.com/S78rcKe.png" alt="classification"></p>
+<p><img src="https://i.imgur.com/TOGS2yi.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/dzx6Rmh.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/7PF5EK3.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/nEvGPuD.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/melLQpv.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/2DbOHTp.png" alt="mAP Results"></p>
+<h3 id="Learning-rate-x3D-0-08-batch-size-x3D-22"><a href="#Learning-rate-x3D-0-08-batch-size-x3D-22" class="headerlink" title="Learning_rate &#x3D; 0.08 batch_size &#x3D; 22"></a>Learning_rate &#x3D; 0.08 batch_size &#x3D; 22</h3><p> ‘Loss&#x2F;localization_loss’: 0.021741068,</p>
+<p> ‘Loss&#x2F;regularization_loss’: 0.09711991, </p>
+<p>‘Loss&#x2F;total_loss’: 0.148702,</p>
+<p>‘learning_rate’: 0.07352352</p>
+<p>![mAP Results](&#x2F;Users&#x2F;jessyhuang&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230326193833959.png)</p>
+<h3 id="Learning-rate-x3D-0-07-batch-size-x3D-22"><a href="#Learning-rate-x3D-0-07-batch-size-x3D-22" class="headerlink" title="Learning_rate &#x3D; 0.07 batch_size &#x3D; 22"></a>Learning_rate &#x3D; 0.07 batch_size &#x3D; 22</h3><p>Total_step &#x3D; 10000</p>
+<p>Total_loss &#x3D; 0.152</p>
+<p><img src="https://i.imgur.com/mWc067L.png" alt="classification_loss"></p>
+<p><img src="https://i.imgur.com/Et2sdDq.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/d7EXofw.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/jy5IPgX.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/RNL3sK2.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/2gZM7e0.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/PJpvPE4.png" alt="mAP"></p>
+<h3 id="Learning-rate-x3D-0-06-batch-size-x3D-22"><a href="#Learning-rate-x3D-0-06-batch-size-x3D-22" class="headerlink" title="Learning_rate &#x3D; 0.06 ,batch_size &#x3D; 22"></a>Learning_rate &#x3D; 0.06 ,batch_size &#x3D; 22</h3><p>1 hour 19min 26 sec</p>
+<p>num_step &#x3D; 10000</p>
+<p>Total_loss &#x3D; 0.168</p>
+<p><img src="https://i.imgur.com/UcycX9r.png" alt="Loss/classification_loss"></p>
+<p><img src="https://i.imgur.com/JrPX2Fa.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/LrKbgDp.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/pEgdEu1.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/tYlTzqT.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/imU6dSy.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/qZdrSZw.png" alt="mAP"></p>
+<h3 id="Learning-rate-x3D-0-07-batch-size-x3D-17"><a href="#Learning-rate-x3D-0-07-batch-size-x3D-17" class="headerlink" title="Learning_rate &#x3D; 0.07 batch_size &#x3D; 17"></a>Learning_rate &#x3D; 0.07 batch_size &#x3D; 17</h3><p>1 hour 11 second</p>
+<p>10000</p>
+<p>Total_loss &#x3D; 0.162</p>
+<p><img src="https://i.imgur.com/kcFLXd4.png" alt="classification_loss"></p>
+<p><img src="https://i.imgur.com/xgYXGaV.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/7XiOKw1.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/Y3XR4TF.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/JdZ2jgQ.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/Bfz6OxF.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/p6c1gh0.png" alt="image-20230327003305399"></p>
+<h3 id="Learning-rate-x3D-0-06-batch-size-x3D-17"><a href="#Learning-rate-x3D-0-06-batch-size-x3D-17" class="headerlink" title="Learning_rate &#x3D; 0.06 batch_size &#x3D; 17"></a>Learning_rate &#x3D; 0.06 batch_size &#x3D; 17</h3><p>spend time &#x3D; 57 min 16 second</p>
+<p>Num_step &#x3D; 10000</p>
+<p>Total_loss &#x3D; 0.178</p>
+<p><img src="https://i.imgur.com/5uGk8hE.png" alt="classification_loss"></p>
+<p><img src="https://i.imgur.com/Tqu7hHb.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/fh8dG1D.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/0346VsC.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/ikjzIr0.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/OCX8gMW.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/pdnUnbd.png" alt="image-20230327133423079"></p>
+<h3 id="Learning-rate-x3D-0-05-batch-size-x3D-22"><a href="#Learning-rate-x3D-0-05-batch-size-x3D-22" class="headerlink" title="Learning_rate &#x3D; 0.05 batch_size &#x3D; 22"></a>Learning_rate &#x3D; 0.05 batch_size &#x3D; 22</h3><p>Num_step &#x3D; 10000</p>
+<p>spend time &#x3D; 52 min 42 sec</p>
+<p>Total_losss &#x3D; 0.1648</p>
+<p><img src="https://i.imgur.com/qDyq445.png" alt="classification_loss"></p>
+<p><img src="https://i.imgur.com/1pyX8lL.png" alt="localization_loss"></p>
+<p><img src="https://i.imgur.com/Pjd6LEU.png" alt="regularization_loss"></p>
+<p><img src="https://i.imgur.com/fG0ed00.png" alt="total_loss"></p>
+<p><img src="https://i.imgur.com/kKPpTMv.png" alt="learning_rate"></p>
+<p><img src="https://i.imgur.com/g7b51gS.png" alt="steps_per_sec"></p>
+<p><img src="https://i.imgur.com/7eJv899.png" alt="mAP Results"></p>
+<h2 id="rebegin-for-learning-rate-step-x3D-7000-batch-size"><a href="#rebegin-for-learning-rate-step-x3D-7000-batch-size" class="headerlink" title="rebegin for learning_rate step &#x3D; 7000 batch_size"></a>rebegin for learning_rate step &#x3D; 7000 batch_size</h2><h3 id="Lr-x3D-0-08"><a href="#Lr-x3D-0-08" class="headerlink" title="Lr &#x3D; 0.08"></a>Lr &#x3D; 0.08</h3><p>‘Loss&#x2F;localization_loss’: 0.02736458, </p>
+<p>‘Loss&#x2F;regularization_loss’: 0.11061755, </p>
+<p>‘Loss&#x2F;total_loss’: 0.1774221, </p>
+<p>‘learning_rate’: 0.07707667}</p>
+<p>spend time. &#x3D;56min 46sec</p>
+<p><img src="https://i.imgur.com/x8byUM1.png" alt="image-20230327221507287"></p>
+<p>For <strong>quntization</strong></p>
+<p><img src="https://i.imgur.com/jQIzoYB.png" alt="image-20230327224724014"></p>
+<h3 id="Lr-x3D-1-0"><a href="#Lr-x3D-1-0" class="headerlink" title="Lr &#x3D; 1.0"></a>Lr &#x3D; 1.0</h3><p>batch_size &#x3D; 22</p>
+<p>step &#x3D; 7000</p>
+<p>spend time &#x3D; 54min40sec</p>
+<p>‘Loss&#x2F;localization_loss’: 0.036090124,</p>
+<p> ‘Loss&#x2F;regularization_loss’: 0.096989244, </p>
+<p>‘Loss&#x2F;total_loss’: 0.19243404, </p>
+<p>‘learning_rate’: 0.9634584}</p>
+<p><img src="https://i.imgur.com/q54O8wX.png" alt="image-20230327195925051"></p>
+<p><img src="https://i.imgur.com/YJWxrfH.png" alt="image-20230327195942901"></p>
+<p><img src="https://i.imgur.com/PPeKePj.png" alt="image-20230327200002662"></p>
+<p><img src="https://i.imgur.com/7jbxt9M.png" alt="image-20230327200024957"></p>
+<p><img src="https://i.imgur.com/fZkfRlr.png" alt="image-20230327200058669"></p>
+<p><img src="https://i.imgur.com/CNjbJ1M.png" alt="image-20230327200114014"></p>
+<p>![image-20230327224808384](&#x2F;Users&#x2F;jessyhuang&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230327224808384.png)</p>
+<p>for quntization</p>
+<p><img src="https://i.imgur.com/NJpmXBa.png" alt="image-20230327225754382"></p>
+<h3 id="Lr-x3D-1-2"><a href="#Lr-x3D-1-2" class="headerlink" title="Lr &#x3D; 1.2"></a>Lr &#x3D; 1.2</h3><p>Batch_size &#x3D; 22</p>
+<p>spend time &#x3D; 57min.27 sec</p>
+<p>Total_loss &#x3D; 0.243</p>
+<p><img src="https://i.imgur.com/WkzK9h1.png" alt="image-20230327201836483"></p>
+<p><img src="https://i.imgur.com/9TQxAzj.png" alt="image-20230327201850340"></p>
+<p><img src="https://i.imgur.com/1imq41d.png" alt="image-20230327201903936"></p>
+<p><img src="https://i.imgur.com/EKcVHap.png" alt="image-20230327201947753"></p>
+<p><img src="https://i.imgur.com/DYRyycL.png" alt="image-20230327202004567"></p>
+<h3 id="Lr-x3D-0-14"><a href="#Lr-x3D-0-14" class="headerlink" title="Lr &#x3D; 0.14"></a>Lr &#x3D; 0.14</h3> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2023/01/30/CNN%20project/optimize-for-model/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow2-0/" rel="tag">Tensorflow2.0</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2023/01/31/CNN%20project/MobileNet/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            MobileNet
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2023/01/20/Linux-CLI/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Linux CLI</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> Jessy Huang
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo图片.png" alt="Jessy&#39;s daily note"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2022/11/01/%E5%85%B3%E4%BA%8E%E6%88%91">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

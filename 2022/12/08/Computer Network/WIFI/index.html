@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>WIFI |  Jessy&#39;s daily note</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="images/logo图片.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Computer Network/WIFI"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  WIFI
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/12/08/Computer%20Network/WIFI/" class="article-date">
+  <time datetime="2022-12-08T13:21:01.000Z" itemprop="datePublished">2022-12-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/">计算机网络学习博客</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">2.7k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">12 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>[toc]</p>
+<h1 id="WIFI"><a href="#WIFI" class="headerlink" title="WIFI"></a>WIFI</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li>IEEE 802.11, which cover physical and data link layer.</li>
+</ul>
+<img src="https://i.imgur.com/UMrJWHp.png" alt="image-20221208140602350" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/2hfUWAX.png" alt="image-20221208142043513" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/VcT6eTB.png" alt="image-20221208142059098" style="zoom:50%;" />
+
+<h2 id="Physical-and-Datalink-Layers"><a href="#Physical-and-Datalink-Layers" class="headerlink" title="Physical and Datalink Layers"></a>Physical and Datalink Layers</h2><p><img src="https://i.imgur.com/2NvTyLW.png"></p>
+<p><img src="https://i.imgur.com/X5TOb2U.png"></p>
+<ul>
+<li>A-MSDU的形成</li>
+</ul>
+<p><img src="https://i.imgur.com/G52L964.png"></p>
+<ul>
+<li>A-MPDU的形成</li>
+</ul>
+<p><img src="https://i.imgur.com/WYPIGjM.png"></p>
+<h2 id="How-it-work"><a href="#How-it-work" class="headerlink" title="How it work"></a>How it work</h2><img src="https://i.imgur.com/kDQj2Wq.png" alt="image-20221208142138729" style="zoom:50%;" />
+
+<h3 id="Topological-Structure"><a href="#Topological-Structure" class="headerlink" title="Topological Structure"></a>Topological Structure</h3><ul>
+<li><p><strong>A BSS without an AP</strong></p>
+<ul>
+<li><strong>ad</strong> <strong>hoc</strong> <strong>network</strong></li>
+</ul>
+<p><img src="https://i.imgur.com/QaZlGwO.png" alt="img"></p>
+</li>
+<li><p><strong>a BSS with an AP</strong></p>
+<ul>
+<li><strong>infrastructure</strong> <strong>network</strong></li>
+</ul>
+<p><img src="https://i.imgur.com/h9TwsSN.png" alt="img"></p>
+</li>
+<li><p>802.11ax BSS colour</p>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/eFapXvT.png"></p>
+<blockquote>
+<p>蓝字很重要</p>
+<blockquote>
+<p>如果颜色位相同，则该帧被认为是BSS内的传输，监听无线电将推迟。</p>
+<p>如果颜色位不同，则该帧被视为来自OBSS的跨BSS传输，监听无线电仅在确定颜色位不同的时间内将信道视为繁忙。</p>
+</blockquote>
+</blockquote>
+<h3 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h3><h4 id="STA-station"><a href="#STA-station" class="headerlink" title="STA(station)"></a>STA(station)</h4><ul>
+<li>is a wireless terminal with a wireless network card, such as computer phone ,etc.</li>
+</ul>
+<blockquote>
+<p>是指配有无线网卡的无线终端, 如手机、电脑等。</p>
+</blockquote>
+<ul>
+<li><p>station type</p>
+<ul>
+<li><p><strong>No transition mobility</strong></p>
+<ul>
+<li>Stationary or moving only inside a BSS</li>
+</ul>
+<blockquote>
+<p>静止或仅在BSS上移动</p>
+</blockquote>
+</li>
+<li><p><strong>BSS transition Mobility</strong></p>
+<ul>
+<li>Can move from one BSS to another, the movement is confined to one ESS.</li>
+</ul>
+<blockquote>
+<p>可以从一个BSS移动到另一个BSS，范围仅限ESS内</p>
+</blockquote>
+</li>
+<li><p><strong>ESS transition mobility</strong></p>
+<ul>
+<li>Can move from one ESS to another. 802.11 does not guarantee that communication is continuous during the move.</li>
+</ul>
+<blockquote>
+<p>从一个ESS移动到另一个ESS，802.11不保证移动过程通信是连续的。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="AP-Access-point"><a href="#AP-Access-point" class="headerlink" title="AP(Access point)"></a>AP(Access point)</h4><ul>
+<li>Wireless Access Point</li>
+<li>Network devices for connecting STA to wired networks</li>
+</ul>
+<blockquote>
+<p>用来连接 STA 和有线网络的网络设备</p>
+</blockquote>
+<h4 id="BSS-basic-server-set"><a href="#BSS-basic-server-set" class="headerlink" title="BSS(basic server set)"></a>BSS(basic server set)</h4><ul>
+<li>即基本服务集，由一个 AP 和一个及以上 STA 组成的无线网络。BSS 内所有的 STA 通信都是通过 AP 完成，AP 不仅能连接有线网络，还可以在 STA 和 其它 STA 或 DS 节点之间进行桥接。</li>
+</ul>
+<h4 id="ESS-Extended-server-set"><a href="#ESS-Extended-server-set" class="headerlink" title="ESS(Extended server set)"></a>ESS(Extended server set)</h4><ul>
+<li>即扩展服务集，同一有线网络连接的、两个及以上的 AP 组成，和一个子网概念类似。</li>
+</ul>
+<h4 id="IBSS-Independent-basic-server-set"><a href="#IBSS-Independent-basic-server-set" class="headerlink" title="IBSS(Independent basic server set)"></a>IBSS(<strong>Independent</strong> basic server set)</h4><ul>
+<li>即 独立基本服务集，包含一个及以上 STA 的无线网络，也叫做 ad-hoc 无线网络，无法访问 DS 时使用的模式。</li>
+</ul>
+<h4 id="DS-Distribution-System"><a href="#DS-Distribution-System" class="headerlink" title="DS(Distribution System)"></a>DS(Distribution System)</h4><ul>
+<li>分发系统，让不同 BSS 内的 AP 通过 DS 互连，STA 可以从一个 BSS 移动到另一个 BSS 。AP 之间可以是无线互连，也可以是有线互连，通常是使用有线互连。DS 是 BSS 之间进行逻辑连接的基础，让 STA 在 BSS 之间能够实现漫游。</li>
+</ul>
+<h3 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h3><h4 id="Collision-Avoidance"><a href="#Collision-Avoidance" class="headerlink" title="Collision Avoidance"></a>Collision Avoidance</h4><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><ul>
+<li>Hidden station problem</li>
+</ul>
+<p><img src="https://i.imgur.com/zgS1uRm.png" alt="image-20221208145053153"></p>
+<blockquote>
+<ul>
+<li>B and C are hidden from each other.</li>
+<li>B send frame to A , B think A is free</li>
+<li>C send frame to A, C think A is free</li>
+</ul>
+<p>Then, there have collision.</p>
+<ul>
+<li>we use RTS and CTS we avoid this problem.</li>
+</ul>
+</blockquote>
+<h5 id="why-we-can-not-use-CSDM-x2F-CD-Carrier-Sense-Multiple-Access-with-Collision-Detection"><a href="#why-we-can-not-use-CSDM-x2F-CD-Carrier-Sense-Multiple-Access-with-Collision-Detection" class="headerlink" title="why we can not use CSDM&#x2F;CD(Carrier Sense Multiple Access with Collision Detection)"></a>why we can not use CSDM&#x2F;CD(Carrier Sense Multiple Access with Collision Detection)</h5><p>CSDM&#x2F;CD : 波侦听多路访问&#x2F;冲突检测协议。</p>
+<ul>
+<li><strong>Collision Detection implies: a station must be able to TX data and RX collisions at the same time. This implies costly stations and increased BW.</strong></li>
+</ul>
+<blockquote>
+<p>碰撞检测意味着：一个站必须能够在同一时间发送数据和接收碰撞。这意味着昂贵的站点和增加的BW。</p>
+</blockquote>
+<ul>
+<li><strong>Collisions may not be detected because of hidden terminal problem.</strong></li>
+</ul>
+<blockquote>
+<p>由于隐藏的终端问题，碰撞可能无法被检测到。</p>
+</blockquote>
+<ul>
+<li><strong>Eg stations A and B both have data to send to C. Station B is hidden from A, so if there is a collision near B, A will not hear it. This cant happen on a wired LAN.</strong></li>
+</ul>
+<blockquote>
+<p>例如，A站和B站都有数据要发送给C站，B站对A站是隐藏的，所以如果B站附近有碰撞，A站就听不到。这在有线局域网上是不可能发生的。</p>
+</blockquote>
+<ul>
+<li><strong>The distance between stations may be great, because of signal fading a station at one end may not hear a collision at the other end.</strong></li>
+</ul>
+<blockquote>
+<p>站点之间的距离可能很大，由于信号衰减，一端的站点可能听不到另一端的碰撞。</p>
+</blockquote>
+<ul>
+<li><strong>概述：以太网中，传输介质是网线或光纤，能够通过电气信号检测冲突的发生。但由于无线网络不会产生电气信号，因此需要使用 CSMA&#x2F;CA 来替代 CSMA&#x2F;CD 。</strong></li>
+</ul>
+<h5 id="What-is-CSMA-x2F-CA-Carrier-Sense-Multiple-Access-with-Collision-Avoidance"><a href="#What-is-CSMA-x2F-CA-Carrier-Sense-Multiple-Access-with-Collision-Avoidance" class="headerlink" title="What is CSMA&#x2F;CA(Carrier Sense Multiple Access with Collision Avoidance)"></a>What is CSMA&#x2F;CA(Carrier Sense Multiple Access with Collision Avoidance)</h5><p>CSMA&#x2F;CA: 载波侦听多路访问&#x2F;冲突避免协议。</p>
+<ul>
+<li><p><strong>载波侦听</strong>CS(Carrier Sense ): 是指网络中的各个设备在发送数据前，都要确认确认线路上有没有数据传输。如果有数据传输，就不发送数据；如果没有数据传输，马上发送数据。</p>
+</li>
+<li><p><strong>多路访问</strong>MA(Multiple Access): 是指网络上所有设备收发数据，共同使用同一条线路，而且发送的数据是广播型。</p>
+</li>
+<li><p><strong>冲突避免</strong>CA(Collision Avoidance): WLAN 中，如果遇到其它设备正在发送数据，那么就在设备发送完成后，再等待一段随机时间，c才继续发送数据。</p>
+</li>
+</ul>
+<h5 id="CSMA-x2F-CA-process"><a href="#CSMA-x2F-CA-process" class="headerlink" title="CSMA&#x2F;CA process"></a>CSMA&#x2F;CA process</h5><img src="https://i.imgur.com/HSytJ2G.png" alt="Flow chart of CSMA/CA" style="zoom:50%;" />
+
+<ul>
+<li><strong>RTS(request to send):</strong> a station want to send a control packet which includes the source, destination, and the duration of the following transaction (the packet and the respective ACK)</li>
+</ul>
+<blockquote>
+<p>RTS（请求发送）：一个站要发送一个控制包，其中包括来源、目的地和下面交易的持续时间（该包和各自的ACK）。</p>
+</blockquote>
+<ul>
+<li><strong>CTS(clear to send):</strong> The destination station responds with a response control packet which includes the same duration information.</li>
+</ul>
+<blockquote>
+<p>目的站以响应控制包进行回应，其中包括相同的持续时间信息。</p>
+</blockquote>
+<ul>
+<li><strong>Virtual Carrier Sense(called NAV, for Network Allocation Vector)</strong>: all station receive RTS&#x2F;CTS, set their Virtual Carrier Sense indicator,for the given duration, and use this information together with the Physical Carrier Sense when sensing the medium.</li>
+</ul>
+<blockquote>
+<p>所有站都接收RTS&#x2F;CTS，在给定的时间内设置它们的虚拟载波感应指标，并在感应介质时与物理载波感应一起使用这一信息。</p>
+</blockquote>
+<ul>
+<li><p><strong>inter-frame space (IFS):</strong> After the previous frame has been transmitted and detected by the other endpoints, each endpoint waits for a period of time</p>
+<blockquote>
+<p>在前一帧被传输并被其他端点检测到后，每个端点都会等待一段时期</p>
+</blockquote>
+<ul>
+<li><strong>Short IFS (SIFS):</strong> The shortest interval, used by APs to send acknowledgements and management traffic</li>
+</ul>
+<blockquote>
+<p>短IFS（SIFS）：最短的时间间隔，由AP用来发送确认和管理流量。</p>
+</blockquote>
+<ul>
+<li><strong>Point-coordination IFS (PIFS):</strong>  Used in PCF (contention free).</li>
+</ul>
+<blockquote>
+<p>点协调IFS（PIFS）：用于PCF（无争论）中。</p>
+</blockquote>
+<ul>
+<li><strong>Distributed IFS (DIFS):</strong> The interval used by most other endpoints</li>
+</ul>
+<blockquote>
+<p>分布式IFS（DIFS）–大多数其他端点使用的区间。</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="DCF-Distributed-Coordination-Function"><a href="#DCF-Distributed-Coordination-Function" class="headerlink" title="DCF(Distributed Coordination Function)"></a>DCF(<strong>Distributed Coordination Function</strong>)</h5><p>DCF:分布式协调功能</p>
+<img src="https://i.imgur.com/NLd6Ism.png" alt="Flow chat of DCF in CSMA/CA" style="zoom:50%;" />
+
+<p>follow Diagram is <strong>CSMA&#x2F;CA and NAV (DCF)</strong></p>
+<img src="https://i.imgur.com/nWwRw7q.png" alt="image-20221208163954768" style="zoom:50%;" />
+
+<ul>
+<li><em>Collision avoidance mechanism uses Network Allocation Vector (NAV)</em></li>
+</ul>
+<blockquote>
+<p><em>避免碰撞机制使用网络分配向量（NAV）</em>。</p>
+</blockquote>
+<ul>
+<li><em>May have a collision during Handshaking</em>(<em>if no ACK assume a collision</em>)</li>
+</ul>
+<blockquote>
+<p><em>在握手过程中可能会有碰撞</em>（<em>如果没有ACK就认为有碰撞</em>）。</p>
+</blockquote>
+<p><strong>RTS&#x2F;CTS Exchage diagram</strong></p>
+<img src="https://i.imgur.com/eibr08A.png" alt="RTS/CTS Exchage diagram" style="zoom:50%;" />
+
+<p><strong>RTS and CTS Mac Header</strong></p>
+<img src="https://i.imgur.com/ai7x47N.png" alt="RTS and CTS Mac Header" style="zoom:50%;" />
+
+<ul>
+<li>RA(Receive address)</li>
+<li>TA(Transmitter address)</li>
+</ul>
+<p><strong>Duration field in RTS</strong></p>
+<img src="https://i.imgur.com/FhjtO9B.png" alt="Duration field in RTS" style="zoom:50%;" />
+
+<blockquote>
+<p><strong>Duration time in RTS</strong>:</p>
+<p><code>3*SIFS+CTS+ACK+frame time</code></p>
+</blockquote>
+<p><strong>Duration time in CTS</strong></p>
+<img src="https://i.imgur.com/zmER7Z7.png" alt="Duration time in CTS" style="zoom:50%;" />
+
+<blockquote>
+<p><strong>Duration time in CTS</strong></p>
+<p><code>RTS-CTS time -1*SIFS</code></p>
+</blockquote>
+<h5 id="CSMA-x2F-CA-and-NAV-exchange-packet-diagram"><a href="#CSMA-x2F-CA-and-NAV-exchange-packet-diagram" class="headerlink" title="CSMA&#x2F;CA and NAV exchange packet diagram"></a>CSMA&#x2F;CA and NAV exchange packet diagram</h5><img src="https://i.imgur.com/xMnTRjs.png" alt="image-20221208172416674" style="zoom:50%;" />
+
+<p>Process</p>
+<p> medium就是信道</p>
+<blockquote>
+<ul>
+<li>Station 1 和station2 占用了信道，所以station3和station4进入了NAV,执行random backoff算法，station5和station6检测到信道忙，也进入NAV，并进入random backoff算法.</li>
+<li>如何计算random backoff.根据DCF flow chart，station1和staion2占用信道之前，k&#x3D;3，2^3 -1&#x3D;7, back off &#x3D;7</li>
+<li>Station3 and station4的backoff，在station1和station2发送data之前，k&#x3D;4, 2^4 -1 &#x3D;15, 0-15之间它选择了9，所以station1和station2的backoff counter先结束了计算，所以先开始了发送数据包，station3和station4发现backoff还没算完信道又忙了，于是推迟计算时间（冻结计算器）2slot，等信道空闲后重新计算2slot，然后发送数据。</li>
+<li>station5和station6发送数据后设置NAV状态,由于距离比较远就之间隐蔽了。因为RTS和CTS的作用下，发生碰撞的 概率就比较低，RTS的时间很短，听到CTS则保留信道为忙，所以就一直忙到结束交易。</li>
+</ul>
+</blockquote>
+<ul>
+<li>CW(contention window)争用窗口 - from CA<ul>
+<li>CW determines the additional amount of time (number of slots) an endpoint should wait after the IFS before attempting to transmit a packet.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>CW决定了端点在试图传输数据包之前，在IFS之后应该等待的额外时间（槽数）。</p>
+<ul>
+<li>If the medium is available, the endpoint transmits its packets.</li>
+</ul>
+<blockquote>
+<p>如果信道可用就传输数据包</p>
+</blockquote>
+<ul>
+<li>If the medium is unavailable (that is, if another device sent a packet), the endpoint waits until the end-of-packet transmission (from another device) plus the IFS period. In addition, it doubles the current value of the CW and then attempts to transmit.</li>
+</ul>
+<blockquote>
+<p>如果不可用，就等待另一个设备的数据包传输完毕，加上剩余的DIFS，结束slot后，开始传输数据包。</p>
+</blockquote>
+</blockquote>
+<h5 id="PCF-Point-Coordination-Function-optional"><a href="#PCF-Point-Coordination-Function-optional" class="headerlink" title="PCF( Point Coordination Function) - optional"></a>PCF( Point Coordination Function) - optional</h5><ul>
+<li><p>Different with DCF</p>
+<ul>
+<li>PCF is <strong>contention free</strong></li>
+</ul>
+<blockquote>
+<p>PCF是无争论的</p>
+</blockquote>
+<ul>
+<li>DCF is <strong>Contention based</strong></li>
+</ul>
+<blockquote>
+<p>DCF 是争论的</p>
+</blockquote>
+</li>
+<li><p>Stations that only use DCF may not gain access to the medium</p>
+<blockquote>
+<p>如果只使用DCF，也许访问不到信道</p>
+</blockquote>
+<ul>
+<li><p>Use repetition interval</p>
+<blockquote>
+<p>使用重复的时间间隔</p>
+</blockquote>
+</li>
+<li><p>When a station hears the beacon frame they start their NAV which is set for the contention free period of the repetition interval.</p>
+<blockquote>
+<p>当一个站听到beacon frame时，他们开始他们的NAV，这是设置为重复间隔的无争论期。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>How do it work</p>
+<ul>
+<li><p>The AP performs the polling</p>
+<blockquote>
+<p>AP执行轮流询问</p>
+</blockquote>
+</li>
+<li><p>Not all stations are capable of being polled</p>
+<blockquote>
+<p>但并不是所有的station都能被询问到</p>
+</blockquote>
+</li>
+<li><p>PIFS is shorter than DIFS, this gives the AP priority</p>
+<blockquote>
+<p>PIFS比DIFS短，这给了AP优先权。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<img src="https://i.imgur.com/DussGvF.png" alt="image-20221208205935634" style="zoom:50%;" />
+
+<blockquote>
+<ul>
+<li>看到Beacon frame ，其他stations全部进入NAV，避免冲突，同时重复间隔无争论期</li>
+</ul>
+<p><img src="https://i.imgur.com/91aBzbt.png"></p>
+<blockquote>
+<ol>
+<li>AP默认发送beacons的时间是100TUs，故102.4ms</li>
+<li>如果我们有10个ssid，那么我们需要在102.4ms内发送10个beacons，1个beacons就是10tus。</li>
+<li>这就意味着多少个ssid在这个默认的时间内发送多少个beacons。</li>
+</ol>
+</blockquote>
+</blockquote>
+<h4 id="Frame-fomat"><a href="#Frame-fomat" class="headerlink" title="Frame fomat"></a>Frame fomat</h4><img src="https://i.imgur.com/WT4KIkV.png" alt="image-20221208212055129" style="zoom:50%;" />
+
+<ul>
+<li>Frame control is important</li>
+</ul>
+<img src="https://i.imgur.com/FrB4f8c.png" alt="image-20221208212151901" style="zoom:50%;" />
+
+<h5 id="RTS-frame-control"><a href="#RTS-frame-control" class="headerlink" title="RTS frame control"></a>RTS frame control</h5><img src="https://i.imgur.com/mq9DnTR.png" alt="image-20221208212353380" style="zoom:50%;" />
+
+<h5 id="CTS-or-ASK-frame-control"><a href="#CTS-or-ASK-frame-control" class="headerlink" title="CTS or ASK frame control"></a>CTS or ASK frame control</h5><img src="https://i.imgur.com/BDSBUjg.png" alt="image-20221208212420811" style="zoom:50%;" />
+
+<h5 id="Subtype-Value"><a href="#Subtype-Value" class="headerlink" title="Subtype Value"></a>Subtype Value</h5><img src="https://i.imgur.com/QqaxktN.png" alt="image-20221208221841731" style="zoom:50%;" />
+
+<h5 id="TO-DS-Distribution-System-and-From-DS"><a href="#TO-DS-Distribution-System-and-From-DS" class="headerlink" title="TO DS(Distribution System) and From DS"></a>TO DS(Distribution System) and From DS</h5><img src="https://i.imgur.com/MDTHTmx.png" alt="image-20221208222056675" style="zoom:50%;" />
+
+<p>Different case in address</p>
+<img src="https://i.imgur.com/wc3ctdU.png" alt="image-20221208222631648" style="zoom:50%;" />
+
+<h5 id="Basic-Service-Set-Identifier-BSSID"><a href="#Basic-Service-Set-Identifier-BSSID" class="headerlink" title="Basic Service Set Identifier (BSSID)"></a>Basic Service Set Identifier (BSSID)</h5><p>基本服务集标识符。</p>
+<ul>
+<li><p>SA(Source address)</p>
+<ul>
+<li><p>The SA field contains an IEEE MAC individual address that identifies the MAC entity from which the transfer of the MSDU (or fragment thereof) or A-MSDU, contained in the frame body field was initiated. The individual&#x2F;group bit is always transmitted as a 0 in the source address.</p>
+<blockquote>
+<p>SA字段包含一个IEEE MAC个体地址，用于识别MSDU（或其片段）或A-MSDU（包含在帧体字段中）的传输是从哪个MAC实体开始的。在源地址中，个人&#x2F;组位总是以0的形式传输。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>DA(Destination address)</p>
+<ul>
+<li><p>The DA field contains an IEEE MAC individual or group address that identifies the MAC entity or entities intended as the final recipient(s) of the MSDU (or fragment thereof) or A-MSDU, contained in the frame body field.</p>
+<blockquote>
+<p>DA字段包含一个IEEE MAC个人或群组地址，用于识别MAC实体或实体作为帧体字段中包含的MSDU（或其片段）或A-MSDU的最终接收者。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>RA(Receving STA address)</p>
+<ul>
+<li><p>The RA field contains an IEEE MAC individual or group address that identifies the intended immediate recipient STA(s), on the WM, for the information contained in the frame body field.</p>
+<blockquote>
+<p>RA字段包含一个IEEE MAC个人或群组地址，用于识别WM上帧体字段所含信息的预期直接接收者STA（s）。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>TA(Transmitting STA address)</p>
+<ul>
+<li><p>The TA field contains an IEEE MAC individual address that identifies the STA that has transmitted, onto the WM, the MPDU contained in the frame body field. The Individual&#x2F;Group bit is always transmitted as a 0 in the transmitter address.</p>
+<blockquote>
+<p>TA字段包含一个IEEE MAC个体地址，用于识别在WM上传输帧体字段所含MPDU的STA。在发送器地址中，个人&#x2F;组位总是以0的形式传输。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<img src="https://i.imgur.com/8dXHOVs.png" alt="image-20221208223600781" style="zoom:50%;" />
+
+<h5 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h5><ul>
+<li>Quesion1:</li>
+</ul>
+<img src="https://i.imgur.com/Hp7zdw3.png" alt="image-20221208223659125" style="zoom:50%;" />
+
+<ul>
+<li>question2</li>
+</ul>
+<img src="https://i.imgur.com/rkA7hTI.png" alt="image-20221208223734507" style="zoom:50%;" />
+
+<ul>
+<li>Question3</li>
+</ul>
+<img src="https://i.imgur.com/5n60xPr.png" alt="image-20221208223757650" style="zoom:50%;" />
+
+<ul>
+<li>Question 4</li>
+</ul>
+<img src="https://i.imgur.com/XdyO4Cs.png" alt="image-20221208223821225" style="zoom:50%;" />
+
+<h4 id="OFDM-for-802-11"><a href="#OFDM-for-802-11" class="headerlink" title="OFDM for 802.11"></a>OFDM for 802.11</h4><p>calculation datarate and subcarriers spacings.</p>
+<h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h5><img src="https://i.imgur.com/nkz6OET.png" alt="image-20221208231047265" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/NXl19lS.png" alt="image-20221208231023045" style="zoom:50%;" />
+
+<h5 id="question"><a href="#question" class="headerlink" title="question"></a>question</h5><ul>
+<li>Question1</li>
+</ul>
+<img src="https://i.imgur.com/wlODaZE.png" alt="image-20221208232537091" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/GFRCKhe.png" alt="image-20221208232619511" style="zoom:50%;" />
+
+<ul>
+<li>Question2</li>
+</ul>
+<img src="https://i.imgur.com/viNfnY9.png" alt="image-20221208232634746" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/vdoHtVX.png" alt="image-20221208233958167" style="zoom:50%;" />
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/12/08/Computer%20Network/WIFI/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/computer-network/" rel="tag">computer network</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/12/10/Micro%20Electronic/MOS-physics/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            MOS physics
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/12/08/Computer%20Network/IPv6-summary/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">IPv6 summary</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> Jessy Huang
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo图片.png" alt="Jessy&#39;s daily note"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2022/11/01/%E5%85%B3%E4%BA%8E%E6%88%91">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

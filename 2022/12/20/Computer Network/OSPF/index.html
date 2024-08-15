@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>OSPF |  Jessy&#39;s daily note</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="images/logo图片.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Computer Network/OSPF"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  OSPF
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/12/20/Computer%20Network/OSPF/" class="article-date">
+  <time datetime="2022-12-20T15:16:44.000Z" itemprop="datePublished">2022-12-20</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/">计算机网络学习博客</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.9k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">8 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>[toc]</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul>
+<li><p>OSPF stands for Open shortest Path First</p>
+<blockquote>
+<p>OSPF是开放最短路径优先的意思。</p>
+</blockquote>
+</li>
+<li><p>Open standard protocol</p>
+<blockquote>
+<p>开放标准协议</p>
+</blockquote>
+</li>
+<li><p>It is a link State protocol</p>
+<blockquote>
+<p>它是链路状态协议</p>
+</blockquote>
+</li>
+<li><p>It uses a Shortest Path First (SPF) algorithm (Dijkistra algorithm)</p>
+<blockquote>
+<p>它使用最短路径优先（SPF）算法（Dijkistra算法）。</p>
+</blockquote>
+</li>
+<li><p>Metric is cost (reference BW [100Mb&#x2F;s] &#x2F; interface BW)</p>
+<blockquote>
+<p>指标是成本（参考BW[100Mb&#x2F;s]&#x2F;接口BW）。</p>
+</blockquote>
+</li>
+<li><p>Administrative distance is 110</p>
+<blockquote>
+<p>管理距离为110</p>
+</blockquote>
+</li>
+<li><p>It is a classless routing algorithm</p>
+<blockquote>
+<p>它是一种无类别的路由算法</p>
+</blockquote>
+</li>
+<li><p>It supports equal cost load balancing</p>
+<blockquote>
+<p>它支持同等成本的负载平衡</p>
+</blockquote>
+</li>
+<li><p>Introduces the concept of Area’s (reduce the amount of Link State Advertisements [LSA’s]</p>
+<blockquote>
+<p>引入区域的概念（减少链接状态广告[LSA]的数量</p>
+</blockquote>
+</li>
+<li><p>All routers have the same information</p>
+<blockquote>
+<p>所以路由都有相同的信息</p>
+</blockquote>
+</li>
+<li><p>Updates are sent using 224.0.0.5</p>
+<blockquote>
+<p>使用224.0.0.5发送更新。</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/2K6Fg7M.png" alt="动态路由协议类型"></p>
+<ul>
+<li><p>IGP(Interior Gateway Protocols)</p>
+</li>
+<li><p>EGP(<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Exterior_gateway_protocol">exterior gateway protocol</a>)</p>
+</li>
+</ul>
+<h1 id="专有名词"><a href="#专有名词" class="headerlink" title="专有名词"></a>专有名词</h1><h2 id="Process-ID"><a href="#Process-ID" class="headerlink" title="Process ID"></a>Process ID</h2><p><img src="https://i.imgur.com/KtAuMvh.png"></p>
+<blockquote>
+<p>router ospf process-id命令是任何Cisco IOS OSPF配置的开始（16位值1-65,535）。它用于创建或修改一个现有的OSPF路由进程，并使用户进入OSPF路由器配置模式。进程ID - 允许一个路由器运行OSPF的多个实例。(例如，连接到3个不同客户的路由器）这些OSPF进程ID只在本地有意义，不必从一个OSPF设备到另一个匹配.</p>
+</blockquote>
+<h2 id="Router-ID-RID"><a href="#Router-ID-RID" class="headerlink" title="Router ID(RID)"></a>Router ID(RID)</h2><p><img src="https://i.imgur.com/DqUeS9C.png"></p>
+<blockquote>
+<p>router-id命令用来静态配置OSPF的路由器id；这个路由器id（RID）用来向OSPF网络中的其他设备识别OSPF设备。对于每个OSPF设备来说，这个路由器ID必须是唯一的；如果没有配置路由器ID，它将根据以下顺序被选择：最高的环回接口，最高的活动（向上&#x2F;向上）物理接口。配置环回接口或使用router-id命令在OSPF实施中非常普遍，因为它使特定的OSPF设备的识别更容易。</p>
+</blockquote>
+<h2 id="Router-Priority"><a href="#Router-Priority" class="headerlink" title="Router Priority"></a>Router Priority</h2><p><img src="https://i.imgur.com/6xOjbUt.png"></p>
+<blockquote>
+<p>在多接入网络中，具有最高优先级值的路由器被选为DR，作为LSA交换的中心点。优先级命令被分配到一个接口上。OSPF接口的默认优先级是1，其范围是0到255。0意味着该接口不参与DR的选举。</p>
+</blockquote>
+<blockquote>
+<p>具有最高OSPF优先级的路由器将成为DR。默认情况下，所有路由器的优先级都是1。<br>如果出现平局，具有最高路由器ID的路由器赢得选举。具有第二高OSPF优先级或路由器ID的路由器将成为一个BDR。</p>
+</blockquote>
+<h2 id="AREA-ID"><a href="#AREA-ID" class="headerlink" title="AREA ID"></a>AREA ID</h2><p><img src="https://i.imgur.com/MhNkKYp.png"></p>
+<blockquote>
+<p>在OSPF中，一个单一的自治系统（AS）可以被划分为较小的组，称为区域。这减少了网络上发送的链路状态广告（LSA）和其他OSPF开销流量的数量，并减少了每个路由器必须维护的拓扑数据库的大小。</p>
+</blockquote>
+<h1 id="Processing"><a href="#Processing" class="headerlink" title="Processing"></a>Processing</h1><h2 id="三个大流程（宏观）"><a href="#三个大流程（宏观）" class="headerlink" title="三个大流程（宏观）"></a>三个大流程（宏观）</h2><ol>
+<li><p><strong>Become Neighbours</strong> – Routers running OSPF on the same segment form neighbour relationships.</p>
+<blockquote>
+<p><strong>成为邻居</strong> - 同一网段上运行OSPF的路由器形成邻居关系。</p>
+</blockquote>
+<blockquote>
+<p>[PtP segment – Master&#x2F;Slave, Broadcast segment - DR&#x2F;BDR&#x2F;Drother.]</p>
+<p>有Master&#x2F;Slave - PPP</p>
+</blockquote>
+</li>
+<li><p><strong>Exchange database information</strong> – the neighbour routers exchange their LSDB data with each other using LSA’s.</p>
+<blockquote>
+<p>**交换数据库信息-**邻居路由器和其他路由器使用LSA‘s(link-state advertisements)交换他们的LSDB(Link states databse)数据</p>
+</blockquote>
+</li>
+<li><p><strong>Choose the best routes</strong> – each router adds the best routes to its routing table based on the results of running the SPF algorithm on the LSDB</p>
+<blockquote>
+<p><strong>选择最好的路由</strong>-每个路由器根据在LSDB上运行SPF算法的结果，向其路由表添加最佳路由。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="7大步骤（微观）"><a href="#7大步骤（微观）" class="headerlink" title="7大步骤（微观）"></a>7大步骤（微观）</h2><ul>
+<li><p><strong>Down</strong> (No info has been exchanged or retained)</p>
+<blockquote>
+<p><strong>Down</strong> (没有交换或保留信息)</p>
+</blockquote>
+</li>
+<li><p><strong>Init</strong> (A hello packet has been received, but hasn’t gone to two way yet) )</p>
+<blockquote>
+<p><strong>init</strong> (已收到一个hello数据包，但还没有进入双路) )</p>
+</blockquote>
+</li>
+<li><p><strong>Two way</strong> (establishment of a bidirectional conversation between two routers)</p>
+<blockquote>
+<p><strong>双向</strong>（在两个路由器之间建立双向对话）。</p>
+</blockquote>
+</li>
+<li><p><strong>Exstart</strong> (first step of adjacency, decide on Master Slave)</p>
+<blockquote>
+<p><strong>Exstart</strong>（邻接的第一步，决定主从）。</p>
+</blockquote>
+</li>
+<li><p><strong>Exchange</strong> (exchange LSDB’s )</p>
+<blockquote>
+<p><strong>Exchange</strong>（交换LSDB的）。</p>
+</blockquote>
+</li>
+<li><p><strong>Loading</strong> (requests the most recent link-state advertisements (LSA’s) from its neighbour)</p>
+<blockquote>
+<p><strong>Loading</strong>（请求其邻居提供最新的链接状态广告（LSA））。</p>
+</blockquote>
+</li>
+<li><p><strong>Full</strong> (when the routers are fully adjacent, and the state appears in all router- and network-LSA’s)</p>
+<blockquote>
+<p><strong>Full</strong>（当路由器完全相邻，并且该状态出现在所有路由器和网络LSA中时）</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Proceesing-detail"><a href="#Proceesing-detail" class="headerlink" title="Proceesing detail"></a>Proceesing detail</h2><h3 id="Become-neighbour"><a href="#Become-neighbour" class="headerlink" title="Become neighbour"></a>Become neighbour</h3><ul>
+<li>R1发送Hello message 给R2</li>
+</ul>
+<p><img src="https://i.imgur.com/7kgheqW.png"></p>
+<ul>
+<li>建立邻居关系要满足的要求</li>
+</ul>
+<p><img src="https://i.imgur.com/EyOpxNf.png"></p>
+<blockquote>
+<ol>
+<li>Area ID</li>
+<li>Subnet</li>
+<li>Hello and Dead interval</li>
+<li>Authentication</li>
+<li>Stub area flag</li>
+<li>Unique router ID(RID)</li>
+</ol>
+</blockquote>
+<p><strong>Hellow message Content</strong></p>
+<p><img src="https://i.imgur.com/rPQWbcJ.png"></p>
+<p>Hellow timer 默认10s</p>
+<p>Dead interval默认40s</p>
+<ul>
+<li>R2 发送Hello包含neighbor ID给R1，并R2进入初始化状态</li>
+</ul>
+<p><img src="https://i.imgur.com/1INRGDy.png"></p>
+<ul>
+<li>R1直接从Down转变成2-way，因为R1已经知道了R2的RID和neighbourID</li>
+</ul>
+<p><img src="https://i.imgur.com/tlF4oEU.png"></p>
+<p>R1将R2列为邻居</p>
+<ul>
+<li>R2收到R1的hello message后也知道R1的情况，将R1列为R2的邻居，从init变成2-way</li>
+</ul>
+<p><img src="https://i.imgur.com/pOTGjQe.png"></p>
+<p>DR’s and BDR’s 不再PtP中选出。</p>
+<ul>
+<li>选择DR和BDR</li>
+</ul>
+<blockquote>
+<p>选择基于最高的OSPF priority, priority默认为1.</p>
+<p>如果优先级相等，则通过RID来进行选择DR&#x2F;BDR，RID越高则是DR。</p>
+<p><strong>路由器只会与DR或BDR成为邻居</strong></p>
+<p><strong>2-way的邻居状态意味着他们都发送和接受彼此的hello，但之间并不交换路由信息。</strong></p>
+</blockquote>
+<ul>
+<li>进入2-way之后就要交换路由器的LSDB了。</li>
+</ul>
+<p><img src="https://i.imgur.com/E1FA4rA.png"></p>
+<p><strong>PtP link</strong></p>
+<p>进入2-way状态，准备交换LSDB，<strong>必须选择一个路由器将启动交换，这个是在Exstart state下完成的</strong></p>
+<p><strong>Exstart state</strong></p>
+<p>根据RID选择Master或Slave，高RID的将会成为Master并启动进程并控制序列号。</p>
+<h3 id="Exchange-Database-Information"><a href="#Exchange-Database-Information" class="headerlink" title="Exchange Database Information"></a>Exchange Database Information</h3><ul>
+<li>选完Master和slave后进入Exchange状态</li>
+</ul>
+<p><img src="https://i.imgur.com/ksPQv5V.png"></p>
+<p>路由器开始相互发送LSA列表，这个过程叫做DBD(Database description)</p>
+<ul>
+<li>交换完LSA后进入loading</li>
+</ul>
+<p><img src="https://i.imgur.com/pn9P1ZH.png"></p>
+<p><img src="https://i.imgur.com/o8a8tDe.png"></p>
+<p>每个路由器将检查DBD，并请求任何如果它没有的信息（相当于updata）</p>
+<p>通过路由器请求信息不仅仅是发送更新来防止循环。</p>
+<ul>
+<li>假如R2 有R1没有的信息，如有一个192.168.3.0，R1没有</li>
+</ul>
+<p><img src="https://i.imgur.com/FURH0VL.png"></p>
+<p>在LSR(Link State Request)中R1请求LSA(Link State Advertisement )</p>
+<ul>
+<li>R2回复并发送更新LSU</li>
+</ul>
+<p><img src="https://i.imgur.com/2Jj7RNB.png"></p>
+<p>LSU- link State Update, R2向R1发送更新。</p>
+<ul>
+<li>R1向R2 发送一个ACK</li>
+</ul>
+<p><img src="https://i.imgur.com/r8VHhs2.png"></p>
+<p>LSAck- link state Ack</p>
+<ul>
+<li>R2也想要R1的DBD，重复以上过程</li>
+</ul>
+<p><img src="https://i.imgur.com/Rl1dt16.png"></p>
+<p>当然R2也会想要R1的192.168.1.0,所以重复以上过程。</p>
+<h3 id="Full"><a href="#Full" class="headerlink" title="Full"></a>Full</h3><ul>
+<li>当信息全部交换完成便变成full 状态</li>
+</ul>
+<p><img src="https://i.imgur.com/VpYjPJu.png"></p>
+<ul>
+<li><p>In the full state, the routers have full OSPF adjacency and identical LSDB’s.</p>
+<blockquote>
+<p>在完全状态下，路由器具有完整的OSPF邻接性和相同的LSDB。</p>
+</blockquote>
+</li>
+<li><p>They will continue to send and listen for Hello packets (every 10 seconds by default on an Ethernet interface, 30 sec on serial links) to maintain the neighbour adjacency</p>
+<blockquote>
+<p>他们将继续发送和收听Hello数据包（默认情况下在以太网接口上每10秒，在串行链路上每30秒），以保持邻居邻接</p>
+</blockquote>
+</li>
+<li><p>Every time a hello packet is received the dead timer (40 seconds by default) is reset back to 40 sec.</p>
+<blockquote>
+<p>每次收到hello数据包时，死计时器（默认情况下为40秒）都会重置为40秒。</p>
+</blockquote>
+</li>
+<li><p>If the Dead timer counts down to 0 and NO Hello message is received, the neighbour is removed.</p>
+<blockquote>
+<p>如果死计时器倒计时到0，并且没有收到Hello消息，则邻居将被删除。</p>
+</blockquote>
+</li>
+<li><p>The routers will continue to send LSA’s as the network changes to ensure each router has a complete and accurate map of the network (LSDB)</p>
+<blockquote>
+<p>随着网络的变化，路由器将继续发送LSA，以确保每个路由器都有完整准确的网络地图（LSDB）</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="Cisco-command"><a href="#Cisco-command" class="headerlink" title="Cisco command"></a>Cisco command</h1><h3 id="Change-reference-Bandwidth"><a href="#Change-reference-Bandwidth" class="headerlink" title="Change reference Bandwidth"></a>Change reference Bandwidth</h3><p><img src="https://i.imgur.com/ORFZ4w1.png"></p>
+<blockquote>
+<p><code>auto-cost reference-bandwidth 1000</code></p>
+</blockquote>
+<p><img src="https://i.imgur.com/2bGbH6K.png"></p>
+<h2 id="Neighbour-relationship"><a href="#Neighbour-relationship" class="headerlink" title="Neighbour relationship"></a>Neighbour relationship</h2><ul>
+<li>Command of ospf</li>
+</ul>
+<blockquote>
+<p><code>sh ip ospf int brief</code>告诉我自己的信息</p>
+<p><code>sh ip ospf neighbors</code>告诉我邻居的信息</p>
+</blockquote>
+<p><img src="https://i.imgur.com/7vprtyF.png"></p>
+<p><img src="https://i.imgur.com/8iCfpmR.png"></p>
+<p><img src="https://i.imgur.com/vkeHE2Y.png"></p>
+<p><strong>死亡计时器从40s开始倒计时，收到hello message则重置。</strong></p>
+<h2 id="Full-state"><a href="#Full-state" class="headerlink" title="Full state"></a>Full state</h2><p><img src="https://i.imgur.com/VYpgnx2.png"></p>
+<h2 id="Example-of-cisco"><a href="#Example-of-cisco" class="headerlink" title="Example of cisco"></a>Example of cisco</h2><p><img src="https://i.imgur.com/5IrpzH9.png"></p>
+<p><img src="https://i.imgur.com/iOTWOAt.png"></p>
+<p><img src="https://i.imgur.com/ouWQOuy.png"></p>
+<p><img src="https://i.imgur.com/6geVceN.png"></p>
+<p><img src="https://i.imgur.com/a0ayjom.png"></p>
+<h1 id="OSPF-Area"><a href="#OSPF-Area" class="headerlink" title="OSPF Area"></a>OSPF Area</h1><p><img src="https://i.imgur.com/iiaW37E.png"></p>
+<p><img src="https://i.imgur.com/Z1NlpAF.png" alt="Internal Routers"></p>
+<p><img src="https://i.imgur.com/QCCj8k9.png" alt="Area Border Router"></p>
+<p><img src="https://i.imgur.com/aCblLMp.png" alt="Backbone Routers"></p>
+<p><img src="https://i.imgur.com/bqbKSPU.png" alt="intra-area route"></p>
+<p><img src="https://i.imgur.com/v1ezOXY.png" alt="interatea route"></p>
+<p><img src="https://i.imgur.com/hevNIFY.png" alt="Autonomous system boundary router"></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/12/20/Computer%20Network/OSPF/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/computer-network/" rel="tag">computer network</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2023/01/20/Linux-CLI/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Linux CLI
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/12/20/Computer%20Network/RIP/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">RIP</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> Jessy Huang
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo图片.png" alt="Jessy&#39;s daily note"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2022/11/01/%E5%85%B3%E4%BA%8E%E6%88%91">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
