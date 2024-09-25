@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>CNN project daily note |  Jessy&#39;s daily note</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="images/logo图片.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-CNN project/CNN-project-daily-note"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  CNN project daily note
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/11/06/CNN%20project/CNN-project-daily-note/" class="article-date">
+  <time datetime="2022-11-06T23:48:55.000Z" itemprop="datePublished">2022-11-06</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">7 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="25-x2F-09-x2F-2022"><a href="#25-x2F-09-x2F-2022" class="headerlink" title="25&#x2F;09&#x2F;2022"></a>25&#x2F;09&#x2F;2022</h1><p>拿到了大四的项目，这个项目具体要干什么呢</p>
+<p>我们需要学习CNN model，然后用这个model进行图像的深度学习，最后在不同的平台上进行优化和测试</p>
+<p>我们需要得到这个模型在不同平台的工作效率，其包括GPU或CPU需用率，速度，准确率</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/JessyHHH/JessyHHH.github.io/blob/main/%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6/ComparisonsAndOptimisationsOfCAccelerators.pdf">具体项目要求</a></p>
+<h2 id="我们需要在四个平台进行测试"><a href="#我们需要在四个平台进行测试" class="headerlink" title="我们需要在四个平台进行测试"></a>我们需要在四个平台进行测试</h2><ul>
+<li>Google Coral</li>
+<li>Nvidia Jetson Nano</li>
+<li>Raspberry pi 4</li>
+<li>Intel NCS development board</li>
+</ul>
+<h2 id="这个星期的任务或目标"><a href="#这个星期的任务或目标" class="headerlink" title="这个星期的任务或目标"></a>这个星期的任务或目标</h2><ul>
+<li><p>去了解什么是CNN model</p>
+</li>
+<li><p>什么是人工智能AI</p>
+</li>
+<li><p>图像识别的一些实例</p>
+</li>
+<li><p>CNN 有多少种类的模型</p>
+</li>
+<li><p>如何学习CNN model</p>
+</li>
+</ul>
+<h1 id="02-x2F-10-x2F-2022"><a href="#02-x2F-10-x2F-2022" class="headerlink" title="02&#x2F;10&#x2F;2022"></a>02&#x2F;10&#x2F;2022</h1><p>通过网络，我们已经知道了什么是CNN model，并知道了其中的原理</p>
+<p>老师给我们看了他们的论文<a target="_blank" rel="noopener" href="https://github.com/JessyHHH/JessyHHH.github.io/blob/0d56821a5d3fd086af05a7a28bb4e2a3bafc4208/%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6/thesisPrintedJamesGarland.pdf">James 的论文</a>, 虽然看不懂</p>
+<h1 id="26-x2F-10-x2F-2022"><a href="#26-x2F-10-x2F-2022" class="headerlink" title="26&#x2F;10&#x2F;2022"></a>26&#x2F;10&#x2F;2022</h1><p>给了我们coral加速器和RPI（树莓派）</p>
+<h1 id="09-x2F-11-x2F-2022"><a href="#09-x2F-11-x2F-2022" class="headerlink" title="09&#x2F;11&#x2F;2022"></a>09&#x2F;11&#x2F;2022</h1><p>我们知道了我们需要在不同平台到底干嘛，例如我手上有coral加速器，我需要pc+coral或RPI +coral来加速和计算准确率</p>
+<p><img src="https://i.imgur.com/hsVZ8YE.jpg" alt="09:11:2022"></p>
+<h1 id="30-x2F-11-x2F-22"><a href="#30-x2F-11-x2F-22" class="headerlink" title="30&#x2F;11&#x2F;22"></a>30&#x2F;11&#x2F;22</h1><ul>
+<li><p><input disabled="" type="checkbox"> 
+Compare PC(Colab) inference speed in same dataset and models, diferent CPU or GPU or TPU.</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+Compare different traning speed in TPU ,GPU and CPU</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+Compare accuracy in different platform.</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+Compare diferent epoch number of the accuracy on the model.</p>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/Ai2McSx.jpg" alt="image-20221130153432123"></p>
+<h1 id="7-x2F-12-x2F-22"><a href="#7-x2F-12-x2F-22" class="headerlink" title="7&#x2F;12&#x2F;22"></a>7&#x2F;12&#x2F;22</h1><h2 id="Presentation"><a href="#Presentation" class="headerlink" title="Presentation"></a>Presentation</h2><p>10min each one person</p>
+<h3 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h3><ol>
+<li><p>Introduction </p>
+</li>
+<li><p>information about ML</p>
+</li>
+<li><p>Detail</p>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li><p>embaded system</p>
+</li>
+<li><p>what I using</p>
+<blockquote>
+<ul>
+<li><p>Dataset</p>
+</li>
+<li><p>model</p>
+</li>
+<li><p>CNN detail - what you use in CNN</p>
+</li>
+<li><p>Gant chart</p>
+</li>
+<li><p>flow chart</p>
+</li>
+<li><p>code just important part.</p>
+</li>
+<li></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol start="4">
+<li><p>show the result or example</p>
+</li>
+<li><p>Next target</p>
+</li>
+</ol>
+<p>Past question</p>
+<blockquote>
+<p>Good introduction</p>
+<p>let they to understand what is ML </p>
+<p>why you do that.</p>
+<p>Daren: discraibe what the model is, how do you do it , what the dataset used.</p>
+<p>techinique question.</p>
+</blockquote>
+<ul>
+<li>Know the model, Know the dataset, which mean you need to Know every you show your source where are you from.</li>
+<li>演讲自己做的内容，把自己的项目做得更有挑战性，同时也要让评委知道你做的什么，所以语言解释很重要。</li>
+<li>要清楚你自己模型的制作过程。</li>
+<li>you can show what you do in your slide.</li>
+</ul>
+<p>Not too much test on your slide.</p>
+<p>Make picture more big.</p>
+<p>联动slide，点击一个讲一个，不要放在一起。</p>
+<p>最后可以贴出你做了什么。what you have been down.</p>
+<p>you can put a video to show how you operate the function. Well, just for summer.</p>
+<h1 id="23-x2F-1-x2F-2023"><a href="#23-x2F-1-x2F-2023" class="headerlink" title="23&#x2F;1&#x2F;2023"></a>23&#x2F;1&#x2F;2023</h1><p>在上个星期，演讲了我的项目，我使用了<a target="_blank" rel="noopener" href="https://www.tensorflow.org/lite/examples">tensorflow的教学</a>，来演讲我的学习内容以及学习后得出来的结果，具体请看我的<a target="_blank" rel="noopener" href="https://github.com/JessyHHH/JessyHHH.github.io/blob/main/%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6/Presentation.pptx">PPT</a></p>
+<p>James发了一个团队的<a target="_blank" rel="noopener" href="https://github.com/google-research/tuning_playbook#who-is-this-document-for">优化方案</a>，以下是我对优化方案的大概总结</p>
+<ul>
+<li><p>hyperparameters(number of layers, layer width, type of activation function)</p>
+<blockquote>
+<p>这是在预训练的初始化设置中更改，改变参数重新训练模型</p>
+</blockquote>
+</li>
+<li><p>batch size</p>
+<blockquote>
+<p>训练的批量决定了训练的速度，我们需要找到一个理想的批量大小，能够合理分配训练资源。</p>
+</blockquote>
+</li>
+</ul>
+<p>65</p>
+<blockquote>
+<p>Activation Function: ReLu, Mist, [Tanm,sigmoid].</p>
+<p>We can change Activation in every layer.</p>
+<p>change Learing rate</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/google-research/tuning_playbook#what-are-the-update-rules-for-all-the-popular-optimization-algorithms">Adam and NAdam</a>, <a target="_blank" rel="noopener" href="https://github.com/google-research/tuning_playbook#what-are-the-update-rules-for-all-the-popular-optimization-algorithms">SGD with momentum</a> Optimiser</p>
+</blockquote>
+<blockquote>
+<p>Task: </p>
+<ul>
+<li><p>Read Google book</p>
+</li>
+<li><p>Try suggestions</p>
+<ul>
+<li>find out one your model uses<ul>
+<li>Learing rate</li>
+<li>optimizer</li>
+<li>activation function</li>
+<li>regulation rate</li>
+</ul>
+</li>
+<li>only Find Inference detect different.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h1 id="30-x2F-1-x2F-2023"><a href="#30-x2F-1-x2F-2023" class="headerlink" title="30&#x2F;1&#x2F;2023"></a>30&#x2F;1&#x2F;2023</h1><p>Every one try to use yolov4-8, LeNet - numbers, MobileNetv2 - …</p>
+<p>Dataset: coco cifar ….</p>
+<p>pretrain model for each other.</p>
+<p>Google scholar </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md">models on tensorflow 2</a></p>
+<ul>
+<li><p>taks</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+choose model and dataset at least 1 common</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+start optimize hyper parameters .</p>
+</li>
+</ul>
+<h1 id="16-x2F-2-x2F-2023"><a href="#16-x2F-2-x2F-2023" class="headerlink" title="16&#x2F;2&#x2F;2023"></a>16&#x2F;2&#x2F;2023</h1><ol>
+<li>I can get the cocodataset label from this <a target="_blank" rel="noopener" href="https://github.com/amikelive/coco-labels/blob/master/scripts/python/dump_coco_labels.py">script</a>, but I am train the model on <a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/13NP4qCb-m2ek02JTNfOArt-2YnmZzecI?usp=sharing">colab</a> , I try to detect the image in colab and Raspberry pi, but there would show <strong>error</strong></li>
+</ol>
+<p><code>IndexError: list index out of range</code></p>
+<p>I have two <a target="_blank" rel="noopener" href="https://github.com/google-coral/pycoral/blob/master/examples/classify_image.py">image classification script 1</a> <a target="_blank" rel="noopener" href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/TFLite_detection_image.py">image classification script 2</a> , they are all would be error.</p>
+<ol start="2">
+<li>I am try to do your share <a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1go_M5sRWWzMUgaCyrXgS5GU6A7or94_1?usp=sharing">TF Hub for TF2: Retraining an image classifier1</a> .ipynb but there are same problem with me before going to do the Keras’s <a target="_blank" rel="noopener" href="https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html">generator</a>, the generator which is need classes diratory for those images. Such as</li>
+</ol>
+<img src="https://i.imgur.com/51wLqOo.png" alt="image-20230211130258335" style="zoom:50%;" />
+
+<p>but cifar100 is python script and coco dataset is coco format, they looklike can’t not be used on <strong>keras’ generator</strong>.</p>
+<p>Below picture is I try to use your resize and process images function.</p>
+<p><img src="https://i.imgur.com/jJ4hZVW.png" alt="image-20230211130516224"></p>
+<p>Coco dataset is only one diractory <code>cocodataset/train/*.jpg</code>, so there would be only one classes.</p>
+<p>In generator, classes are labels.</p>
+<ol start="3">
+<li><p>I found a new web about dataset , which is <a target="_blank" rel="noopener" href="https://public.roboflow.com/object-detection/microsoft-coco-subset/2#">roboflow</a> , there have coco dataset and it’s look like we don’t need to transform the labels , we can use keras to use coco dataset and TFrecord format by roboflow . </p>
+<p>In this doc, where support TFrecord, may be we can try to use it to build model.</p>
+</li>
+<li><p>I am going to do <a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1ouUBOOkN2TgIqdwMN1v2-pvNLhsq-a3Y">yolov8</a>, <a href="">Train yolov8 by your custom dataset</a> , there have very nice dataset lib but one problem is I can’t run the converter model format fuction, such as I want to transfer <code>model.pt</code> to <code>model.tflite</code> </p>
+</li>
+<li><p>Because the coco dataset is so busy and Complex, I decide don’t use coco dataset to do my model.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1lEaVa9ytsXUaDaUoPWkUydHJs5MCtEae?usp=sharing">fuite with kaggle lib in colab</a> ,we can use open-src to train our model, there is an example.</p>
+<p>13&#x2F;2&#x2F;2023</p>
+</li>
+</ol>
+<h1 id="3-x2F-3-x2F-2023"><a href="#3-x2F-3-x2F-2023" class="headerlink" title="3&#x2F;3&#x2F;2023"></a>3&#x2F;3&#x2F;2023</h1><ul>
+<li>converter script not good for the model, I don’t know what problem happen</li>
+</ul>
+<p><img src="https://i.imgur.com/kOCtGdG.png"></p>
+<p>result is not good, and need to spand a lot time</p>
+<p><a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1go_M5sRWWzMUgaCyrXgS5GU6A7or94_1?usp=sharing">colab note book converter uin8</a></p>
+<p>if not uint8(only for coral accelerator) converter script which would be show</p>
+<p><img src="https://i.imgur.com/9JNz4dF.png"></p>
+<ul>
+<li>I make an object detection model</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1AqSvKwfaom2rLnPpSWrFJhnFCPg4iyxN?usp=sharing">colab of object detection</a></p>
+<p>This one is perfect to run.</p>
+<ul>
+<li>We want a raspberry pi 4 carmera to real-time detect object.</li>
+</ul>
+<h1 id="9-x2F-3-x2F-2023"><a href="#9-x2F-3-x2F-2023" class="headerlink" title="9&#x2F;3&#x2F;2023"></a>9&#x2F;3&#x2F;2023</h1><p><a target="_blank" rel="noopener" href="https://github.com/google-research/tuning_playbook">optimise guide</a></p>
+<p>Optimiser option:</p>
+<ul>
+<li>batch size &#x3D;</li>
+</ul>
+<blockquote>
+<p>Training time &#x3D; (time per step) x (total number of steps)</p>
+</blockquote>
+<ul>
+<li>Num_step&#x3D; ?</li>
+<li>Num_classes &#x3D; 3</li>
+<li>fine_tune_checkpoint_type &#x3D; classification</li>
+<li>learning_rate &#x3D; 0 - 1 which one could be better</li>
+<li>additional_layer &#x3D; ?</li>
+<li>num_layers_before_predictor&#x3D;?</li>
+</ul>
+<h2 id="27-x2F-3-x2F-2023"><a href="#27-x2F-3-x2F-2023" class="headerlink" title="27&#x2F;3&#x2F;2023"></a>27&#x2F;3&#x2F;2023</h2><p>This week tasks:</p>
+<ol>
+<li>Get inference of Rpi + Coral accuracy</li>
+<li>Step from 10k to 7k</li>
+<li>jump lr from 0.01 to 0.03.</li>
+</ol>
+<p>Thesis:</p>
+<p>Abstract 200word : what project is ,who is your supervisor, one or two results</p>
+<p>Introduction: what your project , why you do your project, what is your background.</p>
+<p>Literature review: what paper review, what you look paper going todo </p>
+<p>Methodology: what you do, and result, what dataset,parameter, how you do it.</p>
+<p>Results: what did you prove, what did you find (good or bad)</p>
+<p>Discussion&#x2F; conclusion : summerise everything.</p>
+<p>16 to17 page</p>
+<p>you can send some draft 27 - 7 in this time send James.</p>
+<h2 id="3-x2F-4-x2F-2023"><a href="#3-x2F-4-x2F-2023" class="headerlink" title="3&#x2F;4&#x2F;2023"></a>3&#x2F;4&#x2F;2023</h2><p>实际测试了不同模型的准确率，但是还没有测速度，速度将在两天后进行测试</p>
+<p>定论文基调</p>
+<ol>
+<li>摘要</li>
+</ol>
+<blockquote>
+<p>主要讲诉我做什么项目，谁帮助我，我做出了什么结果，200字</p>
+</blockquote>
+<ol start="2">
+<li>介绍</li>
+</ol>
+<blockquote>
+<p>讲诉我项目的细节，如我在我的项目里需要干什么，可以参考James论文</p>
+</blockquote>
+<p>2.1 文献回顾</p>
+<blockquote>
+<p>主要讲诉你在哪个优化的哪个领域参考了哪个文献,参考James的Literature review。</p>
+</blockquote>
+<ol start="3">
+<li>方法论Methodology</li>
+</ol>
+<blockquote>
+<p>你做了什么，你怎么做的，为什么这么做，你的图表结果。</p>
+</blockquote>
+<ol start="4">
+<li>结果</li>
+</ol>
+<blockquote>
+<p>通过你的研究过程你发现了什么，通过你的研究过程你得到什么结论。</p>
+</blockquote>
+<ol start="5">
+<li>结论</li>
+</ol>
+<blockquote>
+<p>总结上面所有结果。</p>
+</blockquote>
+<ol start="6">
+<li>Reference</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/11/06/CNN%20project/CNN-project-daily-note/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/11/07/Computer%20Network/Cisco%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8lab9/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Cisco的软件和使用lab9
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/11/04/Computer%20Network/Cisco%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8lab8/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Cisco软件的学习和使用lab8</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> Jessy Huang
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo图片.png" alt="Jessy&#39;s daily note"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2022/11/01/%E5%85%B3%E4%BA%8E%E6%88%91">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

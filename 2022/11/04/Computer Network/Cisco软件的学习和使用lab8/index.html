@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Cisco软件的学习和使用lab8 |  Jessy&#39;s daily note</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="images/logo图片.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Computer Network/Cisco软件的学习和使用lab8"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Cisco软件的学习和使用lab8
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/11/04/Computer%20Network/Cisco%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8lab8/" class="article-date">
+  <time datetime="2022-11-04T16:08:45.000Z" itemprop="datePublished">2022-11-04</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/">计算机网络学习博客</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">836</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">3 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>[toc]</p>
+<h1 id="虚拟局域网-Vlan-Virtual-Local-Area-Network或简写VLAN"><a href="#虚拟局域网-Vlan-Virtual-Local-Area-Network或简写VLAN" class="headerlink" title="虚拟局域网 Vlan(Virtual Local Area Network或简写VLAN)"></a>虚拟局域网 Vlan(Virtual Local Area Network或简写VLAN)</h1><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-cn/%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91">什么是Vlan - wikipedia</a></p>
+<h2 id="搭建网络"><a href="#搭建网络" class="headerlink" title="搭建网络"></a>搭建网络</h2><p>如图所示：</p>
+<img src="https://i.imgur.com/x1TQNdD.png" alt="image-20221104174405973" style="zoom:50%;" />
+
+<ul>
+<li>根据上图搭建网络</li>
+</ul>
+<h2 id="开始操作"><a href="#开始操作" class="headerlink" title="开始操作"></a>开始操作</h2><h4 id="1-验证每一个主机都在同一个Vlan，同一个广播域"><a href="#1-验证每一个主机都在同一个Vlan，同一个广播域" class="headerlink" title="1. 验证每一个主机都在同一个Vlan，同一个广播域"></a>1. 验证每一个主机都在同一个Vlan，同一个广播域</h4><p>确定所有电脑都在vlan1中。</p>
+<ul>
+<li>点击查看按钮，查看switch的端口状态。</li>
+</ul>
+<img src="https://i.imgur.com/IACjFzx.png" alt="image-20221104174919972" style="zoom:50%;" />
+
+<p>可以看到已经连接的端口状态都是up，<strong>且每一个端口都是Vlan1</strong>(<strong>默认</strong>)</p>
+<p><strong>所以每一个主机都在Vlan1，故都在一个广播域</strong></p>
+<ul>
+<li>验证是否都在广播域</li>
+</ul>
+<blockquote>
+<ul>
+<li>创建广播帧</li>
+</ul>
+<img src="https://i.imgur.com/BFI2gQH.png" alt="image-20221104175303754" style="zoom:50%;" />
+
+<p>从PC0开始发送，看看是否每个主机都能收到广播。</p>
+<img src="https://i.imgur.com/Gh3bfkS.png" alt="image-20221104175427570" style="zoom:50%;" />
+
+<p>可以发现每个主机都能收到ICMP请求并响应，这个过程在前面的实验已经讲过，故不再解释。</p>
+</blockquote>
+<h4 id="2-如何划分Vlan"><a href="#2-如何划分Vlan" class="headerlink" title="2. 如何划分Vlan"></a>2. 如何划分Vlan</h4><p>我们想要Pc0-pc2在同一个Vlan，同一个广播域。</p>
+<img src="https://i.imgur.com/unO9r1T.png" alt="image-20221104180132471" style="zoom:50%;" />
+
+<p>PC3- pc5在另一个Vlan，另一个广播域。</p>
+<img src="https://i.imgur.com/2xAYPNF.png" alt="image-20221104180147551" style="zoom:50%;" />
+
+<ul>
+<li>操作</li>
+</ul>
+<blockquote>
+<p>我们需要在switch上的端口进行划分Vlan，而不是在主机上划分Vlan</p>
+<p>如上图所示，需要将左边三台划分为Vlan2，右边三台划分为Vlan3.</p>
+<ul>
+<li>创建一个Vlan2</li>
+</ul>
+<blockquote>
+<img src="https://i.imgur.com/O5oY4PE.png" alt="image-20221104180410109" style="zoom:50%;" />
+
+<p>我们需要在switch上的VLAN Datebase里创建一个Vlan2, 然后点击添加。</p>
+<img src="https://i.imgur.com/ujJikYA.png" alt="image-20221104180501662" style="zoom:50%;" />
+
+<p>可以看见里面多了一个Vlan2.</p>
+</blockquote>
+<ul>
+<li>我们需要将fa0&#x2F;1-3的端口都分配给Vlan2，而不是Vlan1</li>
+</ul>
+<blockquote>
+<img src="https://i.imgur.com/ZSBXXso.png" alt="image-20221104180628544" style="zoom:50%;" />
+
+<p><strong>在switch上点击端口将Vlan中的default切换成Vlan2.</strong></p>
+<p>1-3的端口都这么做。</p>
+</blockquote>
+<ul>
+<li>测试pc0-2 的的三台电脑是否分配到Vlan2</li>
+</ul>
+<blockquote>
+<p>发送复杂PDU并目的IP为255.255.255.255</p>
+<img src="https://i.imgur.com/xx6gUma.png" alt="image-20221105125813123" style="zoom:50%;" />
+
+<p>我们发现PDU只到达了被分配到Vlan2到每个pc上。</p>
+</blockquote>
+<ul>
+<li><p>按照上述步骤设置Vlan3或者是用命令行来进行配置</p>
+</li>
+<li><p>命令行配置Vlan（大多数是要用命令行来配置Vlan的，所以这个也很重要）</p>
+</li>
+</ul>
+<blockquote>
+<p>Switch(config)#vlan 3      %%进入并创建Vlan3</p>
+<p>Switch(config-vlan)#name Vlan3  %%命名Vlan3</p>
+<p>Switch(config-vlan)#end</p>
+<p>Switch(config)#int range fa 0&#x2F;4 - 6 &amp;&amp;进入端口4-6</p>
+<p>Switch(config-if-range)#switchport mode access %% 设置端口模式</p>
+<p>Switch(config-if-range)#switchport access vlan 3 %%将端口分配到vlan3</p>
+<p>Switch#show vlan brief</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/JessyHHH/JessyHHH.github.io/blob/main/%E5%AD%A6%E4%B9%A0%E6%96%87%E4%BB%B6/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%AB%AF%E5%8F%A3untaged%E3%80%81taged%E3%80%81trunk%E3%80%81access%20%E7%9A%84%E5%8C%BA%E5%88%AB.pdf">Access 和 trunk的区别</a></p>
+</blockquote>
+<ul>
+<li>发送PDU验证。</li>
+</ul>
+<blockquote>
+<img src="https://i.imgur.com/YgqZe7n.png" alt="image-20221105131545778" style="zoom:50%;" />
+
+<p>如上图所示，结果上可以看到端口4-6已经被分配到vlan3了，只有在vlan3的主机才能接受PDU。</p>
+</blockquote>
+</blockquote>
+<h4 id="3-不同的Vlan能否相互联系"><a href="#3-不同的Vlan能否相互联系" class="headerlink" title="3. 不同的Vlan能否相互联系"></a>3. 不同的Vlan能否相互联系</h4><p><strong>答案：不同的Vlan不能相互联系</strong></p>
+<ul>
+<li>验证</li>
+</ul>
+<blockquote>
+<p>在vlan2的主机ping 一个vlan3的主机看看结果</p>
+<img src="https://i.imgur.com/eAx0zC4.png" alt="image-20221105132333290" style="zoom:50%;" />
+
+<p>我们可以发现不同的vlan不能相互 ping之间的主机。</p>
+</blockquote>
+<ol start="4">
+<li>看不同交换机中相同的vlan是否互通</li>
+</ol>
+<blockquote>
+<p>根据下图搭建网络</p>
+<img src="https://i.imgur.com/dSHjpnL.png" alt="image-20221105133901176" style="zoom:50%;" />
+
+<p>左边依旧是vlan2，右边是vlan3</p>
+<ul>
+<li><p>根据步骤2进行配置。</p>
+</li>
+<li><p>通过pc0发送广播帧来看看是否能够发送PDU给第二个switch上的vlan2.</p>
+</li>
+</ul>
+<blockquote>
+<img src="https://i.imgur.com/jalUA6w.png" alt="image-20221105134720135" style="zoom:50%;" />
+
+<p>我们可以看到它只发送了本地的vlan的两台主机为什么呢</p>
+<ul>
+<li>原因</li>
+</ul>
+<blockquote>
+<p>1.在两台switch之间连接的模式是access而不是trunk</p>
+<p>2.两台switch之间是默认的vlan1，而不是vlan2，所以在access模式中不会转发到另一个switch</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/JessyHHH/JessyHHH.github.io/blob/main/%E5%AD%A6%E4%B9%A0%E6%96%87%E4%BB%B6/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%AB%AF%E5%8F%A3untaged%E3%80%81taged%E3%80%81trunk%E3%80%81access%20%E7%9A%84%E5%8C%BA%E5%88%AB.pdf">access和trunk的区别</a></p>
+</blockquote>
+<ul>
+<li>解决</li>
+</ul>
+<blockquote>
+<p>只需要将两个switch之间连接的端口改成trunk即可。</p>
+</blockquote>
+<ul>
+<li>再次验证</li>
+</ul>
+<blockquote>
+<p>发送广播帧看是否到达下面switch vlan2的主机</p>
+<img src="https://i.imgur.com/IRNUNm5.png" alt="image-20221105135417889" style="zoom:50%;" />
+
+<p><img src="https://i.imgur.com/Eh4IBRT.png" alt="image-20221105135437848"></p>
+</blockquote>
+<ul>
+<li>结论</li>
+</ul>
+<blockquote>
+<p>它是可以连接不同的switch中相同的vlan里的主机。</p>
+</blockquote>
+</blockquote>
+<p>实验结束。</p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/11/04/Computer%20Network/Cisco%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8lab8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cisco/" rel="tag">Cisco</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/11/06/CNN%20project/CNN-project-daily-note/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            CNN project daily note
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/11/01/%E5%85%B3%E4%BA%8E%E6%88%91/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">About me</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> Jessy Huang
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo图片.png" alt="Jessy&#39;s daily note"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2022/11/01/%E5%85%B3%E4%BA%8E%E6%88%91">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

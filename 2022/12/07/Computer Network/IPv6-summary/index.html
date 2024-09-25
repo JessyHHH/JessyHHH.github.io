@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>IPv6 summary |  Jessy&#39;s daily note</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="images/logo图片.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Computer Network/IPv6-summary"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  IPv6 summary
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/12/07/Computer%20Network/IPv6-summary/" class="article-date">
+  <time datetime="2022-12-07T16:24:31.000Z" itemprop="datePublished">2022-12-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/">计算机网络学习博客</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">2.5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">12 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>[toc]</p>
+<h1 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>same function with IPv4 but stucture is different.</p>
+<ul>
+<li><p><strong>why IPv6</strong></p>
+<ul>
+<li><p>IPv4 address exhaustion</p>
+<blockquote>
+<p>IPv4耗尽</p>
+</blockquote>
+</li>
+<li><p>IPv6 <strong>Much larger address space</strong></p>
+<blockquote>
+<p>更大的地址空间</p>
+</blockquote>
+</li>
+<li><p>Multicast</p>
+<blockquote>
+<p>多播</p>
+</blockquote>
+</li>
+<li><p>Jumbograms</p>
+</li>
+<li><p>Faster routing.</p>
+<blockquote>
+<p>更快的路径</p>
+</blockquote>
+</li>
+<li><p>Network Layer Security</p>
+<blockquote>
+<p>更安全的网络层</p>
+</blockquote>
+</li>
+<li><p>Mobility.</p>
+<blockquote>
+<p>流动性，移动</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>IPv6 security</strong></p>
+<ul>
+<li><p>Security features are standardised and mandated, i.e. all implementation must offer them.</p>
+<blockquote>
+<p>安全功能是标准化的，也是强制性的，即所有的设施必须提供这些功能。</p>
+</blockquote>
+</li>
+<li><p>Extension of RFC-2401 Security Architecture for the Internet Protocol (IPSec)</p>
+<blockquote>
+<p>RFC-2401互联网协议安全架构（IPSec）的扩展</p>
+</blockquote>
+</li>
+<li><p>Authentication and Encryption.</p>
+<blockquote>
+<p>认证和加密。</p>
+</blockquote>
+</li>
+<li><p>Invisible to applications as it operates within the IP layer.</p>
+<blockquote>
+<p>由于它在IP层内运行，对应用程序来说是不可见的。</p>
+</blockquote>
+</li>
+<li><p>It protects all upper layer protocols.</p>
+<blockquote>
+<p>它保护所有上层协议。</p>
+</blockquote>
+</li>
+<li><p>It protects both end-to-end and router-to-router communication (secure gateway).</p>
+<blockquote>
+<p>它既能保护端到端的通信，又能保护路由器到路由器的通信（安全网关）。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>IPv6 address scope</p>
+<blockquote>
+<p>IPv6地址范围</p>
+</blockquote>
+<ul>
+<li><p>Unicast addressing</p>
+<ul>
+<li>Link-local Addresses (LLA)</li>
+<li>loopback address</li>
+</ul>
+<blockquote>
+<p>Link-local Addresses (LLA) and the loopback address have link-local scope, which means they are to be used in the directly attached network (link) only.</p>
+<p>链接本地地址（LLA）和回环地址具有链接本地范围，这意味着它们只能在直接连接的网络（链接）中使用。</p>
+</blockquote>
+</li>
+<li><p>other addresses</p>
+<ul>
+<li>Global Unicast Addresses (GUA)</li>
+</ul>
+<blockquote>
+<p>including Global Unicast Addresses (GUA), have global (or universal) scope, which means they are globally routable.</p>
+<p>包括全局单播地址（GUA），具有全局（或通用）范围，这意味着它们是全球可路由的。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>mobile IPv6</p>
+<ul>
+<li><p>IPv6 was designed to support mobility.</p>
+<blockquote>
+<p>IPv6是被设计成支持移动的</p>
+</blockquote>
+</li>
+<li><p>IPv6 ND and SLAAC allow hosts to operate in any locations without any special support.</p>
+<blockquote>
+<p>IPv6 ND(neighbor) 和 SLAAC(Stateless Address Auto-configuration) 允许主机在任何地方运行，不需要任何特殊支持。</p>
+</blockquote>
+</li>
+<li><p>It is more scalable and the performance is better because less traffic passes through the home link and less redirection and less rerouting.</p>
+<blockquote>
+<p>它的可扩展性更强，性能也更好，因为通过主链路的流量更少，重定向和重路由更少。</p>
+</blockquote>
+</li>
+<li><p>No single point of failure.</p>
+<blockquote>
+<p>没有单点故障。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>IANA</strong>(Internet Assigned Numbers Authority) responsible for the entire IPv6 address space and they assign certain prefixes to the RIRs (Regional Internet Registry). </p>
+<blockquote>
+<p>IANA(互联网号码分配局)机构负责整个IPv6地址空间并且他们分配了前缀给<strong>RIRs</strong>（区域互联网注册机构）</p>
+</blockquote>
+<ul>
+<li>RIRs<ul>
+<li>ARIN 北美 </li>
+<li>LACNIC 南美</li>
+<li>RIPE 欧洲和亚洲北部</li>
+<li>APNIC 亚洲</li>
+<li>AFRINIC 非洲</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>RIPE issued the block <strong>2001:4000::&#x2F;23</strong> by IANA</p>
+<blockquote>
+<p>IANA: 2000::&#x2F;3</p>
+<p>RIPE 通过 IANA发布了区块 2001:4000::&#x2F;23 欧洲和亚洲北部</p>
+<ul>
+<li><p>ISP(Internet service provider) 2001:41f0::&#x2F;32</p>
+<blockquote>
+<p>ISP互联网服务供应商</p>
+</blockquote>
+<ul>
+<li>Customer :2001:41f0:4060::&#x2F;48</li>
+</ul>
+</li>
+</ul>
+<p>ARIN北美 2001:0400::&#x2F;23</p>
+</blockquote>
+</li>
+<li><p>only global routing-prefix or site-prefix is &#x2F;48, otherwise interface ID all would be &#x2F;64</p>
+<blockquote>
+<p>只要全局路由前缀和站点前缀是&#x2F;48，其他的接口ID都是&#x2F;64</p>
+</blockquote>
+</li>
+<li><p>We can use 16bits to create subnet</p>
+<blockquote>
+<p>剩下16位可以创建子网</p>
+<img src="https://i.imgur.com/PyMWPon.png" alt="image-20221207170502205" style="zoom:50%;" /></blockquote>
+</li>
+</ul>
+<h2 id="Ip-address-planning"><a href="#Ip-address-planning" class="headerlink" title="Ip address planning"></a>Ip address planning</h2><h3 id="1-IPv4-and-IPv6-overall"><a href="#1-IPv4-and-IPv6-overall" class="headerlink" title="1. IPv4 and IPv6 overall"></a>1. IPv4 and IPv6 overall</h3><p><img src="https://i.imgur.com/dfrd6GK.png" alt="image-20221207175318074"></p>
+<img src="https://i.imgur.com/9LHyHxr.png" alt="image-20221207175800161" style="zoom:50%;" />
+
+<ul>
+<li>如上图所示，IPv6需要一次性完成4bits的分配，而且直接使用该范围内分配，不需要利用出事分配规模来计算</li>
+</ul>
+<p><strong>如下图所示</strong></p>
+<p><img src="https://i.imgur.com/HmS2DlO.png" alt="image-20221207180135757"></p>
+<img src="https://i.imgur.com/tCPas0n.png" alt="image-20221207180155695" style="zoom:50%;" />
+
+<h3 id="2-Questions"><a href="#2-Questions" class="headerlink" title="2. Questions"></a>2. Questions</h3><img src="https://i.imgur.com/58o7VqU.png" alt="image-20221207180512110" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/9PE4wdH.png" alt="image-20221207180537539" style="zoom:50%;" />
+
+
+
+<h2 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h2><h3 id="1-Address"><a href="#1-Address" class="headerlink" title="1. Address"></a>1. Address</h3><ul>
+<li><p><strong>Address format</strong> </p>
+<blockquote>
+<img src="https://i.imgur.com/7zkCKvj.png" alt="image-20221207183734639" style="zoom:50%;" />
+
+<ul>
+<li><p>Contiguous groups of ‘0‘ can be replaced with ‘::’</p>
+</li>
+<li><p>Only one double colon used in an address.</p>
+</li>
+</ul>
+<img src="https://i.imgur.com/baF1lsg.png" alt="image-20221207183820075" style="zoom:50%;" />
+</blockquote>
+<ul>
+<li>prefix</li>
+</ul>
+<blockquote>
+<p>前缀</p>
+</blockquote>
+<ul>
+<li>Interface</li>
+<li>Character must be represented in lowercase.</li>
+</ul>
+<blockquote>
+<p>必须用小写a-f.</p>
+</blockquote>
+</li>
+<li><p>Anycast type</p>
+<ul>
+<li>Unicast </li>
+<li>multicast</li>
+<li>anycast</li>
+</ul>
+<blockquote>
+<p>IPv4 Broadcast concept disappears –Replaced by All hosts multicast.</p>
+<p>IPv4广播概念消失 -被所有主机多播取代。</p>
+</blockquote>
+</li>
+<li><p>IPv6 Network Notation</p>
+<blockquote>
+<p>网络标记</p>
+</blockquote>
+<ul>
+<li><img src="https://i.imgur.com/x0laFlN.png" alt="image-20221207185133437" style="zoom:50%;" /></li>
+</ul>
+</li>
+<li><p>Special address</p>
+<ul>
+<li><p>Unspecial address</p>
+<blockquote>
+<p>::</p>
+</blockquote>
+</li>
+<li><p>Default route address</p>
+<blockquote>
+<img src="https://i.imgur.com/b6I1wvX.png" alt="image-20221207185340439" style="zoom:50%;" />
+</blockquote>
+</li>
+<li><p>Loopback</p>
+<blockquote>
+<img src="https://i.imgur.com/5NIJjaW.png" alt="image-20221207185406820" style="zoom:50%;" />
+</blockquote>
+</li>
+<li><p>Link-local IPv6 Address (LLA)</p>
+<blockquote>
+<img src="https://i.imgur.com/W1szVaG.png" alt="image-20221207185431202" style="zoom:50%;" />
+
+<ul>
+<li><strong>LLA prefix must be fe80</strong>::</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-IPv4-vs-IPv6-fields"><a href="#2-IPv4-vs-IPv6-fields" class="headerlink" title="2. IPv4 vs IPv6 fields"></a>2. IPv4 vs IPv6 fields</h3><img src="https://i.imgur.com/L5X9w6W.png" alt="image-20221207185708000" style="zoom:50%;" />
+
+<ul>
+<li><strong>Similar and evolving fields</strong></li>
+</ul>
+<img src="https://i.imgur.com/TjySRw4.png" alt="image-20221207185845245" style="zoom:50%;" />
+
+<ul>
+<li><strong>remove fields</strong></li>
+</ul>
+<img src="https://i.imgur.com/5B8oHTN.png" alt="image-20221207185811509" style="zoom:50%;" />
+
+<h3 id="3-IPv4-vs-IPv6-header"><a href="#3-IPv4-vs-IPv6-header" class="headerlink" title="3. IPv4 vs IPv6 header"></a>3. IPv4 vs IPv6 header</h3><img src="https://i.imgur.com/VoS2JZP.png" alt="image-20221207191953074" style="zoom:50%;" />
+
+<ul>
+<li><p>IPv6 extension headers</p>
+<ul>
+<li><p>Hop by Hop options header.</p>
+</li>
+<li><p>Destination options header.</p>
+</li>
+<li><p>Routing header.</p>
+</li>
+<li><p>Fragment header.</p>
+</li>
+<li><p>Authentication header (AH).</p>
+</li>
+<li><p>Encapsulation security payload (ESP) header.</p>
+<blockquote>
+<p>封装安全有效载荷（ESP）头。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-Prefix-Terminology"><a href="#4-Prefix-Terminology" class="headerlink" title="4. Prefix Terminology"></a>4. <strong>Prefix Terminology</strong></h3><ul>
+<li>Prefix terms</li>
+</ul>
+<img src="https://i.imgur.com/6OcreEv.png" alt="image-20221207192219414" style="zoom:50%;" />
+
+<ul>
+<li>IPv6 Relative Network Sizes</li>
+</ul>
+<img src="https://i.imgur.com/SRUuoN0.png" alt="image-20221207192243621" style="zoom:50%;" />
+
+<ul>
+<li><p><strong>Prefix assignments</strong></p>
+<ul>
+<li>Provider Aggregatable (PA) Assignments</li>
+</ul>
+<blockquote>
+<p>集体提供者（PA）的分配</p>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>From LIR(Local internet registry) allocation (minimum &#x2F;32) </p>
+</li>
+<li><p>Register by LIR in RIR(Regional Internet Registry) IRRDB(Internet router registry data base).</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>Provider Independent (PI) Assignments</li>
+</ul>
+<blockquote>
+<p>独立提供者（PI）的任务</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Minimum size is &#x2F;48</li>
+<li>Cannot be sub-assigned.</li>
+</ul>
+</blockquote>
+<ul>
+<li>Exercise:</li>
+</ul>
+</li>
+</ul>
+<img src="https://i.imgur.com/ayKnRgF.png" alt="image-20221207193719288" style="zoom:50%;" />
+
+<h3 id="5-Link-Local-Address-LLA"><a href="#5-Link-Local-Address-LLA" class="headerlink" title="5. Link Local Address(LLA)"></a>5. Link Local Address(LLA)</h3><img src="https://i.imgur.com/CzYK4Bs.png" alt="image-20221207194009495" style="zoom:50%;" />
+
+<ul>
+<li><p>EUI-48 :34ed:8432:5476</p>
+</li>
+<li><p>EUI-64: 36ed:84ff:fe32:5476</p>
+</li>
+<li><p>LLA IPv6 Host ID: fe80::36ed:84ff:fe32:5476</p>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<ul>
+<li>EUI-48 to EUI-64</li>
+</ul>
+<p><img src="https://i.imgur.com/zHFd7sY.png" alt="image-20221207194234087"></p>
+<h3 id="6-Multicast"><a href="#6-Multicast" class="headerlink" title="6. Multicast"></a>6. Multicast</h3><h4 id="1-Scope-and-ground"><a href="#1-Scope-and-ground" class="headerlink" title="1. Scope and ground"></a>1. Scope and ground</h4><ul>
+<li>IPv6 multicast flags</li>
+</ul>
+<img src="https://i.imgur.com/wPWujAV.png" alt="image-20221207195258769" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/hCNzzdf.png" alt="image-20221207195327245" style="zoom:50%;" />
+
+<ul>
+<li>IPv6 multicast Scope</li>
+</ul>
+<img src="https://i.imgur.com/VjeGsHp.png" alt="image-20221207195424182" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/80iGbCw.png" alt="image-20221207195440924" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/EjSXtDe.png" alt="image-20221207195516064" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/Vhep9oJ.png" alt="image-20221207195533174" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/6UyGtZ0.png" alt="image-20221207195546597" style="zoom:50%;" />
+
+<blockquote>
+<p>Ff02:: is link local address prefix, which is importance.</p>
+</blockquote>
+<ul>
+<li>Multicast Group ID</li>
+</ul>
+<img src="https://i.imgur.com/M5k5xgA.png" alt="image-20221207195712549" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/3ezuwTA.png" alt="image-20221207195731971" style="zoom:50%;" />
+
+<p>每个GroupID的含义在Link local</p>
+<p>每个GroupID的含义在site local</p>
+<h4 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2. MAC"></a>2. MAC</h4><ul>
+<li>Multicast MAC is associated with each multicast address.</li>
+</ul>
+<blockquote>
+<p>多播MAC与每个多播地址相关。</p>
+</blockquote>
+<ul>
+<li>For IPv6 multicast addresses, the last 32 bits of the IPv6 address are OR’d with 33:33:00:00:00:00.</li>
+</ul>
+<blockquote>
+<p>对于IPv6组播地址，IPv6地址的最后32位与33:33:00:00:00:00进行OR’d</p>
+</blockquote>
+<ul>
+<li>Example</li>
+</ul>
+<img src="https://i.imgur.com/PgXRLbb.png" alt="image-20221207200301723" style="zoom:50%;" />
+
+<blockquote>
+<p>Multicast ip address: ff02::1</p>
+<p>mac address : 33:33:00:00:00:01</p>
+</blockquote>
+<h4 id="3-Solicited-Node-Multicast-Address-SNMA"><a href="#3-Solicited-Node-Multicast-Address-SNMA" class="headerlink" title="3. Solicited-Node Multicast Address (SNMA)"></a>3. <strong>Solicited-Node Multicast Address (SNMA)</strong></h4><blockquote>
+<p>Solicited-Node Multicast Address(被请求的节点多播地址)</p>
+</blockquote>
+<ul>
+<li>Every device that uses an IPv6 address will also compute and join a SNMA group for each IPv6 address.</li>
+</ul>
+<blockquote>
+<p>每个使用IPv6地址的设备也将为每个IPv6地址计算并加入一个SNMA组。</p>
+</blockquote>
+<ul>
+<li><p>This address is required for the IPv6 NDP(Neighbor Discovery Protocol).</p>
+</li>
+<li><p>Example</p>
+</li>
+</ul>
+<img src="https://i.imgur.com/g6gqDYz.png" alt="image-20221207200818110" style="zoom:50%;" />
+
+<blockquote>
+<ul>
+<li>last 24 bits of Interface ID, interface ID : 32:5476</li>
+<li>Ff02::1:ff SNMA</li>
+</ul>
+</blockquote>
+<h3 id="7-IPv6-Assigned-Prefixes"><a href="#7-IPv6-Assigned-Prefixes" class="headerlink" title="7. IPv6 Assigned Prefixes"></a>7. <strong>IPv6 Assigned Prefixes</strong></h3><ul>
+<li>Address Type indicated by Format Prefix (FP).</li>
+</ul>
+<blockquote>
+<p>由格式前缀（FP）表示的地址类型。</p>
+</blockquote>
+<img src="https://i.imgur.com/SIh3Mlo.png" alt="image-20221207201412743" style="zoom:50%;" />
+
+<ul>
+<li>Anycast addresses allocated from unicast prefixes.</li>
+</ul>
+<blockquote>
+<p>从单播前缀分配的任播地址。</p>
+<ul>
+<li>Assigning a unicast address to more than one interface turns a unicast address into an anycast address.</li>
+</ul>
+<blockquote>
+<p>将一个单播地址分配给一个以上的接口，会使单播地址变成任播地址。</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>Exercise</li>
+</ul>
+<img src="https://i.imgur.com/zel2ivo.png" alt="image-20221207201925835" style="zoom:50%;" />
+
+<h2 id="IPv6-application"><a href="#IPv6-application" class="headerlink" title="IPv6 application"></a>IPv6 application</h2><ul>
+<li><p>DHCP(Dynamic Host Configuration Protocol)v6</p>
+<ul>
+<li>Stateless - &gt; Used with SLAAC(Stateless Address Auto-configuration).</li>
+<li>Stateful -&gt; Similar to DHCP use in IPv4.</li>
+</ul>
+</li>
+<li><p>DNS(Domain Name System)v6</p>
+</li>
+</ul>
+<img src="https://i.imgur.com/SP85R18.png" alt="image-20221207203226594" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/VBDA0bZ.png" alt="image-20221207203249764" style="zoom:50%;" />
+
+<ul>
+<li>ICMP(Internet Control Message Protocol)v6<ul>
+<li>Much more important than ICMP</li>
+<li>Critical to the operation of IPv6.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Neighbour-Dicovery-ND"><a href="#Neighbour-Dicovery-ND" class="headerlink" title="Neighbour Dicovery(ND)"></a>Neighbour Dicovery(ND)</h2><ul>
+<li><p><strong>IPv6 Neighbour Discovery (ND)</strong></p>
+<ul>
+<li><p>For <strong>Nodes</strong></p>
+<ul>
+<li>Address configuration (SLAAC)</li>
+<li>Link-layer address resolution</li>
+<li>Link-layer address change notification</li>
+<li>Neighbour Unreachability Detection (NUD)</li>
+</ul>
+</li>
+<li><p>For <strong>Hosts</strong>:</p>
+<ul>
+<li>Router discovery</li>
+<li>Parameter discovery (MTU, prefixes, hop limits).</li>
+</ul>
+</li>
+<li><p>For <strong>Routers</strong>:</p>
+<ul>
+<li>Advertise their presence &amp; parameters</li>
+<li>Advertise on-link prefixes</li>
+<li>Determine next hops</li>
+<li>Redirect hosts to better next hops.</li>
+</ul>
+</li>
+<li><p>Stateless auto-configuration (SLAAC)</p>
+<ul>
+<li>Creation of Global Unique Address (GUA)</li>
+<li>Based in ICMPv6 (ND protocol).</li>
+<li>Creation of Link-local Address (LLA)<ul>
+<li>Assumes that each interface can provide a unique identifier.</li>
+<li>Use Duplicate Address Detection (DAD).</li>
+<li>Plug &amp; play.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Stateful auto-configuration</p>
+<ul>
+<li>Use of Stateful DHCPv6.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="SLAAC-process"><a href="#SLAAC-process" class="headerlink" title="SLAAC process"></a>SLAAC process</h2><h3 id="process"><a href="#process" class="headerlink" title="process"></a>process</h3><ul>
+<li><p>Host creates a <strong>Solicited-Node Multicast Address (SNMA)</strong></p>
+</li>
+<li><p>Host registers a <strong>Multicast Listener Report</strong>(<strong>MLR</strong>) for SNMA address to join group</p>
+<ul>
+<li>from ( :: ) to ff02::16 Multicast Listener Discovery (MLD)</li>
+</ul>
+<blockquote>
+<img src="https://i.imgur.com/ClRPtzv.png" alt="image-20221207204451342" style="zoom:50%;" />
+
+<p>左边发送到右边</p>
+<ul>
+<li>Destination Mac : ::</li>
+<li>Source Mac: ff02::16</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Host creates a <strong>Link Local Address (LLA)</strong></p>
+<ul>
+<li>Sends <strong>Neighbour Solicitation (NS)</strong> (135) from ( :: ) to SNMA with LLA target</li>
+</ul>
+<blockquote>
+<img src="https://i.imgur.com/eqBjzSz.png" alt="image-20221207210314214" style="zoom:50%;" />
+
+<ul>
+<li>Source mac is ::</li>
+<li>Destination mac is ff02::1:ffaa:2</li>
+</ul>
+<blockquote>
+<p>ff02::1 which mean all node on the link local</p>
+</blockquote>
+<ul>
+<li>No Neighbour Advertisement (136) is received</li>
+<li>No duplicate(重复) for LLA detected</li>
+</ul>
+</blockquote>
+<ul>
+<li>If <strong>Neighbour Advertisement (NA)</strong> (136) received auto-configuration stops.</li>
+</ul>
+</li>
+<li><p>Host registers a <strong>Multicast Listener Report</strong> for SNMA address to join group</p>
+<ul>
+<li>from LLA to ff02::16 MLD</li>
+</ul>
+<blockquote>
+<img src="https://i.imgur.com/4a8PLMN.png" alt="image-20221207210759968" style="zoom:50%;" />
+
+<ul>
+<li>source mac fe80::200:ff:feaa:2</li>
+</ul>
+<blockquote>
+<p>fe80:: link local address</p>
+</blockquote>
+<ul>
+<li>Destination mac is ff02::16</li>
+</ul>
+<blockquote>
+<p><strong>ff02::16 Multicast Listener Discovery (MLD)</strong></p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>Host sends <strong>Router Solicitation (RS)</strong> (133) to ff02::2 ‘<em>All routers</em>’ from LLA</p>
+</li>
+</ul>
+<blockquote>
+<img src="https://i.imgur.com/LrMGDFF.png" alt="image-20221207211003765" style="zoom:50%;" />
+
+<ul>
+<li>Source Mac is fe80::200:ff:feaa:2</li>
+<li>Destination Mac is ff02::2</li>
+</ul>
+<blockquote>
+<p>Ff02::2 all router on link local</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>Router sends <strong>Router Advertisement (RA)</strong> (134) to ff02::1 ‘<em>All nodes</em>’ from its LLA with prefix</li>
+</ul>
+<blockquote>
+<img src="https://i.imgur.com/qcolzIr.png" alt="image-20221207211235848" style="zoom:50%;" />
+
+<ul>
+<li>source Mac : Fe80::200:ff:feaa:3</li>
+<li>Destination Mac : ff02::1</li>
+</ul>
+<blockquote>
+<p> ff02::1 all node on link local</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>Host creates <strong>Globally Unique Address (GUA)</strong> from prefix and MAC<ul>
+<li>Sends NS (135) from ( :: ) to SNMA with GUA target</li>
+<li>If NA (136) received auto-configuration stops.</li>
+</ul>
+</li>
+<li>Finish SLAAC.</li>
+</ul>
+<h3 id="RA-Flags"><a href="#RA-Flags" class="headerlink" title="RA Flags"></a>RA Flags</h3><p><img src="https://i.imgur.com/qWEpqqK.png"></p>
+<blockquote>
+<p>如果M标志被设置为0，O标志被设置为1，则使用DHCPv6来获得额外的配置参数。</p>
+</blockquote>
+<ul>
+<li>example</li>
+</ul>
+<p><img src="https://i.imgur.com/2TrqNS0.png"></p>
+<blockquote>
+<p>M:1 DHCPv6 stateful(有状态)</p>
+<p>M:0 and O:1 SLAAC &amp; DHCPv6 stateless(无状态)。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/kDXCTQD.png"></p>
+<blockquote>
+<p>M:0 and O:0 RDNSS(Recursive DNS server), DNSSL(DNS Search List Option)</p>
+<p>RDNSS:递归DNS服务器 ;DNSSL:DNS搜索列表选项</p>
+</blockquote>
+<h2 id="LLA-amp-SNMA-generation"><a href="#LLA-amp-SNMA-generation" class="headerlink" title="LLA&amp;SNMA generation"></a>LLA&amp;SNMA generation</h2><h3 id="LLA"><a href="#LLA" class="headerlink" title="LLA"></a>LLA</h3><ul>
+<li><strong>IPv6</strong> – Neighbor Discovery Protocol (NDP)</li>
+</ul>
+<img src="https://i.imgur.com/ce673Sh.png" alt="image-20221207212249164" style="zoom:50%;" />
+
+<blockquote>
+<ul>
+<li><p>第一步检查邻居的缓存表里是否有PC2</p>
+<ul>
+<li>如果有，则直接创建Link local frame，然后PC2的MAC address就是目标address</li>
+<li>无，则第二步</li>
+</ul>
+</li>
+<li><p>第二步</p>
+<ul>
+<li>发送neighbour discovery (ND) 向PC2询问它的MAC地址</li>
+<li>Neighbor Request(NR)邻居请求被发送到PC 2的被(SNMA)请求节点组播地址上</li>
+</ul>
+</li>
+<li><p>ff02::1:ff is SNMA</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>IPv6</strong> – Link Local address (LLA)</li>
+</ul>
+<img src="https://i.imgur.com/V66CSem.png" alt="image-20221207213814416" style="zoom:50%;" />
+
+<blockquote>
+<ul>
+<li>一旦为接口分配了IPv6地址（或启用了IPv6），操作系统就会自动分配一个LLA。</li>
+<li>LLA可以由管理员静态分配。</li>
+<li>路由器将不转发以LLA为目的地的数据包。</li>
+<li>LLA地址fe80::&#x2F;10 - fe80::eui-64或静态分配fe80::和最重要的64位。- fe80:: 是link local address</li>
+<li>静态分配的LLA将优先于自动生成的LLA。</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>Link Local Address (LLA) automatic assignment</strong></li>
+</ul>
+<img src="https://i.imgur.com/vpQAtan.png" alt="image-20221207214200194" style="zoom:50%;" />
+
+<blockquote>
+<ul>
+<li>第一步，检查带有FF：FE的64 bit</li>
+<li>第二步，将EUI-64变回EUI-48, 020c:cffff:fec1:2601 -&gt; 00:0c:cf:c1:26:01</li>
+<li>所以MAC address 是00:0c:cf:c1:26:01</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>Link Local Address (LLA) Static assignment</strong></li>
+</ul>
+<p><img src="https://i.imgur.com/wtFM1jl.png" alt="image-20221207214740999"></p>
+<h3 id="SNMA"><a href="#SNMA" class="headerlink" title="SNMA"></a>SNMA</h3><ul>
+<li><strong>IPv6</strong> – Solicited Node Multicast Address (SNMA)</li>
+</ul>
+<img src="https://i.imgur.com/mTrLPBs.png" alt="image-20221207215023117" style="zoom:50%;" />
+
+<blockquote>
+<ul>
+<li>一个被请求的节点多播地址(SNMA)是通过获取单播或任播地址中最不重要的24位并将其附加到前缀ff02::1:ff00:0&#x2F;104来创建的。</li>
+<li>每个放在接口上的IPv6地址都会产生一个SNMA。</li>
+<li>该接口加入了一个请求节点多播组地址(SNMA)。(它监听以IPv6征求节点多播地址为目的地的流量）。</li>
+</ul>
+</blockquote>
+<img src="https://i.imgur.com/hHt9guN.png" alt="image-20221207235638858" style="zoom:50%;" />
+
+<blockquote>
+<ul>
+<li>第一步，找到SNMA</li>
+<li>第二步，mac 是33:33:fe:30:96:01</li>
+</ul>
+</blockquote>
+<ul>
+<li>Mapping Solicited Node Multicast Addresses to MAC addresses</li>
+</ul>
+<img src="https://i.imgur.com/xBw8nGY.png" alt="image-20221208002039150" style="zoom:50%;" />
+
+<img src="https://i.imgur.com/eRRTbzA.png" alt="image-20221208003158659" style="zoom:50%;" />
+
+<ul>
+<li>PC X performs a ND for PC A</li>
+</ul>
+<img src="https://i.imgur.com/7IuWW6f.png" alt="image-20221208003407221" style="zoom:50%;" />
+
+<h3 id="Question-ask"><a href="#Question-ask" class="headerlink" title="Question ask"></a>Question ask</h3><img src="https://i.imgur.com/4VeC8KT.png" alt="image-20221208003821447" style="zoom:50%;" />
+
+
+
+<h2 id="Question-and-summary"><a href="#Question-and-summary" class="headerlink" title="Question and summary"></a>Question and summary</h2><h3 id="1-Questions"><a href="#1-Questions" class="headerlink" title="1. Questions"></a>1. Questions</h3><ul>
+<li>Question 1</li>
+</ul>
+<img src="https://i.imgur.com/kfiPU3e.png" alt="image-20221208004242595" style="zoom:50%;" />
+
+<blockquote>
+<p>SNMA</p>
+<img src="https://i.imgur.com/3ezuwTA.png" alt="image-20221207195731971" style="zoom:50%;" />
+
+<ul>
+<li>Destination MAC is <code>33:33:00:00:00:02</code> Which means all routers on the Linklocal</li>
+<li>Source IP is <code>::</code></li>
+<li>Destination IP is <code>ff02::2</code></li>
+<li>Router IP link local :<code> fe80::210:ffff:ffd6:58c0</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>Question 2</li>
+</ul>
+<p><img src="https://i.imgur.com/EOnQuT9.png" alt="image-20221208005231463"></p>
+<blockquote>
+<p>SNMA, DAD</p>
+<p>destination MAC: <code>33:33:FE:23:47:33</code></p>
+<p>Source address: <code>::</code></p>
+<p>Destination address: <code>ff02::1:ff:23:4733</code></p>
+</blockquote>
+<ul>
+<li>question 3</li>
+</ul>
+<img src="https://i.imgur.com/4jcohvc.png" alt="image-20221208010034478" style="zoom:50%;" />
+
+<blockquote>
+<p>Router advertisement </p>
+<ul>
+<li>Destination MAC: <code>33:33:00:00:00:01</code></li>
+<li>Source address: <code>fe80::210:ffff:fed6:58c0</code></li>
+<li>Destination address:<code> ff02::01</code></li>
+<li>source Link-layer address is<code> fe80::210:ffff:fed6:58c0</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>question 4</li>
+</ul>
+<img src="https://i.imgur.com/KrWKLCw.png" alt="image-20221208010718243" style="zoom:50%;" />
+
+<blockquote>
+<p>snma</p>
+<ul>
+<li>Destination Mac:<code> 33:33:ff:23:47:33</code></li>
+<li>source address is <code>fec0:0:0:f282:210:ffff:fed6:58c0  -site local address</code></li>
+<li>Destination address is <code>ff02::1:ff:23:47:33</code></li>
+<li>Host A IP:<code>fec0::f282:2b0:d0ff:fe23:4733</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>question5</li>
+</ul>
+<p><img src="https://i.imgur.com/EJ16BrR.png" alt="image-20221208012557092"></p>
+<blockquote>
+<ul>
+<li>Destination MAC is <code>33:33:ff:23:47:33</code></li>
+<li>Source address: <code>3ff3:2900:d005:f282:210:ffff:fed6:58c0</code></li>
+<li>destination address is <code>3ffe:2900:d0005:f282:2b0:d0ff:fe23:4733</code></li>
+</ul>
+</blockquote>
+<h3 id="2-Summary"><a href="#2-Summary" class="headerlink" title="2. Summary:"></a>2. Summary:</h3><h4 id="RA-Router-advertisement"><a href="#RA-Router-advertisement" class="headerlink" title="RA(Router advertisement)"></a>RA(Router advertisement)</h4><ul>
+<li>Ethernet Header:</li>
+</ul>
+<p>MAC <code>33:33:00:00:00:01</code></p>
+<ul>
+<li>IPv6</li>
+</ul>
+<p>Source address: <code>fe80:: EUI-64 from route</code>, LLA </p>
+<p>Destination address: <code>ff02::1</code> all node on Link local</p>
+<p>source Link layer: <code>fe80:: EUI-64 from router</code></p>
+<h4 id="RS-Router-Solicitation"><a href="#RS-Router-Solicitation" class="headerlink" title="RS(Router Solicitation)"></a>RS(Router Solicitation)</h4><ul>
+<li>Ethernet Header:</li>
+</ul>
+<p>MAC<code>33:33:00:00:00:02</code></p>
+<ul>
+<li>IPv6</li>
+</ul>
+<p>Source address: <code>fe80:: EUI-64 from router</code> LLA</p>
+<p>Destination address: <code>ff02::2</code></p>
+<h4 id="NS-Neighbour-Solicitation"><a href="#NS-Neighbour-Solicitation" class="headerlink" title="NS(Neighbour Solicitation)"></a>NS(Neighbour Solicitation)</h4><ul>
+<li>Ethernet Header:</li>
+</ul>
+<p>MAC :<code>33:33: last 32bit from EUI-64 </code></p>
+<ul>
+<li>IP v6 if there are DAD(duplicate )ip address process</li>
+</ul>
+<p>Source address: <code>::</code></p>
+<p>Destination address: <code>ff02::1:ff:last24bit from SNMA</code></p>
+<ul>
+<li>Ipv6 if there are duplicate ip address process</li>
+</ul>
+<p>source address:<code>::</code></p>
+<p>destination address: <code>fe80:: EUI-64</code></p>
+<ul>
+<li>ipv6 if host use GUA prefix</li>
+</ul>
+<p>Follow that.</p>
+<h3 id="3-Cisco-Routes"><a href="#3-Cisco-Routes" class="headerlink" title="3. Cisco Routes"></a>3. Cisco Routes</h3><p><img src="https://i.imgur.com/aqWTfv6.png"></p>
+<p><img src="https://i.imgur.com/ecUWK8l.png"></p>
+<p><img src="https://i.imgur.com/tClSRVg.png"></p>
+<p><img src="https://i.imgur.com/XZfjZQm.png"></p>
+<p><img src="https://i.imgur.com/QMnmvop.png"></p>
+<blockquote>
+<p>Generate ipv6 LLA:</p>
+<p><code>ipv6 address fe80::1 link-local</code></p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/12/07/Computer%20Network/IPv6-summary/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/computer-network/" rel="tag">computer network</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/12/08/Computer%20Network/WIFI/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            WIFI
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/12/07/CNN%20project/analysis-result/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">analysis result</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> Jessy Huang
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo图片.png" alt="Jessy&#39;s daily note"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2022/11/01/%E5%85%B3%E4%BA%8E%E6%88%91">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

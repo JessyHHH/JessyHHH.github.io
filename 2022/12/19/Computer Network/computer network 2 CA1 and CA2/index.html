@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Computer network 2 CA1 and CA2 |  Jessy&#39;s daily note</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="images/logo图片.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Computer Network/computer network 2 CA1 and CA2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Computer network 2 CA1 and CA2
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/12/19/Computer%20Network/computer%20network%202%20CA1%20and%20CA2/" class="article-date">
+  <time datetime="2022-12-19T19:50:15.000Z" itemprop="datePublished">2022-12-19</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/">计算机网络学习博客</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">982</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">4 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>[toc]</p>
+<h1 id="CA1"><a href="#CA1" class="headerlink" title="CA1"></a>CA1</h1><h2 id="Q1"><a href="#Q1" class="headerlink" title="Q1"></a>Q1</h2><p><img src="https://i.imgur.com/BrNK9ke.png"></p>
+<p><img src="https://i.imgur.com/RBhWKmb.png"></p>
+<blockquote>
+<p>错误原因：由于111.11.1.18是从router出去的ip dest，而且router没有ARP cache，故它的tar proto 应该是router的 default gatway 而不是 目标地址， 因为router需要先储存pc的地址缓存(cache)。</p>
+</blockquote>
+<h2 id="Q2"><a href="#Q2" class="headerlink" title="Q2"></a>Q2</h2><p><img src="https://i.imgur.com/QUjJL6G.png"></p>
+<blockquote>
+<p>比特填充（bit stuffing）是指在数据中出现五个连续的1时，多加一个0，这样接收器就不会将数据误认为是标志。<br>数据作为一个标志。</p>
+<ul>
+<li>Frame sent , 加 0</li>
+<li>Frame receive ,减0</li>
+</ul>
+</blockquote>
+<h2 id="Q3"><a href="#Q3" class="headerlink" title="Q3"></a>Q3</h2><p><img src="https://i.imgur.com/r6SSttT.png"></p>
+<blockquote>
+<p>比特填充是指在数据中出现五个连续的1时，多加一个0，这样接收器就不会将数据误认为是标志。<br>数据作为一个标志。</p>
+<ul>
+<li>Frame sent , 加 0</li>
+<li>Frame receive ,减0</li>
+</ul>
+</blockquote>
+<h2 id="Q4"><a href="#Q4" class="headerlink" title="Q4"></a>Q4</h2><p><img src="https://i.imgur.com/3CgCmis.png"></p>
+<blockquote>
+<p><img src="https://i.imgur.com/7C15Iu7.png"></p>
+<p><img src="https://i.imgur.com/SK5VAJ2.png"></p>
+<p><img src="https://i.imgur.com/xLiXSC7.png"></p>
+<ul>
+<li>一眼顶针，随堂小测试，理塘速通王</li>
+<li>Data from upper layer, <strong>stuffed</strong>.</li>
+<li>总而言之，7E是flag，replaced with two bytes, 7D + 5E。7D 是ESC(escape), replace with two bytes, 7D + 5D.</li>
+</ul>
+</blockquote>
+<h2 id="Q5"><a href="#Q5" class="headerlink" title="Q5"></a>Q5</h2><p><img src="https://i.imgur.com/OEkOqCO.png"></p>
+<blockquote>
+<p><img src="https://i.imgur.com/6LWjMp0.png"></p>
+<ul>
+<li><p>Data to upper layer, unstuffed.</p>
+</li>
+<li><p>7D 5E改成 7E, 7D 5D 改成7D</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="Q6"><a href="#Q6" class="headerlink" title="Q6"></a>Q6</h2><p><img src="https://i.imgur.com/qIFjbod.png"></p>
+<h2 id="Q7"><a href="#Q7" class="headerlink" title="Q7"></a>Q7</h2><p><img src="https://i.imgur.com/t6KxRiK.png"></p>
+<h2 id="Q8"><a href="#Q8" class="headerlink" title="Q8"></a>Q8</h2><p><img src="https://i.imgur.com/e88UQS3.png"></p>
+<blockquote>
+<p><img src="https://i.imgur.com/YVj34oR.png"></p>
+</blockquote>
+<h2 id="Q9"><a href="#Q9" class="headerlink" title="Q9"></a>Q9</h2><p><img src="https://i.imgur.com/bmdFeIi.png"></p>
+<blockquote>
+<p><img src="https://i.imgur.com/keRKUFG.png"></p>
+</blockquote>
+<h2 id="Q10"><a href="#Q10" class="headerlink" title="Q10"></a>Q10</h2><p><img src="https://i.imgur.com/XIFk2fu.png"></p>
+<blockquote>
+<p>EGP(<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Exterior_gateway_protocol">exterior gateway protocol</a>)外部网关协议，BGP是边界网关协议</p>
+<p>EGP：外部<strong>网关协议</strong>是一种<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/IP_routing">IP</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Routing_protocol">路由协议</a>，用于在<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Autonomous_system_(Internet)">自治系统之间交换</a><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Routing">路由</a>（routing between different AS’s）信息。</p>
+</blockquote>
+<h2 id="Q11"><a href="#Q11" class="headerlink" title="Q11"></a>Q11</h2><p><img src="https://i.imgur.com/MyRRyoq.png"></p>
+<blockquote>
+<p>32-bit ID 也就是Router ID(RID), 它类似于IPv4的类型，一共是32-bit.</p>
+<p><img src="https://i.imgur.com/z6j1meb.png"></p>
+<blockquote>
+<ol>
+<li><p>防止在被动接口发送hello 消息</p>
+</li>
+<li><p>Router 在被动接口上没有任何关系</p>
+</li>
+<li><p>防止在被动接口上发送和接受路由的更新。</p>
+</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="Q12"><a href="#Q12" class="headerlink" title="Q12"></a>Q12</h2><p><img src="https://i.imgur.com/IXaHuQA.png"></p>
+<blockquote>
+<p>Every time a hello packet is received the dead timer (40 seconds by default) is reset back to 40 sec.</p>
+<p><img src="https://i.imgur.com/I38Ceez.png"></p>
+<ul>
+<li>DR 和 BDR不是在PtP 上产生的,2 way需要选择哪个router initiate the exchange ，This is done in the exstart state(在exstart状态下完成)。</li>
+</ul>
+<p>Become neigbour , 2-way是在PtP 上发生的。</p>
+</blockquote>
+<h2 id="Q13"><a href="#Q13" class="headerlink" title="Q13"></a>Q13</h2><p><img src="https://i.imgur.com/bpMrlab.png"></p>
+<blockquote>
+<ul>
+<li><p>Default priority for an OSPF interface is <strong>1</strong></p>
+</li>
+<li><p>all router have the same information by LSDB</p>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/VrTNteR.png"></p>
+</blockquote>
+<h2 id="Q14"><a href="#Q14" class="headerlink" title="Q14"></a>Q14</h2><p><img src="https://i.imgur.com/GH7Tk3B.png"></p>
+<blockquote>
+<p><img src="https://i.imgur.com/eWKFtfd.png"></p>
+<ul>
+<li>Default reference bandwidth is 100 Mb&#x2F;s</li>
+</ul>
+</blockquote>
+<h2 id="Q15"><a href="#Q15" class="headerlink" title="Q15"></a>Q15</h2><p><img src="https://i.imgur.com/oLYIGxs.png"></p>
+<blockquote>
+<ul>
+<li><p>一个合适的area ID是 0.0.0.0, area id的骨干一定是0，没有为什么</p>
+</li>
+<li><p>In the <em>Loading</em> state, a router requests the most recent link-state advertisements (LSAs) from its neighbor discovered in the previous state.</p>
+<blockquote>
+<p>在<em>加载</em>状态下，路由器要求从上一个状态下发现的邻居那里获得最新的链接状态广告（LSAs）。</p>
+<p>也就是说一旦有新邻居了，就要通过LSAs来更新新的路由。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h2 id="Q16"><a href="#Q16" class="headerlink" title="Q16"></a>Q16</h2><p><img src="https://i.imgur.com/QKqHb7u.png"></p>
+<blockquote>
+<p>HDLC 有 flow control and error control.</p>
+<p>PPP is byte stuffing, HDLC is bit stuffing.</p>
+</blockquote>
+<h2 id="Q17"><a href="#Q17" class="headerlink" title="Q17"></a>Q17</h2><p><img src="https://i.imgur.com/V3MGoNm.png"></p>
+<blockquote>
+<p><img src="https://i.imgur.com/beJjxLM.png"></p>
+</blockquote>
+<h2 id="Q18"><a href="#Q18" class="headerlink" title="Q18"></a>Q18</h2><p><img src="https://i.imgur.com/eYqThoe.png"></p>
+<blockquote>
+<p><img src="https://i.imgur.com/X6YZLMW.png"></p>
+</blockquote>
+<h2 id="Q19"><a href="#Q19" class="headerlink" title="Q19"></a>Q19</h2><p><img src="https://i.imgur.com/kQglYwR.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.techtarget.com/searchnetworking/definition/Link-Control-Protocol">LCP</a>,within PPP, Link Control Protocol (LCP) establishes, configures and tests data link internet connections.</p>
+</blockquote>
+<h2 id="Q20"><a href="#Q20" class="headerlink" title="Q20"></a>Q20</h2><p><img src="https://i.imgur.com/h6diK6q.png"></p>
+<blockquote>
+<ul>
+<li><img src="https://i.imgur.com/0xXfX52.png"></li>
+<li>we can use rip a d ospf also still can use static routes.</li>
+</ul>
+</blockquote>
+<h2 id="Q21"><a href="#Q21" class="headerlink" title="Q21"></a>Q21</h2><p><img src="https://i.imgur.com/u6GdcqX.png"></p>
+<blockquote>
+<ul>
+<li><p>Split Horizon: This is one of the methods used by distance vector routing protocols to avoid routing loops. The principle is simple – <strong>a router will not advertise a route back onto the interface from which it was learned</strong>. Split horizon is enabled on interfaces by default.</p>
+<blockquote>
+<p>水平分割的规则是路由器不会将路由通告回它从中学习的接口。</p>
+</blockquote>
+</li>
+<li><p>Poison Reverse: when the routers learn that a network has an unreachable metric through route poisoning (Hop count 16 for RIP), it breaks this rule and notifies adjacent routers, regardless of which interfaces the router initially learned them. This is done so that the downed network can propagate across the network as quickly as possible.</p>
+<blockquote>
+<p>当路由器通过路由中毒（RIP 的跳数为 16）得知网络具有无法访问的度量时，它会打破此规则并通知相邻的路由器，而不管路由器最初学习的是哪个接口。这样做是为了让宕机的网络可以尽快在网络中传播。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h2 id="Q22"><a href="#Q22" class="headerlink" title="Q22"></a>Q22</h2><p><img src="https://i.imgur.com/FMQXq8E.png"></p>
+<blockquote>
+<p>RIP v1 uses Broadcast for its updates.</p>
+<p>RIP v2 uses Multicast for its updates.</p>
+</blockquote>
+<h1 id="CA2"><a href="#CA2" class="headerlink" title="CA2"></a>CA2</h1><h2 id="Q1-1"><a href="#Q1-1" class="headerlink" title="Q1"></a>Q1</h2><p><img src="https://i.imgur.com/w7P95mo.png"></p>
+<h2 id="Q2-1"><a href="#Q2-1" class="headerlink" title="Q2"></a>Q2</h2><p><img src="https://i.imgur.com/Sjx7QKb.png"></p>
+<h2 id="Q3-1"><a href="#Q3-1" class="headerlink" title="Q3"></a>Q3</h2><p><img src="https://i.imgur.com/Ptmm8H2.png"></p>
+<h2 id="Q4-1"><a href="#Q4-1" class="headerlink" title="Q4"></a>Q4</h2><p><img src="https://i.imgur.com/kMItO0q.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://jessyhhh.github.io/2022/12/07/Computer%20Network/IPv6-summary/#4-Prefix-Terminology">Prefix Terminology</a> &#x2F;48 的size 应该是大公司或者大的组织。</p>
+</blockquote>
+<h2 id="Q5-1"><a href="#Q5-1" class="headerlink" title="Q5"></a>Q5</h2><p><img src="https://i.imgur.com/wra7ySt.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://jessyhhh.github.io/2022/12/07/Computer%20Network/IPv6-summary/#RA-Flags">RA Flags</a> stateless should set M &#x3D;0, O&#x3D;1.</p>
+</blockquote>
+<h2 id="Q6-1"><a href="#Q6-1" class="headerlink" title="Q6"></a>Q6</h2><p><img src="https://i.imgur.com/3lpnp4Q.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://jessyhhh.github.io/2022/12/07/Computer%20Network/IPv6-summary/#LLA">IPv6 LLA</a></p>
+<ul>
+<li><p>一旦为接口分配了IPv6地址（或启用了IPv6），操作系统就会自动分配一个LLA。</p>
+</li>
+<li><p>一旦GUA被分配到接口，LLA就会自动使用EUI-64生成。</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="Q7-1"><a href="#Q7-1" class="headerlink" title="Q7"></a>Q7</h2><p><img src="https://i.imgur.com/2cpsH7l.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://jessyhhh.github.io/2022/12/07/Computer%20Network/IPv6-summary/#1-Address">Address</a></p>
+<p><img src="https://i.imgur.com/UrMY3IS.png"></p>
+</blockquote>
+<h2 id="Q8-1"><a href="#Q8-1" class="headerlink" title="Q8"></a>Q8</h2><p><img src="https://i.imgur.com/aD3Sgbv.png"></p>
+<blockquote>
+<p>Successive 是连续的，不是成功的。</p>
+</blockquote>
+<h2 id="Q9-1"><a href="#Q9-1" class="headerlink" title="Q9"></a>Q9</h2><p><img src="https://i.imgur.com/bmBVN6R.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://jessyhhh.github.io/2022/12/07/Computer%20Network/IPv6-summary/#3-Cisco-Routes">Ipv6 cisco</a></p>
+</blockquote>
+<h2 id="Q10-1"><a href="#Q10-1" class="headerlink" title="Q10"></a>Q10</h2><p><img src="https://i.imgur.com/xL8aCLe.png"></p>
+<blockquote>
+<p>LLA: <code>fe80::c2f3:04ff:fe9b:c08a</code></p>
+</blockquote>
+<h2 id="Q11-1"><a href="#Q11-1" class="headerlink" title="Q11"></a>Q11</h2><p><img src="https://i.imgur.com/yEk2gQc.png"></p>
+<blockquote>
+<p>SNMA: <code>ff02::1:ff66:c022</code></p>
+<p><code>ff02::1</code>这个是一定存在的， 这代表着all nodes on the link local</p>
+</blockquote>
+<h2 id="Q12-1"><a href="#Q12-1" class="headerlink" title="Q12"></a>Q12</h2><p><img src="https://i.imgur.com/1qaWQck.png"></p>
+<blockquote>
+<p><img src="https://i.imgur.com/VoS2JZP.png"></p>
+</blockquote>
+<h2 id="Q13-1"><a href="#Q13-1" class="headerlink" title="Q13"></a>Q13</h2><p><img src="https://i.imgur.com/SQ1lHWC.png"></p>
+<blockquote>
+<p><img src="https://i.imgur.com/eRRTbzA.png"></p>
+</blockquote>
+<h2 id="Q14-1"><a href="#Q14-1" class="headerlink" title="Q14"></a>Q14</h2><p><img src="https://i.imgur.com/g7bVLTk.png"></p>
+<h2 id="Q15-1"><a href="#Q15-1" class="headerlink" title="Q15"></a>Q15</h2><p><img src="https://i.imgur.com/dOC4hlI.png"></p>
+<h2 id="Q16-1"><a href="#Q16-1" class="headerlink" title="Q16"></a>Q16</h2><p><img src="https://i.imgur.com/1kIF4g6.png"></p>
+<h2 id="Q17-1"><a href="#Q17-1" class="headerlink" title="Q17"></a>Q17</h2><p><img src="https://i.imgur.com/zeSCfsS.png"></p>
+<h2 id="Q18-1"><a href="#Q18-1" class="headerlink" title="Q18"></a>Q18</h2><p><img src="https://i.imgur.com/27M5zCS.png"></p>
+<h2 id="Q19-1"><a href="#Q19-1" class="headerlink" title="Q19"></a>Q19</h2><p><img src="https://i.imgur.com/8q7iEOs.png"></p>
+<h2 id="Q20-1"><a href="#Q20-1" class="headerlink" title="Q20"></a>Q20</h2><p><img src="https://i.imgur.com/FzsQ0dB.png"></p>
+<h2 id="Q21-1"><a href="#Q21-1" class="headerlink" title="Q21"></a>Q21</h2><p><img src="https://i.imgur.com/U3ZYvNO.png"></p>
+<h2 id="Q22-1"><a href="#Q22-1" class="headerlink" title="Q22"></a>Q22</h2><p><img src="https://i.imgur.com/8r2V3xf.png"></p>
+<h2 id="Q23"><a href="#Q23" class="headerlink" title="Q23"></a>Q23</h2><p><img src="https://i.imgur.com/l5yVaQK.png"></p>
+<h2 id="Q24"><a href="#Q24" class="headerlink" title="Q24"></a>Q24</h2><p><img src="https://i.imgur.com/XWCP5yl.png"></p>
+<h2 id="Q25"><a href="#Q25" class="headerlink" title="Q25"></a>Q25</h2><p><img src="https://i.imgur.com/mjNv3FI.png"></p>
+<h2 id="Q26"><a href="#Q26" class="headerlink" title="Q26"></a>Q26</h2><p><img src="https://i.imgur.com/yjz6qB7.png"></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/12/19/Computer%20Network/computer%20network%202%20CA1%20and%20CA2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cisco/" rel="tag">Cisco</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/12/20/Computer%20Network/ppp/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            ppp
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/12/15/Computer%20Network/Computer-network-lab-tips/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Computer network lab tips</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> Jessy Huang
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo图片.png" alt="Jessy&#39;s daily note"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2022/11/01/%E5%85%B3%E4%BA%8E%E6%88%91">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

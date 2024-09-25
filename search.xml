@@ -28,7 +28,7 @@
   </entry>
   <entry>
     <title>CNN-Handout</title>
-    <url>/2022/09/20/CNN%20project/CNN%20handout/</url>
+    <url>/2022/09/19/CNN%20project/CNN%20handout/</url>
     <content><![CDATA[<h3 id="Project-file"><a href="#Project-file" class="headerlink" title="Project file"></a><a href="https://github.com/JessyHHH/JessyHHH.github.io/blob/main/%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6/ComparisonsAndOptimisationsOfCAccelerators.pdf">Project file</a></h3><h3 id="Gantt-Chart"><a href="#Gantt-Chart" class="headerlink" title="Gantt Chart"></a><a href="https://instituteoftechnol663-my.sharepoint.com/:x:/r/personal/c00278687_itcarlow_ie/Documents/AIproject.xlsx?d=wff882872210b49878b221912150486b9&csf=1&web=1&e=ZcmeLY">Gantt Chart</a></h3><h2 id="CNN–CHINA"><a href="#CNN–CHINA" class="headerlink" title="CNN–CHINA"></a>CNN–CHINA</h2><ul>
 <li><a href="https://blog.csdn.net/v_JULY_v/article/details/51812459?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166362693416800182789927%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=166362693416800182789927&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~hot_rank-2-51812459-null-null.142%5Ev47%5Enew_blog_pos_by_title,201%5Ev3%5Econtrol_1&utm_term=cnn%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C&spm=1018.2226.3001.4187">CNN卷积神经网络中文版介绍<strong>CSDN</strong></a></li>
 <li><a href="https://www.bilibili.com/video/BV1bz4y1U7pt/?spm_id_from=333.788&vd_source=e6a36befdc862ad6f936ca8569aa5f2d">卷积神经网络可视化模型介绍</a></li>
@@ -103,7 +103,7 @@
   </entry>
   <entry>
     <title>CNN project daily note</title>
-    <url>/2022/11/07/CNN%20project/CNN-project-daily-note/</url>
+    <url>/2022/11/06/CNN%20project/CNN-project-daily-note/</url>
     <content><![CDATA[<h1 id="25-x2F-09-x2F-2022"><a href="#25-x2F-09-x2F-2022" class="headerlink" title="25&#x2F;09&#x2F;2022"></a>25&#x2F;09&#x2F;2022</h1><p>拿到了大四的项目，这个项目具体要干什么呢</p>
 <p>我们需要学习CNN model，然后用这个model进行图像的深度学习，最后在不同的平台上进行优化和测试</p>
 <p>我们需要得到这个模型在不同平台的工作效率，其包括GPU或CPU需用率，速度，准确率</p>
@@ -377,7 +377,7 @@ start optimize hyper parameters .</p>
   </entry>
   <entry>
     <title>Colab使用指南</title>
-    <url>/2022/09/27/CNN%20project/Colab%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
+    <url>/2022/09/26/CNN%20project/Colab%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<h1 id="Colab-Guide"><a href="#Colab-Guide" class="headerlink" title="Colab Guide"></a>Colab Guide</h1><p><a href="https://colab.research.google.com/">官方网站</a></p>
 <p><a href="https://blog.csdn.net/weixin_44791964/article/details/123659637">教程Blog</a></p>
 <p><a href="https://www.bilibili.com/video/BV1GS4y1Y7Qb/?spm_id_from=333.337.search-card.all.click&vd_source=e6a36befdc862ad6f936ca8569aa5f2d">B站视频</a></p>
@@ -515,7 +515,7 @@ start optimize hyper parameters .</p>
   </entry>
   <entry>
     <title>Keras model in Coral accelerator</title>
-    <url>/2022/11/30/CNN%20project/Keras-model-in-Coral-accelerator/</url>
+    <url>/2022/11/29/CNN%20project/Keras-model-in-Coral-accelerator/</url>
     <content><![CDATA[<h1 id="Keras-with-Coral-accelerator"><a href="#Keras-with-Coral-accelerator" class="headerlink" title="Keras with Coral accelerator"></a>Keras with Coral accelerator</h1><h2 id="How-to-use-Kares"><a href="#How-to-use-Kares" class="headerlink" title="How to use Kares"></a>How to use Kares</h2><p>Platform: Colab</p>
 <p><a href="https://keras.io/getting_started/">keras guides</a></p>
 <p><a href="https://colab.research.google.com/drive/1ETTb6gVi67MPN_3PoHwoEMwxINF3qmj5#scrollTo=o9xLkT6pmwe6">James training model</a></p>
@@ -1145,7 +1145,7 @@ Compare diferent epoch number of the accuracy on the model.</p>
   </entry>
   <entry>
     <title>微电子之芯片流程学习日记</title>
-    <url>/2022/10/11/Micro%20Electronic/%E5%BE%AE%E7%94%B5%E5%AD%90%E4%B9%8B%E8%8A%AF%E7%89%87%E6%B5%81%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
+    <url>/2022/10/10/Micro%20Electronic/%E5%BE%AE%E7%94%B5%E5%AD%90%E4%B9%8B%E8%8A%AF%E7%89%87%E6%B5%81%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<p>[toc]</p>
 <h1 id="芯片制作工艺流程"><a href="#芯片制作工艺流程" class="headerlink" title="芯片制作工艺流程"></a>芯片制作工艺流程</h1><p>Cmos unit process</p>
 <blockquote>
@@ -1373,7 +1373,7 @@ Compare diferent epoch number of the accuracy on the model.</p>
   </entry>
   <entry>
     <title>yolo学习日记</title>
-    <url>/2022/10/04/CNN%20project/yolo%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
+    <url>/2022/10/03/CNN%20project/yolo%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>项目研究博客</category>
@@ -1451,6 +1451,7 @@ Compare diferent epoch number of the accuracy on the model.</p>
 <p><a href="https://www.irasutoya.com/">手绘插画</a> -可以找到很多有趣的手绘图。</p>
 <p><a href="https://www.sony.net/united/clock/">世界风景图</a> -sony罪大滔天，搞得百姓怨声载道</p>
 <p><a href="https://clipdrop.co/relight">图片打光</a> -缺少光源后期补上。</p>
+<p><a href="https://opensea.io/">opensea</a> -opensea是一款基于区块链交易的NFT图片网站，但是图片可以免费下载。</p>
 <h2 id="PPT下载"><a href="#PPT下载" class="headerlink" title="PPT下载"></a>PPT下载</h2><p><a href="https://slidesgo.com/">slidesgo</a> -免费的ppt素材下载，非常好用！！</p>
 <p><strong>可以搭配上面的图片网站食用哦～～</strong></p>
 <h2 id="字体网站"><a href="#字体网站" class="headerlink" title="字体网站"></a>字体网站</h2><p><a href="https://fonts.google.com/">Google fonts</a>-谷歌字体，可直接复制字体前端代码。</p>
@@ -1890,7 +1891,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   </entry>
   <entry>
     <title>unity进阶篇3-Tilemap的使用</title>
-    <url>/2022/08/03/unity/unity%E8%BF%9B%E9%98%B6%E7%AF%873/</url>
+    <url>/2022/08/02/unity/unity%E8%BF%9B%E9%98%B6%E7%AF%873/</url>
     <content><![CDATA[<h2 id="关于Tilemap的创建和使用"><a href="#关于Tilemap的创建和使用" class="headerlink" title="关于Tilemap的创建和使用"></a>关于Tilemap的创建和使用</h2><p>相关文档<a href="https://space.bilibili.com/43644141/channel/seriesdetail?sid=299912">b站视频56-60</a> <a href="https://gitee.com/chutianshu1981/xyz-s-free-course-for-full-stack-web-dev/blob/main/GameDesign/Unity/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E9%A1%B9%E7%9B%AE%E7%B3%BB%E5%88%97/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B05_2D%E6%B8%B8%E6%88%8F/RubyAdventure/02-%E4%BD%BF%E7%94%A8%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA%E4%B8%96%E7%95%8C.md#3-%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BE%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B">相关文档</a></p>
 <ul>
 <li>什么是Tilemap</li>
@@ -2008,7 +2009,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   </entry>
   <entry>
     <title>半导体物理学</title>
-    <url>/2022/10/25/Micro%20Electronic/%E5%8D%8A%E5%AF%BC%E4%BD%93%E7%89%A9%E7%90%86%E5%AD%A6/</url>
+    <url>/2022/10/24/Micro%20Electronic/%E5%8D%8A%E5%AF%BC%E4%BD%93%E7%89%A9%E7%90%86%E5%AD%A6/</url>
     <content><![CDATA[<p>[toc]</p>
 <h1 id="半导体基础物理学目录："><a href="#半导体基础物理学目录：" class="headerlink" title="半导体基础物理学目录："></a>半导体基础物理学目录：</h1><ul>
 <li>Semiconductor materials and their properties<ul>
@@ -2233,7 +2234,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   </entry>
   <entry>
     <title>unity进阶篇4-物理系统（碰撞体和刚体）的使用</title>
-    <url>/2022/08/06/unity/unity%E8%BF%9B%E9%98%B6%E7%AF%874/</url>
+    <url>/2022/08/05/unity/unity%E8%BF%9B%E9%98%B6%E7%AF%874/</url>
     <content><![CDATA[<h2 id="关于物理系统的使用"><a href="#关于物理系统的使用" class="headerlink" title="关于物理系统的使用"></a>关于物理系统的使用</h2><p><a href="https://space.bilibili.com/43644141/channel/seriesdetail?sid=299912">b站视频61-63</a> <a href="https://reurl.cc/52KVzV">相关文档</a> </p>
 <h3 id="Collider-（碰撞体）"><a href="#Collider-（碰撞体）" class="headerlink" title="Collider （碰撞体）"></a>Collider （碰撞体）</h3><ul>
 <li>如何实现两个物体的碰撞：例, 主角和箱子&#x2F;树木的碰撞</li>
@@ -2395,7 +2396,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   </entry>
   <entry>
     <title>基础篇5 类与对象 和 封装与继承</title>
-    <url>/2022/07/13/unity/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/</url>
+    <url>/2022/07/12/unity/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<ul>
 <li>什么是类和对象</li>
 </ul>
@@ -2429,7 +2430,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   </entry>
   <entry>
     <title>基础篇6 关于基类</title>
-    <url>/2022/07/17/unity/%E5%9F%BA%E7%A1%80%E7%AF%876-%E5%85%B3%E4%BA%8E%E5%9F%BA%E7%B1%BB%E5%92%8C%E7%88%B6%E7%B1%BB/</url>
+    <url>/2022/07/16/unity/%E5%9F%BA%E7%A1%80%E7%AF%876-%E5%85%B3%E4%BA%8E%E5%9F%BA%E7%B1%BB%E5%92%8C%E7%88%B6%E7%B1%BB/</url>
     <content><![CDATA[<h2 id="关于基类的应用"><a href="#关于基类的应用" class="headerlink" title="关于基类的应用"></a>关于基类的应用</h2><p>相关文档：<a href="https://gitee.com/chutianshu1981/xyz-s-free-course-for-full-stack-web-dev/blob/main/GameDesign/Unity/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E9%A1%B9%E7%9B%AE%E7%B3%BB%E5%88%97/%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B04_%E5%88%9B%E4%BD%9C%E8%80%85%E5%A5%97%E4%BB%B6_%E5%88%9D%E5%AD%A6%E8%80%85%E4%BB%A3%E7%A0%81/06-%E5%B0%81%E8%A3%85%E5%92%8C%E7%BB%A7%E6%89%BF.md">基类的使用</a> ，b站视频<a href="https://www.bilibili.com/video/BV1mR4y1p7N7?spm_id_from=333.999.0.0">45</a></p>
 <h3 id="基类的创建"><a href="#基类的创建" class="headerlink" title="基类的创建"></a>基类的创建</h3><blockquote>
 <p>关于创建基础类的操作在rider中</p>
@@ -2683,7 +2684,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   </entry>
   <entry>
     <title>Cisco软件的学习和使用1</title>
-    <url>/2022/09/30/Computer%20Network/Cisco%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8/</url>
+    <url>/2022/09/29/Computer%20Network/Cisco%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="CIsco软件的学习和使用"><a href="#CIsco软件的学习和使用" class="headerlink" title="CIsco软件的学习和使用"></a>CIsco软件的学习和使用</h1><p>主要目的是用来模仿计算机网络的过程，以及用到了什么协议等功能。</p>
 <h2 id="Cisco软件的下载"><a href="#Cisco软件的下载" class="headerlink" title="Cisco软件的下载"></a>Cisco软件的下载</h2><p>由于Cisco官网对于学生群体他是免费的，直接下载即可</p>
 <p><a href="https://skillsforall.com/course/getting-started-cisco-packet-tracer">Cisco 官方学习课程</a></p>
@@ -2933,7 +2934,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   </entry>
   <entry>
     <title>Cisco软件的学习和使用lab5</title>
-    <url>/2022/10/03/Computer%20Network/Cisco%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8lab5/</url>
+    <url>/2022/10/02/Computer%20Network/Cisco%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8lab5/</url>
     <content><![CDATA[<p>[toc]</p>
 <h1 id="lab5-hub和switch的区别和优缺点"><a href="#lab5-hub和switch的区别和优缺点" class="headerlink" title="lab5 hub和switch的区别和优缺点"></a>lab5 hub和switch的区别和优缺点</h1><h2 id="1-安装图片连接设备并设置ip地址"><a href="#1-安装图片连接设备并设置ip地址" class="headerlink" title="1. 安装图片连接设备并设置ip地址"></a>1. 安装图片连接设备并设置ip地址</h2><p><img src="https://i.imgur.com/1viAmkR.png" alt="image-20221002175016976"></p>
 <ul>
@@ -3043,7 +3044,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   </entry>
   <entry>
     <title>Cisco软件的学习和使用lab8</title>
-    <url>/2022/11/05/Computer%20Network/Cisco%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8lab8/</url>
+    <url>/2022/11/04/Computer%20Network/Cisco%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8lab8/</url>
     <content><![CDATA[<p>[toc]</p>
 <h1 id="虚拟局域网-Vlan-Virtual-Local-Area-Network或简写VLAN"><a href="#虚拟局域网-Vlan-Virtual-Local-Area-Network或简写VLAN" class="headerlink" title="虚拟局域网 Vlan(Virtual Local Area Network或简写VLAN)"></a>虚拟局域网 Vlan(Virtual Local Area Network或简写VLAN)</h1><p><a href="https://zh.wikipedia.org/zh-cn/%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91">什么是Vlan - wikipedia</a></p>
 <h2 id="搭建网络"><a href="#搭建网络" class="headerlink" title="搭建网络"></a>搭建网络</h2><p>如图所示：</p>
@@ -3286,7 +3287,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   </entry>
   <entry>
     <title>Shell learning 1</title>
-    <url>/2022/12/01/CS/shell/Shell-learning-1/</url>
+    <url>/2022/11/30/CS/shell/Shell-learning-1/</url>
     <content><![CDATA[<h1 id="What-is-shell"><a href="#What-is-shell" class="headerlink" title="What is shell"></a>What is shell</h1><h1 id="Basic-shell-command"><a href="#Basic-shell-command" class="headerlink" title="Basic shell command"></a>Basic shell command</h1><p>remmanber use <code>TAP</code> in your keyboard, which can make you type more easier.</p>
 <p>quckly to copy and pasta command are <code>ctrl + shift + c/v</code> in linux, other is same with your system</p>
 <p>any command you can use <code>[command] --help</code> to search what you want command .</p>
@@ -3448,7 +3449,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   </entry>
   <entry>
     <title>Shell learning 2</title>
-    <url>/2022/12/02/CS/shell/Shell-learning-2/</url>
+    <url>/2022/12/01/CS/shell/Shell-learning-2/</url>
     <content><![CDATA[<p><a href="https://missing.csail.mit.edu/2020/shell-tools/">tutorial2</a></p>
 <p><a href="https://www.youtube.com/watch?v=kgII-YWo3Zw&list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J&index=2&t=300s">tutorial vidio</a></p>
 <h2 id=""><a href="#" class="headerlink" title="$"></a>$</h2><p>we can use the <code>$</code> to determin something</p>
@@ -3680,7 +3681,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   </entry>
   <entry>
     <title>分析Keras使用方法</title>
-    <url>/2022/12/07/CNN%20project/%E5%88%86%E6%9E%90Keras%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <url>/2022/12/06/CNN%20project/%E5%88%86%E6%9E%90Keras%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<p>[TOC]</p>
 <h1 id="分析基于Keras构建模型"><a href="#分析基于Keras构建模型" class="headerlink" title="分析基于Keras构建模型"></a>分析基于Keras构建模型</h1><p><a href="https://github.com/TannerGilbert/Google-Coral-Edge-TPU/blob/master/Tensorflow_Train_Fruits_Classification_model.ipynb">参考代码1-coral introduction from youtube</a></p>
 <p><a href="https://www.youtube.com/watch?v=7cnGvsNwe5E&t=691s">youtube video</a></p>
@@ -3852,7 +3853,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   </entry>
   <entry>
     <title>IPv6 summary</title>
-    <url>/2022/12/08/Computer%20Network/IPv6-summary/</url>
+    <url>/2022/12/07/Computer%20Network/IPv6-summary/</url>
     <content><![CDATA[<p>[toc]</p>
 <h1 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>same function with IPv4 but stucture is different.</p>
 <ul>
@@ -5987,7 +5988,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   </entry>
   <entry>
     <title>Computer network 2 CA1 and CA2</title>
-    <url>/2022/12/20/Computer%20Network/computer%20network%202%20CA1%20and%20CA2/</url>
+    <url>/2022/12/19/Computer%20Network/computer%20network%202%20CA1%20and%20CA2/</url>
     <content><![CDATA[<p>[toc]</p>
 <h1 id="CA1"><a href="#CA1" class="headerlink" title="CA1"></a>CA1</h1><h2 id="Q1"><a href="#Q1" class="headerlink" title="Q1"></a>Q1</h2><p><img src="https://i.imgur.com/BrNK9ke.png"></p>
 <p><img src="https://i.imgur.com/RBhWKmb.png"></p>
@@ -6693,7 +6694,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   </entry>
   <entry>
     <title>MobileNet</title>
-    <url>/2023/01/31/CNN%20project/MobileNet/</url>
+    <url>/2023/01/30/CNN%20project/MobileNet/</url>
     <content><![CDATA[<h1 id="Handout"><a href="#Handout" class="headerlink" title="Handout"></a>Handout</h1><p><a href="https://colab.research.google.com/drive/1lEaVa9ytsXUaDaUoPWkUydHJs5MCtEae?usp=sharing">colab 1</a></p>
 <p><a href="https://colab.research.google.com/drive/1CqU_IOlERnHHT84kwtr6zpZqIoexBbKc?usp=sharing">colab 2</a></p>
 <p><a href="https://arxiv.org/abs/1704.04861">MobileNet thesis</a> - I’m not really understand the thesis.</p>
@@ -7358,7 +7359,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   </entry>
   <entry>
     <title>classification and objet detection model</title>
-    <url>/2023/03/01/CNN%20project/classification-and-objet-detection-model/</url>
+    <url>/2023/02/28/CNN%20project/classification-and-objet-detection-model/</url>
     <content><![CDATA[<h1 id="什么是图像分类和目标检测"><a href="#什么是图像分类和目标检测" class="headerlink" title="什么是图像分类和目标检测"></a>什么是图像分类和目标检测</h1><ul>
 <li>图像分类</li>
 <li>目标检测</li>
@@ -7633,6 +7634,41 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
       </categories>
       <tags>
         <tag>Micro_system</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Birmingham University Life talking</title>
+    <url>/2024/09/25/Birmingham_Learning/Birmingham-University-Life-talking/</url>
+    <content><![CDATA[<h1 id="关于伯明翰大学的学习指南针–不定期更新"><a href="#关于伯明翰大学的学习指南针–不定期更新" class="headerlink" title="关于伯明翰大学的学习指南针–不定期更新"></a>关于伯明翰大学的学习指南针–不定期更新</h1><h2 id="Wifi的使用"><a href="#Wifi的使用" class="headerlink" title="Wifi的使用"></a>Wifi的使用</h2><ul>
+<li>点进手机里我们可以看到eduroam名称的wifi，点击使用并输入你的用户名和密码即可</li>
+</ul>
+<p><code>username: ******@student.bham.ac.uk   //只输入@前面的也可以</code> </p>
+<p><code>pwd: ********  //学校邮箱的密码</code></p>
+<ul>
+<li>Linux在Authentication上选择PEAP来使用网络，选择No CA certification.</li>
+<li>注意Proxy是否正常。</li>
+</ul>
+<h2 id="UOBapp-和-Canvas-student的使用"><a href="#UOBapp-和-Canvas-student的使用" class="headerlink" title="UOBapp 和 Canvas student的使用"></a>UOBapp 和 Canvas student的使用</h2><p><a href="https://myuob.bham.ac.uk/">UOB-web端</a></p>
+<p><a href="https://intranet.birmingham.ac.uk/student/myuob/myuob.aspx">UOB手机端下载</a></p>
+<p><a href="https://www.instructure.com/en-gb/canvas/login">Canvas-web端</a></p>
+<p>其目的主要是看课程表和课程通知以及学校地图</p>
+<ul>
+<li>关于课程导入，学校给了我们一个很方便快捷的导入方式。</li>
+</ul>
+<ol>
+<li><img src="https://raw.githubusercontent.com/JessyHHH/GitTraining/master/img/image-20240925220014935.png?token=AZ6XRWOEVZRLV2TB346YJULG6R5BW" alt="随便点击一个课程然后进入 Go to Event"></li>
+<li><img src="https://raw.githubusercontent.com/JessyHHH/GitTraining/master/img/image-20240925220210852.png?token=AZ6XRWL2UVTVYGO2MSZVKALG6R5I6" alt="然后在我们的右上角有一个交互按钮，Connect Calendar，就在下载的右边"></li>
+<li><img src="https://raw.githubusercontent.com/JessyHHH/GitTraining/master/img/image-20240925220413830.png?token=AZ6XRWK3HARJAVS5BJTGTODG6R5QU" alt="点击使用outlook web进行生成"></li>
+<li><img src="https://raw.githubusercontent.com/JessyHHH/GitTraining/master/img/image-20240925220508397.png?token=AZ6XRWJKKPC7MIYHJWM3JH3G6R5UC" alt="当然你可以选择你要几个月还是几个星期的课表，然后Next"></li>
+<li><img src="https://raw.githubusercontent.com/JessyHHH/GitTraining/master/img/image-20240925220552228.png?token=AZ6XRWL3GVT7A4G6LQQRAQ3G6R5WY" alt="这里会生成一个链接，接下来我们要去outlook的界面"></li>
+<li><a href="https://outlook.office.com/calendar/view/month">outlook-web端</a></li>
+<li><img src="https://raw.githubusercontent.com/JessyHHH/GitTraining/master/img/image-20240925220842155.png?token=AZ6XRWLRY3W3QRJGNQI3EB3G6R6BO" alt="在左边日历的下面添加日历，然后选择从web订阅并选择之前copy的链接复制粘贴，保存既可"></li>
+<li>一般手机都会有默认邮箱app，这里按苹果邮箱为例子。<br>在邮箱app里添加Eixchange邮箱，然后将学校的帐号密码输入即可。<br>并在日历里添加我们Exchange邮箱日历。这样我们就可以在苹果手机日历里查看该课程表了。</li>
+</ol>
+<p>剩下还有很多功能还未探索，当然很多人已经有了许多门路，此篇文章仅写给我们刚进来的中国学生。</p>
+]]></content>
+      <tags>
+        <tag>Birmingham</tag>
       </tags>
   </entry>
 </search>

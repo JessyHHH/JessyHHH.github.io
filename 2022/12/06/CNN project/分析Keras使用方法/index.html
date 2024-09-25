@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>分析Keras使用方法 |  Jessy&#39;s daily note</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="images/logo图片.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-CNN project/分析Keras使用方法"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  分析Keras使用方法
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/12/06/CNN%20project/%E5%88%86%E6%9E%90Keras%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" class="article-date">
+  <time datetime="2022-12-06T18:41:16.000Z" itemprop="datePublished">2022-12-06</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E7%A0%94%E7%A9%B6%E5%8D%9A%E5%AE%A2/">项目研究博客</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">3.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">18 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>[TOC]</p>
+<h1 id="分析基于Keras构建模型"><a href="#分析基于Keras构建模型" class="headerlink" title="分析基于Keras构建模型"></a>分析基于Keras构建模型</h1><p><a target="_blank" rel="noopener" href="https://github.com/TannerGilbert/Google-Coral-Edge-TPU/blob/master/Tensorflow_Train_Fruits_Classification_model.ipynb">参考代码1-coral introduction from youtube</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=7cnGvsNwe5E&t=691s">youtube video</a></p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/getting_started/">keras guides</a></p>
+<p>在<a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1lEaVa9ytsXUaDaUoPWkUydHJs5MCtEae">colab</a>环境搭建模型</p>
+<h2 id="数据集的建立和下载"><a href="#数据集的建立和下载" class="headerlink" title="数据集的建立和下载"></a>数据集的建立和下载</h2><p><a target="_blank" rel="noopener" href="https://www.kaggle.com/">kaggle</a> -里面有大量的数据集可提供免费下载</p>
+<h3 id="安装required-library"><a href="#安装required-library" class="headerlink" title="安装required library"></a>安装required library</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装API"><a href="#安装API" class="headerlink" title="安装API"></a>安装<a target="_blank" rel="noopener" href="https://github.com/Kaggle/kaggle-api">API</a></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!pip install kaggle</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用Kaggle"><a href="#使用Kaggle" class="headerlink" title="使用Kaggle"></a>使用Kaggle</h3><p>在colab使用kaggle需要在官网下载一个<a target="_blank" rel="noopener" href="https://www.kaggle.com/jessyvuang/account?isEditing=False&verifyPhone=False">key</a>, 点击Creat New API token，自动下载一个kaggle.json文件，然后导入colab。</p>
+<p>使用的数据集是kaggle里的<a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/moltean/fruits">fruit360</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在colab上连接google云盘,因为我的kaggle.json文件放到我的google云盘里了.</span></span><br><span class="line"><span class="keyword">from</span> google.colab <span class="keyword">import</span> drive</span><br><span class="line">drive.mount(<span class="string">&#x27;/content/drive&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#本地创建一个.kaggle文件夹</span></span><br><span class="line">! mkdir ~/.kaggle</span><br><span class="line"><span class="comment">#复制colab的kaggle.json文件到新创建的文件夹</span></span><br><span class="line">!cp /content/drive/MyDrive/kaggle/kaggle.json ~/.kaggle/kaggle.json</span><br><span class="line"><span class="comment">#现在可以下载数据集了,这个是水果数据集，可以在kaggle里copy api command</span></span><br><span class="line">!kaggle datasets download -d moltean/fruits</span><br><span class="line"><span class="comment">#解压数据集</span></span><br><span class="line">!unzip <span class="string">&#x27;/content/fruits.zip&#x27;</span></span><br><span class="line"><span class="comment">#映射对象并分配对象，将名字修改成username，密码为key</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">&#x27;KAGGLE_USERNAME&#x27;</span>] = <span class="string">&quot;&lt;username&gt;&quot;</span> </span><br><span class="line">os.environ[<span class="string">&#x27;KAGGLE_KEY&#x27;</span>] = <span class="string">&quot;&lt;key&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用数据集"><a href="#使用数据集" class="headerlink" title="使用数据集"></a>使用数据集</h2><p>不能使用MobileNetV1&#x2F;2&#x2F;3来训练cifar100,因为分辨率不同.</p>
+<p>使用keras的库来<a target="_blank" rel="noopener" href="https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html">数据预处理</a> <a target="_blank" rel="noopener" href="https://keras.io/api/preprocessing/image/">图片预处理</a></p>
+<p>这个数据集有131个分类，也就是有131个标签，每个标签代表一个水果或蔬菜。</p>
+<p>训练集有67692 images，测试集有22688 images。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#IMAGE_SIZE是100*100分辨率，因为下载的图片就是100*100的分辨率,当然也可以是其他分辨率图像，因为这是预处理。</span></span><br><span class="line"><span class="comment">#BATCH_SIZE是数据集的批次,生成64批。</span></span><br><span class="line">IMAGE_SIZE = <span class="number">96</span></span><br><span class="line">BATCH_SIZE = <span class="number">64</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#rescale是一个值，在任何其他处理之前，我们将把数据乘以这个值。我们的原始图像由0-255的RGB系数组成，但这样的值对我们的模型来说太高了，无法处理（考虑到典型的学习率），所以我们的目标是用1/255的比例来代替0和1之间的值。</span></span><br><span class="line"><span class="comment">#validation_split用于随机缩放照片</span></span><br><span class="line">datagen = tf.keras.preprocessing.image.ImageDataGenerator(</span><br><span class="line">    rescale=<span class="number">1.</span>/<span class="number">255</span>, </span><br><span class="line">    validation_split=<span class="number">0.2</span>)</span><br><span class="line"><span class="comment">#train_generator是训练生成器，调用flow_from_directory()来创建，它们直接从各自文件夹中的 jpg 生成批量图像数据（及其标签）。</span></span><br><span class="line"><span class="comment">#训练的数据不是直接用的jpg照片，而是压缩后的照片，所以我们需要数据生成器。</span></span><br><span class="line">train_generator = datagen.flow_from_directory(</span><br><span class="line">    <span class="string">&#x27;/content/fruits-360_dataset/fruits-360/Training&#x27;</span>,</span><br><span class="line">    target_size=(IMAGE_SIZE, IMAGE_SIZE),</span><br><span class="line">    batch_size=BATCH_SIZE)</span><br><span class="line"><span class="comment">#val_gennerator生成可以验证模型的数据集。</span></span><br><span class="line">val_generator = datagen.flow_from_directory(</span><br><span class="line">    <span class="string">&#x27;/content/fruits-360_dataset/fruits-360/Test&#x27;</span>,</span><br><span class="line">    target_size=(IMAGE_SIZE, IMAGE_SIZE),</span><br><span class="line">    batch_size=BATCH_SIZE)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在每次迭代中，这些生成器通过从磁盘上读取图像并将其处理为适当的张量大小（100 x 100）来提供一批图像。输出是一个（图像，标签）的元组。例如，你可以看到这里的shapes。</span></span><br><span class="line">image_batch, label_batch = <span class="built_in">next</span>(val_generator)</span><br><span class="line">image_batch.shape, label_batch.shape</span><br></pre></td></tr></table></figure>
+
+<p>保存数据集里的label，并放在txt里，因为是yolo模型</p>
+<p><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_dictionary_keys.asp">.key</a> <a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_func_sorted.asp#gsc.tab=0&gsc.q=.key">sorted</a> <a target="_blank" rel="noopener" href="https://www.w3schools.com/python/python_file_write.asp">open</a> </p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/zh/preprocessing/image/">.class_indicaes</a>-它来自flow_from_directory,可直接引用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#从train_generator中使用class_indices来提取label,class_indices是来自keras库的。</span></span><br><span class="line"><span class="built_in">print</span> (train_generator.class_indices)</span><br><span class="line"><span class="comment">#该join()方法获取一个可迭代对象中的所有项目并将它们连接成一个字符串,python函数.</span></span><br><span class="line"><span class="comment">#该sorted()函数返回指定可迭代对象的排序列表,python函数。</span></span><br><span class="line"><span class="comment">#train_generator.class_indices.keys,该keys()方法返回一个视图对象。视图对象包含字典的key，作为列表。</span></span><br><span class="line">labels = <span class="string">&#x27;\n&#x27;</span>.join(<span class="built_in">sorted</span>(train_generator.class_indices.keys()))</span><br><span class="line"></span><br><span class="line"><span class="comment">#创造新文件,使用open函数.</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;fruit_labels.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">  f.write(labels)</span><br></pre></td></tr></table></figure>
+
+<p>可以在terminal直接<code>wc -lc fruit_labels.txt</code>,能显示多少行字和字数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#显示文件内容，终端也能用。</span></span><br><span class="line">!cat fruit_labels.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="构建模型"><a href="#构建模型" class="headerlink" title="构建模型"></a>构建模型</h2><p>现在我们将创建一个模型，能够在最后一个全连接层上进行迁移学习。</p>
+<p>我们将从Keras的MobileNet V2开始作为基础模型，它已经用ImageNet数据集进行了预训练（训练后可识别1000个类别）。这为我们提供了一个非常好的图像分类特征提取器。</p>
+<h3 id="创建底层-Base-model"><a href="#创建底层-Base-model" class="headerlink" title="创建底层(Base_model)"></a>创建底层(Base_model)</h3><p>在实例化MobileNetV2模型时，我们指定<code>include_top=False</code>参数，以便在加载网络时不把分类层放在顶部。然后我们设置<code>trainable false</code>来冻结基础模型中的所有权重。这就有效地将模型转换成了一个特征提取器，因为当我们开始训练分类头时，所有预训练的权重和偏置都保留在低层。</p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/api/applications/mobilenet/">MobileNetV2</a></p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/guides/transfer_learning/">Transfer Learning</a> -冻结底层</p>
+<p>input_shape :可选的形状元组，只有在<code>include_top为False</code>时才被指定（否则输入形状必须是（224, 224, 3）（用channel_last数据格式）或（3, 224, 224）（用channel_first数据格式）。它应该正好有3个输入通道，并且宽度和高度不应小于32。例如，(200, 200, 3)将是一个有效值。默认为无。如果提供了input_tensor，input_shape将被忽略.<strong>但是官方还有别的规定，宽度和高度必须在96, 128, 160, 192, 224中任意选择其中一个，不能自定义。</strong></p>
+<p><strong>MobileNetV3 only 224,224</strong></p>
+<p>Weights: none（随机初始化），’imagenet’（在ImageNet上进行预训练），或要加载的权重文件的路径之一。默认为imagenet。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">IMG_SHAPE = (IMAGE_SIZE, IMAGE_SIZE, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create the base model from the pre-trained MobileNet V2</span></span><br><span class="line">base_model = tf.keras.applications.MobileNetV2(input_shape=IMG_SHAPE,</span><br><span class="line">                                              include_top=<span class="literal">False</span>, </span><br><span class="line">                                              weights=<span class="string">&#x27;imagenet&#x27;</span>)</span><br><span class="line"><span class="comment">#Then, freeze the base model.冻结最底层</span></span><br><span class="line">base_model.trainable = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="添加分类头"><a href="#添加分类头" class="headerlink" title="添加分类头"></a>添加分类头</h3><p>Add a classification head</p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/api/models/sequential/">tf.keras.Sequential class</a></p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/api/layers/convolution_layers/convolution2d/">Conv2D</a> <a target="_blank" rel="noopener" href="https://keras.io/api/layers/regularization_layers/dropout/">Dropout</a> <a target="_blank" rel="noopener" href="https://keras.io/api/layers/pooling_layers/global_average_pooling2d/">GlobalAveragePooling2D</a> <a target="_blank" rel="noopener" href="https://keras.io/api/layers/core_layers/dense/">Dense</a></p>
+<p>现在我们创建一个新的序列模型，并将冻结的MobileNet模型作为图的基础，并附加新的分类层，这样我们就可以将最终的输出维度设置为与我们的数据集中的类别数量相匹配（131种水果和蔬菜）。</p>
+<p><a target="_blank" rel="noopener" href="https://poloclub.github.io/cnn-explainer/">在网站学习CNN</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">model = tf.keras.Sequential([</span><br><span class="line">  base_model,</span><br><span class="line">  tf.keras.layers.Conv2D(filters=<span class="number">32</span>, kernel_size=<span class="number">3</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">  tf.keras.layers.Dropout(<span class="number">0.2</span>),</span><br><span class="line">  tf.keras.layers.GlobalAveragePooling2D(),</span><br><span class="line">  tf.keras.layers.Dense(units=<span class="built_in">len</span>(labels.split(<span class="string">&#x27;\n&#x27;</span>)), activation=<span class="string">&#x27;softmax&#x27;</span>)</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<h3 id="Configure-the-model"><a href="#Configure-the-model" class="headerlink" title="Configure the model"></a>Configure the model</h3><p>Although this method is called <code>compile()</code>, it’s basically a configuration step that’s required before we can start training.</p>
+<p>虽然这个方法被称为compile()，但它基本上是一个配置步骤，在我们开始训练之前需要进行配置。</p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/api/models/model_training_apis/">model training API</a> <a target="_blank" rel="noopener" href="https://keras.io/api/metrics/">metric 指标</a> <a target="_blank" rel="noopener" href="https://keras.io/api/losses/">losses</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>, </span><br><span class="line">              loss=<span class="string">&#x27;categorical_crossentropy&#x27;</span>, </span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<p>You can see a string summary of the final network with the <code>summary()</code> method:</p>
+<p>你可以用summary()方法看到最终网络的字符串摘要:</p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/api/models/model/#summary-method">the model class</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.summary()</span><br></pre></td></tr></table></figure>
+
+<p>And because the majority of the model graph is frozen in the base model, weights from only the last convolution and dense layers are trainable:</p>
+<p>由于大部分的模型图被冻结在基础模型中，只有最后的卷积层和密集层的权重是可训练的。</p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/api/layers/base_layer/#trainableweights-property">The base Layer class</a> -the trainable_weights</p>
+<p><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_string_format.asp">format function in python</a> <a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_func_len.asp">len</a> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Number of trainable weights = &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(model.trainable_weights)))</span><br></pre></td></tr></table></figure>
+
+<h2 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h2><p>Now we can train the model using data provided by the <code>train_generator</code> and <code>val_generator</code> that we created at the beginning.</p>
+<p>现在我们可以使用一开始创建的<code>train_generator</code>和<code>val_generator</code>所提供的数据来训练模型。</p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/api/models/model_training_apis/">model training</a> <a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_func_len.asp">len</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">history = model.fit(train_generator,</span><br><span class="line">                    steps_per_epoch=<span class="built_in">len</span>(train_generator), </span><br><span class="line">                    epochs=<span class="number">10</span>,</span><br><span class="line">                    validation_data=val_generator,</span><br><span class="line">                    validation_steps=<span class="built_in">len</span>(val_generator))</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="查看学习曲线"><a href="#查看学习曲线" class="headerlink" title="查看学习曲线"></a>查看学习曲线</h2><p><a target="_blank" rel="noopener" href="https://keras.io/api/models/model_training_apis/#fit-method">history.history can search in model</a> </p>
+<p><a target="_blank" rel="noopener" href="https://matplotlib.org/stable/api/figure_api.html">matplotlib.figure</a> <a target="_blank" rel="noopener" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot">matplotlib.subplot</a> … which all can reaserch in<a target="_blank" rel="noopener" href="https://matplotlib.org/stable/api/index.html">matplotlib reference</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#acc为精准度accuracy.</span></span><br><span class="line">acc = history.history[<span class="string">&#x27;accuracy&#x27;</span>]</span><br><span class="line"><span class="comment">#验证集的精准度.</span></span><br><span class="line">val_acc = history.history[<span class="string">&#x27;val_accuracy&#x27;</span>]</span><br><span class="line"><span class="comment">#损失</span></span><br><span class="line">loss = history.history[<span class="string">&#x27;loss&#x27;</span>]</span><br><span class="line"><span class="comment">#验证集损失</span></span><br><span class="line">val_loss = history.history[<span class="string">&#x27;val_loss&#x27;</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>, <span class="number">8</span>))</span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">plt.plot(acc, label=<span class="string">&#x27;Training Accuracy&#x27;</span>)</span><br><span class="line">plt.plot(val_acc, label=<span class="string">&#x27;Validation Accuracy&#x27;</span>)</span><br><span class="line">plt.legend(loc=<span class="string">&#x27;lower right&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Accuracy&#x27;</span>)</span><br><span class="line">plt.ylim([<span class="built_in">min</span>(plt.ylim()),<span class="number">1</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Training and Validation Accuracy&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">plt.plot(loss, label=<span class="string">&#x27;Training Loss&#x27;</span>)</span><br><span class="line">plt.plot(val_loss, label=<span class="string">&#x27;Validation Loss&#x27;</span>)</span><br><span class="line">plt.legend(loc=<span class="string">&#x27;upper right&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Cross Entropy&#x27;</span>)</span><br><span class="line">plt.ylim([<span class="number">0</span>,<span class="number">1.0</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Training and Validation Loss&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;epoch&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="微调模型"><a href="#微调模型" class="headerlink" title="微调模型"></a>微调模型</h2><p>So far, we’ve only trained the classification layers—the weights of the pre-trained network were not changed.</p>
+<p>到目前为止，我们只训练了分类层–预训练网络的权重没有改变。</p>
+<p>One way we can increase the accuracy is to train (or “fine-tune”) more layers from the pre-trained model. That is, we’ll un-freeze some layers from the base model and adjust those weights (which were originally trained with 1,000 ImageNet classes) so they’re better tuned for features found in our fruits dataset.</p>
+<p>我们可以提高准确率的一个方法是训练（或 “微调”）更多预训练模型的层。也就是说，我们将从基础模型中解冻一些层，并调整这些权重（这些权重最初是用1000个ImageNet类来训练的），以便它们能更好地适应我们的水果数据集中的特征。</p>
+<h3 id="解冻更多的层"><a href="#解冻更多的层" class="headerlink" title="解冻更多的层"></a>解冻更多的层</h3><p>So instead of freezing the entire base model, we’ll freeze individual layers.</p>
+<p>因此，我们不是冻结整个基础模型，而是冻结个别图层.</p>
+<p>First, let’s see how many layers are in the base model:</p>
+<p>首先，让我们看看基本模型中有多少层。</p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/api/layers/">keras layer api</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Number of layers in the base model: &quot;</span>, <span class="built_in">len</span>(base_model.layers))</span><br></pre></td></tr></table></figure>
+
+<p>Let’s try freezing just the bottom 100 layers.</p>
+<p>让我们试着只冻结底部的100层。</p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/guides/transfer_learning/">trainable api</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">base_model.trainable = <span class="literal">True</span></span><br><span class="line">fine_tune_at = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Freeze all the layers before the `fine_tune_at` layer</span></span><br><span class="line"><span class="keyword">for</span> layer <span class="keyword">in</span> base_model.layers[:fine_tune_at]:</span><br><span class="line">  layer.trainable =  <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Compile-model"><a href="#Compile-model" class="headerlink" title="Compile model"></a>Compile model</h3><p>Now configure the model again, but this time with a lower learning rate (the default is 0.001).</p>
+<p>现在再次配置该模型，但这次使用较低的学习率（默认为0.001）。</p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/api/models/model_training_apis/">model training API</a> <a target="_blank" rel="noopener" href="https://keras.io/api/metrics/">metric 指标</a> <a target="_blank" rel="noopener" href="https://keras.io/api/losses/">losses</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model.<span class="built_in">compile</span>(optimizer=tf.keras.optimizers.Adam(<span class="number">1e-5</span>),</span><br><span class="line">              loss=<span class="string">&#x27;categorical_crossentropy&#x27;</span>,</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.summary()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Number of trainable weights = &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(model.trainable_weights)))</span><br></pre></td></tr></table></figure>
+
+<h3 id="继续训练"><a href="#继续训练" class="headerlink" title="继续训练"></a>继续训练</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">history_fine = model.fit(train_generator,</span><br><span class="line">                         steps_per_epoch=<span class="built_in">len</span>(train_generator), </span><br><span class="line">                         epochs=<span class="number">5</span>,</span><br><span class="line">                         validation_data=val_generator,</span><br><span class="line">                         validation_steps=<span class="built_in">len</span>(val_generator))</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看学习曲线-1"><a href="#查看学习曲线-1" class="headerlink" title="查看学习曲线"></a>查看学习曲线</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">acc = history_fine.history[<span class="string">&#x27;accuracy&#x27;</span>]</span><br><span class="line">val_acc = history_fine.history[<span class="string">&#x27;val_accuracy&#x27;</span>]</span><br><span class="line"></span><br><span class="line">loss = history_fine.history[<span class="string">&#x27;loss&#x27;</span>]</span><br><span class="line">val_loss = history_fine.history[<span class="string">&#x27;val_loss&#x27;</span>]</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>, <span class="number">8</span>))</span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">plt.plot(acc, label=<span class="string">&#x27;Training Accuracy&#x27;</span>)</span><br><span class="line">plt.plot(val_acc, label=<span class="string">&#x27;Validation Accuracy&#x27;</span>)</span><br><span class="line">plt.legend(loc=<span class="string">&#x27;lower right&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Accuracy&#x27;</span>)</span><br><span class="line">plt.ylim([<span class="built_in">min</span>(plt.ylim()),<span class="number">1</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Training and Validation Accuracy&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">plt.plot(loss, label=<span class="string">&#x27;Training Loss&#x27;</span>)</span><br><span class="line">plt.plot(val_loss, label=<span class="string">&#x27;Validation Loss&#x27;</span>)</span><br><span class="line">plt.legend(loc=<span class="string">&#x27;upper right&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Cross Entropy&#x27;</span>)</span><br><span class="line">plt.ylim([<span class="number">0</span>,<span class="number">1.0</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Training and Validation Loss&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;epoch&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="转化TFLite模型"><a href="#转化TFLite模型" class="headerlink" title="转化TFLite模型"></a>转化TFLite模型</h2><p>Ordinarily, creating a TensorFlow Lite model is just a few lines of code with TFLiteConverter. For example, this creates a basic (un-quantized) TensorFlow Lite model:</p>
+<p>通常情况下，创建一个TensorFlow Lite模型只需要用TFLiteConverter写几行代码。例如，这将创建一个基本的（未量化的）TensorFlow Lite模型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">converter = tf.lite.TFLiteConverter.from_keras_model(model)</span><br><span class="line">tflite_model = converter.convert()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;mobilenet_v2_1.0_224.tflite&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">  f.write(tflite_model)</span><br></pre></td></tr></table></figure>
+
+<p>However, this .tflite file still uses floating-point values for the parameter data, and we need to fully quantize the model to int8 format.</p>
+<p>然而，这个.tflite文件仍然使用浮点值作为参数数据，我们需要将模型完全量化为int8格式。</p>
+<p>To fully quantize the model, we need to perform post-training quantization with a representative dataset, which requires a few more arguments for the TFLiteConverter, and a function that builds a dataset that’s representative of the training dataset.</p>
+<p>为了完全量化模型，我们需要用一个有代表性的数据集进行训练后量化，这需要为TFLiteConverter增加一些参数，以及建立一个能代表训练数据集的数据集的函数。</p>
+<p>So let’s convert the model again with post-training quantization:</p>
+<p>因此，让我们再次用训练后量化来转换模型。</p>
+<p><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/python_functions.asp">def</a> 创造函数</p>
+<p><a target="_blank" rel="noopener" href="https://www.tensorflow.org/guide/data?hl=zh-cn">tf.data api</a>  <a target="_blank" rel="noopener" href="https://www.programiz.com/python-programming/methods/built-in/next">next</a> <a target="_blank" rel="noopener" href="https://www.programiz.com/python-programming/methods/built-in/iter">iter</a> <a target="_blank" rel="noopener" href="https://www.tensorflow.org/api_docs/python/tf/io">tf.io api</a> <a target="_blank" rel="noopener" href="https://www.tensorflow.org/api_docs/python/tf/image/resize">tf.image.resize</a> </p>
+<p><a target="_blank" rel="noopener" href="https://www.tensorflow.org/api_docs/python/tf/cast">tf.case</a> -里面饱和了各种可转化的数据类型(dtype)</p>
+<p><a target="_blank" rel="noopener" href="https://www.tensorflow.org/api_docs/python/tf/expand_dims">tf.expand_dims</a> -会解释为什么是axis&#x3D;0</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do">yield 的解释</a> -大概就是生成器通过yield输出一次，如果有循环则返回生成器继续输出，它没有记忆，算完一次忘一次。</p>
+<p><a target="_blank" rel="noopener" href="https://www.tensorflow.org/lite/models/convert/convert_models">tf.lite.TFLiteConverter api</a> </p>
+<p><a target="_blank" rel="noopener" href="https://www.tensorflow.org/lite/performance/post_training_quantization">tf.lite.optimize</a> -从转化到量化到过程都有，完全照搬的直接搜int8</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A generator that provides a representative dataset</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">representative_data_gen</span>():</span><br><span class="line">  dataset_list = tf.data.Dataset.list_files(<span class="string">&#x27;/content/fruits-360_dataset/fruits-360/*/*.jpg&#x27;</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    image = <span class="built_in">next</span>(<span class="built_in">iter</span>(dataset_list))</span><br><span class="line">    image = tf.io.read_file(image)</span><br><span class="line">    image = tf.io.decode_jpeg(image, channels=<span class="number">3</span>)</span><br><span class="line">    image = tf.image.resize(image, [IMAGE_SIZE, IMAGE_SIZE])</span><br><span class="line">    image = tf.cast(image / <span class="number">255.</span>, tf.float32)</span><br><span class="line">    image = tf.expand_dims(image, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">yield</span> [image]</span><br><span class="line"></span><br><span class="line">converter = tf.lite.TFLiteConverter.from_keras_model(model)</span><br><span class="line"><span class="comment"># This enables quantization</span></span><br><span class="line">converter.optimizations = [tf.lite.Optimize.DEFAULT]</span><br><span class="line"><span class="comment"># This sets the representative dataset for quantization</span></span><br><span class="line">converter.representative_dataset = representative_data_gen</span><br><span class="line"><span class="comment"># This ensures that if any ops can&#x27;t be quantized, the converter throws an error</span></span><br><span class="line">converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS_INT8]</span><br><span class="line"><span class="comment"># For full integer quantization, though supported types defaults to int8 only, we explicitly declare it for clarity.</span></span><br><span class="line">converter.target_spec.supported_types = [tf.int8]</span><br><span class="line"><span class="comment"># These set the input and output tensors to uint8 (added in r2.3)</span></span><br><span class="line">converter.inference_input_type = tf.uint8</span><br><span class="line">converter.inference_output_type = tf.uint8</span><br><span class="line">tflite_model = converter.convert()</span><br><span class="line"><span class="comment">#保存模型</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;mobilenet_v2_1.0_224_quant.tflite&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">  f.write(tflite_model)</span><br></pre></td></tr></table></figure>
+
+<h2 id="比较精准度"><a href="#比较精准度" class="headerlink" title="比较精准度"></a>比较精准度</h2><p>So now we have a fully quantized TensorFlow Lite model. To be sure the conversion went well, let’s evaluate both the raw model and the TensorFlow Lite model.</p>
+<p>所以现在我们有一个完全量化的TensorFlow Lite模型。为了确保转换顺利，让我们同时评估原始模型和TensorFlow Lite模型。</p>
+<p>First check the accuracy of the raw model:</p>
+<p>首先检查原始模型的准确性。</p>
+<p><a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/index.html">numpy api</a></p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/api/metrics/">metric</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">batch_images, batch_labels = <span class="built_in">next</span>(val_generator)</span><br><span class="line"></span><br><span class="line">logits = model(batch_images)</span><br><span class="line">prediction = np.argmax(logits, axis=<span class="number">1</span>)</span><br><span class="line">truth = np.argmax(batch_labels, axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">keras_accuracy = tf.keras.metrics.Accuracy()</span><br><span class="line">keras_accuracy(prediction, truth)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Raw model accuracy: &#123;:.3%&#125;&quot;</span>.<span class="built_in">format</span>(keras_accuracy.result()))</span><br></pre></td></tr></table></figure>
+
+<p>Now let’s check the accuracy of the .tflite file, using the same dataset.</p>
+<p>现在让我们检查一下.tflite文件的准确性，使用相同的数据集。</p>
+<p>However, there’s no convenient API to evaluate the accuracy of a TensorFlow Lite model, so this code runs several inferences and compares the predictions against ground truth:</p>
+<p>然而，没有方便的API来评估TensorFlow Lite模型的准确性，所以这段代码运行了几个推断，并将预测与地面实况进行比较。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">set_input_tensor</span>(<span class="params">interpreter, <span class="built_in">input</span></span>):</span><br><span class="line">  input_details = interpreter.get_input_details()[<span class="number">0</span>]</span><br><span class="line">  tensor_index = input_details[<span class="string">&#x27;index&#x27;</span>]</span><br><span class="line">  input_tensor = interpreter.tensor(tensor_index)()[<span class="number">0</span>]</span><br><span class="line">  <span class="comment"># Inputs for the TFLite model must be uint8, so we quantize our input data.</span></span><br><span class="line">  <span class="comment"># <span class="doctag">NOTE:</span> This step is necessary only because we&#x27;re receiving input data from</span></span><br><span class="line">  <span class="comment"># ImageDataGenerator, which rescaled all image data to float [0,1]. When using</span></span><br><span class="line">  <span class="comment"># bitmap inputs, they&#x27;re already uint8 [0,255] so this can be replaced with:</span></span><br><span class="line">  <span class="comment">#   input_tensor[:, :] = input</span></span><br><span class="line">  scale, zero_point = input_details[<span class="string">&#x27;quantization&#x27;</span>]</span><br><span class="line">  input_tensor[:, :] = np.uint8(<span class="built_in">input</span> / scale + zero_point)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">classify_image</span>(<span class="params">interpreter, <span class="built_in">input</span></span>):</span><br><span class="line">  set_input_tensor(interpreter, <span class="built_in">input</span>)</span><br><span class="line">  interpreter.invoke()</span><br><span class="line">  output_details = interpreter.get_output_details()[<span class="number">0</span>]</span><br><span class="line">  output = interpreter.get_tensor(output_details[<span class="string">&#x27;index&#x27;</span>])</span><br><span class="line">  <span class="comment"># Outputs from the TFLite model are uint8, so we dequantize the results:</span></span><br><span class="line">  scale, zero_point = output_details[<span class="string">&#x27;quantization&#x27;</span>]</span><br><span class="line">  output = scale * (output - zero_point)</span><br><span class="line">  top_1 = np.argmax(output)</span><br><span class="line">  <span class="keyword">return</span> top_1</span><br><span class="line"></span><br><span class="line">interpreter = tf.lite.Interpreter(<span class="string">&#x27;mobilenet_v2_1.0_224_quant.tflite&#x27;</span>)</span><br><span class="line">interpreter.allocate_tensors()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Collect all inference predictions in a list</span></span><br><span class="line">batch_prediction = []</span><br><span class="line">batch_truth = np.argmax(batch_labels, axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(batch_images)):</span><br><span class="line">  prediction = classify_image(interpreter, batch_images[i])</span><br><span class="line">  batch_prediction.append(prediction)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Compare all predictions to the ground truth</span></span><br><span class="line">tflite_accuracy = tf.keras.metrics.Accuracy()</span><br><span class="line">tflite_accuracy(batch_prediction, batch_truth)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Quant TF Lite accuracy: &#123;:.3%&#125;&quot;</span>.<span class="built_in">format</span>(tflite_accuracy.result()))</span><br></pre></td></tr></table></figure>
+
+<p>You might see some, but hopefully not very much accuracy drop between the raw model and the TensorFlow Lite model. But again, these results are not suitable for production deployment.</p>
+<p>你可能会看到一些，但希望在原始模型和TensorFlow Lite模型之间不会有很大的精度下降。但同样，这些结果并不适合用于生产部署。</p>
+<h2 id="Compile-for-the-Edge-TPU"><a href="#Compile-for-the-Edge-TPU" class="headerlink" title="Compile for the Edge TPU"></a>Compile for the Edge TPU</h2><p>Finally, we’re ready to compile the model for the Edge TPU.</p>
+<p>最后，我们准备为Edge TPU编译模型。</p>
+<p>First download the <a target="_blank" rel="noopener" href="https://coral.ai/docs/edgetpu/compiler/">Edge TPU Compiler</a>:</p>
+<p>首先下载<a target="_blank" rel="noopener" href="https://coral.ai/docs/edgetpu/compiler/">Edge TPU Compiler</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">! curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line">! echo <span class="string">&quot;deb https://packages.cloud.google.com/apt coral-edgetpu-stable main&quot;</span> | sudo tee /etc/apt/sources.<span class="built_in">list</span>.d/coral-edgetpu.<span class="built_in">list</span></span><br><span class="line"></span><br><span class="line">! sudo apt-get update</span><br><span class="line"></span><br><span class="line">! sudo apt-get install edgetpu-compiler	</span><br></pre></td></tr></table></figure>
+
+<p>Then compile the model:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">! edgetpu_compiler mobilenet_v2_1<span class="number">.0_224</span>_quant.tflite</span><br></pre></td></tr></table></figure>
+
+<p>That’s it.</p>
+<p>The compiled model uses the same filename but with “_edgetpu” appended at the end.</p>
+<h2 id="Download-the-model"><a href="#Download-the-model" class="headerlink" title="Download the model"></a>Download the model</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> google.colab <span class="keyword">import</span> files</span><br><span class="line"></span><br><span class="line">files.download(<span class="string">&#x27;mobilenet_v2_1.0_224_quant_edgetpu.tflite&#x27;</span>)</span><br><span class="line">files.download(<span class="string">&#x27;fruit_labels.txt&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Run-the-model-on-the-Edge-TPU"><a href="#Run-the-model-on-the-Edge-TPU" class="headerlink" title="Run the model on the Edge TPU"></a>Run the model on the Edge TPU</h2><p>You can now run the model on your Coral device with acceleration on the Edge TPU.</p>
+<p>To get started, try using your <code>.tflite</code> model with <a target="_blank" rel="noopener" href="https://github.com/google-coral/tflite/tree/master/python/examples/classification">this code for image classification with the TensorFlow Lite API</a>.</p>
+<p>Just follow the instructions on that page to set up your device, copy the <code>mobilenet_v2_1.0_224_quant_edgetpu.tflite</code> and <code>flower_labels.txt</code> files to your Coral Dev Board or device with a Coral Accelerator, and pass it a flower photo like this:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python3 classify_image.py \</span><br><span class="line">  --model mobilenet_v2_1.0_224_quant_edgetpu.tflite \</span><br><span class="line">  --labels flower_labels.txt \</span><br><span class="line">  --input flower.jpg</span><br></pre></td></tr></table></figure>
+
+<p>Check out more examples for running inference at <a target="_blank" rel="noopener" href="https://coral.ai/examples/#code-examples/">coral.ai&#x2F;examples</a>.</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/12/06/CNN%20project/%E5%88%86%E6%9E%90Keras%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CNN/" rel="tag">CNN</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/12/07/CNN%20project/analysis-result/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            analysis result
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/12/01/CS/shell/Shell-learning-2/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Shell learning 2</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> Jessy Huang
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo图片.png" alt="Jessy&#39;s daily note"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2022/11/01/%E5%85%B3%E4%BA%8E%E6%88%91">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
