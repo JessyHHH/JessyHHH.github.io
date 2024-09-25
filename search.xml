@@ -7667,6 +7667,9 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
 </ol>
 <p>剩下还有很多功能还未探索，当然很多人已经有了许多门路，此篇文章仅写给我们刚进来的中国学生。</p>
 ]]></content>
+      <categories>
+        <category>Birmingham_talking</category>
+      </categories>
       <tags>
         <tag>Birmingham</tag>
       </tags>
