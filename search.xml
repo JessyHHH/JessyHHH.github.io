@@ -7639,7 +7639,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
   <entry>
     <title>Birmingham University Life talking</title>
     <url>/2024/09/25/Birmingham_Learning/Birmingham-University-Life-talking/</url>
-    <content><![CDATA[<h1 id="关于伯明翰大学的学习指南针–不定期更新"><a href="#关于伯明翰大学的学习指南针–不定期更新" class="headerlink" title="关于伯明翰大学的学习指南针–不定期更新"></a>关于伯明翰大学的学习指南针–不定期更新</h1><h2 id="Wifi的使用"><a href="#Wifi的使用" class="headerlink" title="Wifi的使用"></a>Wifi的使用</h2><ul>
+    <content><![CDATA[<h1 id="关于伯明翰大学的学习指南针–不定期更新2024-9-26"><a href="#关于伯明翰大学的学习指南针–不定期更新2024-9-26" class="headerlink" title="关于伯明翰大学的学习指南针–不定期更新2024.9.26"></a>关于伯明翰大学的学习指南针–不定期更新2024.9.26</h1><h2 id="Wifi的使用"><a href="#Wifi的使用" class="headerlink" title="Wifi的使用"></a>Wifi的使用</h2><ul>
 <li>点进手机里我们可以看到eduroam名称的wifi，点击使用并输入你的用户名和密码即可</li>
 </ul>
 <p><code>username: ******@student.bham.ac.uk   //只输入@前面的也可以</code> </p>
@@ -7649,6 +7649,12 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
 <li>注意Proxy是否正常。</li>
 </ul>
 <h2 id="学校官方信件的说明（例如成绩单等）"><a href="#学校官方信件的说明（例如成绩单等）" class="headerlink" title="学校官方信件的说明（例如成绩单等）"></a>学校官方信件的说明（例如成绩单等）</h2><p><a href="https://verify.bham.ac.uk/">学校各种信件的网站</a> -此网站已经提供了成绩单和bankletter以及其他各种信件的证明，如若需要可以直接登录下载。</p>
+<ul>
+<li>成绩单</li>
+<li>bankletter</li>
+<li>Council tax</li>
+<li>Proof of Registration(各种版本)</li>
+</ul>
 <h2 id="UOBapp-和-Canvas-student的使用"><a href="#UOBapp-和-Canvas-student的使用" class="headerlink" title="UOBapp 和 Canvas student的使用"></a>UOBapp 和 Canvas student的使用</h2><p><a href="https://myuob.bham.ac.uk/">UOB-web端</a></p>
 <p><a href="https://intranet.birmingham.ac.uk/student/myuob/myuob.aspx">UOB手机端下载</a></p>
 <p><a href="https://www.instructure.com/en-gb/canvas/login">Canvas-web端</a></p>
@@ -7666,7 +7672,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
 <li><img src="https://raw.githubusercontent.com/JessyHHH/GitTraining/master/img/image-20240925220842155.png?token=AZ6XRWLRY3W3QRJGNQI3EB3G6R6BO" alt="在左边日历的下面添加日历，然后选择从web订阅并选择之前copy的链接复制粘贴，保存既可" style="zoom:33%;" /></li>
 <li>一般手机都会有默认邮箱app，这里按苹果邮箱为例子。<br>在邮箱app里添加Eixchange邮箱，然后将学校的帐号密码输入即可。<br>并在日历里添加我们Exchange邮箱日历。这样我们就可以在苹果手机日历里查看该课程表了。</li>
 </ol>
-<p>剩下还有很多功能还未探索，当然很多人已经有了许多门路，此篇文章仅写给我们刚进来的中国学生。</p>
+<p>敬请期待！</p>
 ]]></content>
       <categories>
         <category>Birmingham_talking</category>
