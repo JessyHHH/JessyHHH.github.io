@@ -7641,7 +7641,7 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
     <title>Birmingham University Life talking</title>
     <url>/2024/09/25/Birmingham_Learning/Birmingham-University-Life-talking/</url>
     <content><![CDATA[<h1 id="关于伯明翰大学的学习指南针–不定期更新2024-9-26"><a href="#关于伯明翰大学的学习指南针–不定期更新2024-9-26" class="headerlink" title="关于伯明翰大学的学习指南针–不定期更新2024.9.26"></a>关于伯明翰大学的学习指南针–不定期更新2024.9.26</h1><p>[TOC]</p>
-<h2 id="伯明翰校园网Wifi的使用"><a href="#伯明翰校园网Wifi的使用" class="headerlink" title="伯明翰校园网Wifi的使用"></a>伯明翰校园网Wifi的使用</h2><ul>
+<h2 id="1-伯明翰校园网Wifi的使用"><a href="#1-伯明翰校园网Wifi的使用" class="headerlink" title="1.伯明翰校园网Wifi的使用"></a>1.伯明翰校园网Wifi的使用</h2><ul>
 <li>点进手机里我们可以看到eduroam名称的wifi，点击使用并输入你的用户名和密码即可</li>
 </ul>
 <p><code>username: ******@student.bham.ac.uk   //只输入@前面的也可以</code> </p>
@@ -7651,15 +7651,15 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
 <li>路由器并未尝试，但是设置网络跟linux差不多，也可以选择使用命令行来登录wifi。</li>
 <li>注意Proxy是否正常。</li>
 </ul>
-<h2 id="学校官方信件的说明（例如成绩单等）"><a href="#学校官方信件的说明（例如成绩单等）" class="headerlink" title="学校官方信件的说明（例如成绩单等）"></a>学校官方信件的说明（例如成绩单等）</h2><p><a href="https://verify.bham.ac.uk/">学校各种信件的网站</a> -此网站已经提供了成绩单和bankletter以及其他各种信件的证明，如若需要可以直接登录下载。</p>
+<h2 id="2-学校官方信件的说明（例如成绩单等）"><a href="#2-学校官方信件的说明（例如成绩单等）" class="headerlink" title="2.学校官方信件的说明（例如成绩单等）"></a>2.学校官方信件的说明（例如成绩单等）</h2><p><a href="https://verify.bham.ac.uk/">学校各种信件的网站</a> -此网站已经提供了成绩单和bankletter以及其他各种信件的证明，如若需要可以直接登录下载。</p>
 <ul>
 <li>成绩单</li>
 <li>bankletter</li>
 <li>Council tax</li>
 <li>Proof of Registration(各种版本)</li>
 </ul>
-<h2 id="关于银行卡的办理说明"><a href="#关于银行卡的办理说明" class="headerlink" title="关于银行卡的办理说明"></a>关于银行卡的办理说明</h2><p>大部分银行卡是不需要bank letter，但是中国银行和汇丰好像是需要的，尽管很多银行不需要，但还请准备好bankletter以防万一。</p>
-<h2 id="UOBapp-和-Canvas-student的使用"><a href="#UOBapp-和-Canvas-student的使用" class="headerlink" title="UOBapp 和 Canvas student的使用"></a>UOBapp 和 Canvas student的使用</h2><p><a href="https://myuob.bham.ac.uk/">UOB-web端</a></p>
+<h2 id="3-关于银行卡的办理说明"><a href="#3-关于银行卡的办理说明" class="headerlink" title="3.关于银行卡的办理说明"></a>3.关于银行卡的办理说明</h2><p>大部分银行卡是不需要bank letter，但是中国银行和汇丰好像是需要的，尽管很多银行不需要，但还请准备好bankletter以防万一。</p>
+<h2 id="4-UOBapp-和-Canvas-student的使用"><a href="#4-UOBapp-和-Canvas-student的使用" class="headerlink" title="4.UOBapp 和 Canvas student的使用"></a>4.UOBapp 和 Canvas student的使用</h2><p><a href="https://myuob.bham.ac.uk/">UOB-web端</a></p>
 <p><a href="https://intranet.birmingham.ac.uk/student/myuob/myuob.aspx">UOB手机端下载</a></p>
 <p><a href="https://www.instructure.com/en-gb/canvas/login">Canvas-web端</a></p>
 <p>其目的主要是看课程表和课程通知以及学校地图</p>
