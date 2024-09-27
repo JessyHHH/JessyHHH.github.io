@@ -7663,7 +7663,18 @@ Console.WriteLine(false ? &quot;Checked&quot; : &quot;Not checked&quot;);  // ou
 <p><a href="https://intranet.birmingham.ac.uk/student/myuob/myuob.aspx">UOB手机端下载</a></p>
 <p><a href="https://www.instructure.com/en-gb/canvas/login">Canvas-web端</a></p>
 <p>其目的主要是看课程表和课程通知以及学校地图</p>
+<h3 id="1-Canvas-student"><a href="#1-Canvas-student" class="headerlink" title="1. Canvas student"></a>1. Canvas student</h3><p>在Canvas里，student guide很重要，里面可以找到我们想要的很多信息</p>
+<p>如</p>
 <ul>
+<li>请假表</li>
+<li>个人导师名单（输入学号查询）</li>
+<li>学生辅导</li>
+<li>等等，还有很多功能自行探索。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/JessyHHH/GitTraining/master/img/image-20240927122202381.png" alt="工程学院的key information"></p>
+<p><strong>选课系统在自己专业的Canvas course program里面</strong></p>
+<p><img src="/home/jessy/.config/Typora/typora-user-images/image-20240927122301043.png" alt="工程学院的选课界面索引"></p>
+<h2 id="课程表导入日历教程"><a href="#课程表导入日历教程" class="headerlink" title="课程表导入日历教程"></a>课程表导入日历教程</h2><ul>
 <li>关于课程导入，学校给了我们一个很方便快捷的导入方式。</li>
 <li>首先点进我们的第一个链接<a href="https://myuob.bham.ac.uk/">UOB-web端</a>，然后登录并选择Calendar</li>
 </ul>
